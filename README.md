@@ -33,8 +33,8 @@ and the framework footer remain available. Full-screen 320x240 drawing is
 deliberately not supported by this launcher app.
 
 `Display_Flush_Window()` writes real RGB565 pixels on the inherited T100 LCD
-bus. Radio operations are explicit **MOCK loopback**, without configuring SPI
-or transmitting RF. [Recovered radio wiring](docs/board-wiring.md) records the
+bus. Radio operations now use a **real nRF24 bench driver** when explicitly selected;
+the socket starts idle. See [radio profile and testing](docs/nrf24-bench.md). [Recovered radio wiring](docs/board-wiring.md) records the
 earlier NRF scanner connections and unresolved CC1101 detection.
 
 The current layout/input pair is `dist/USBHAT.APP` and `dist/bruce-usbhat-layout-touch.bin`
@@ -45,15 +45,19 @@ Install both sides for the normal, quiet refresh path.
 ## ESP32 applications
 
 `esp32/` is the small Arduino/PlatformIO transport bench. It sends a 16x16
-display window each second, alternates the mock radio mode every three seconds,
-sends an escaping/binary loopback test, listens for touch/radio/system events
+display window each second, leaves radio idle until an explicit UART command,
+listens for touch/radio/system events
 in separate tasks, and prints link status every five seconds. UART `s` requests
-status; uppercase `L` sends `SYS:LAUNCHER`.
+status; uppercase `L` sends `SYS:LAUNCHER`. UART `n` selects real NRF24 RX,
+`c` requests a passive scan, `t` explicitly sends one packet, and `o` turns it off.
+Old standalone bench binary artifacts predate the real-radio port: do not run
+those automatic-loopback images with the new real-radio STM32 app. Use the
+current Bruce image or rebuild the updated standalone source.
 
 `upstream/Bruce/` is the downloaded Bruce application with the USB HAT board
 adaptation applied by `tools/integrate_bruce.py`. The selected target is
 `usbhat-bruce`. The new **Others → USB HAT Bench** menu provides status,
-CC1101/NRF24 mock loopback, and STM32 launcher return. It keeps Bruce's existing
+real nRF24 detection, passive energy scanning, packet testing, and STM32 launcher return. It keeps Bruce's existing
 menu/application framework, font and sprite rendering through a RAM-backed
 LovyanGFX panel, and converts calibrated remote touch to Bruce input events.
 All navigation actions fire once per contact; holding or sliding a finger does
@@ -64,7 +68,7 @@ holds the framebuffer, sweep snapshot and shadow.
 
 Existing Bruce RF tools still expect their native local drivers; this first
 bench adaptation routes the RF/NRF menus to the USB bench menu and does **not**
-claim the existing RF tools work over the new USB radio channel. Native
+claim the existing local-radio tools work over the new USB radio channel. Native
 USB device/HID/MSC use conflicts with USB host and must stay disabled in this
 target. SD file access on the STM32 is not exported by this protocol.
 
@@ -180,3 +184,8 @@ The refresh grid is 10x13 (130 windows); full windows contain 480 pixel words,
 words using the same LCD emitter compiled into the STM32 app. It verifies 2A/2B
 register bytes, inclusive endpoints, the +30 Y offset, RGB565 ordering, clipped
 bottom-row tiles, malformed lengths, zero dimensions and overflow rejection.
+
+The latest radio pair is `dist/USBHAT.APP` and `dist/bruce-usbhat-nrf24.bin`
+(application offset 0x10000), or `dist/bruce-usbhat-nrf24-merged.bin` at offset 0.
+The nRF24 register/FIFO simulation passes; physical detection/RF tests are pending.
+[Optional future SPI assessment](docs/future-spi-link.md).

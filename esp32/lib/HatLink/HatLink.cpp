@@ -20,6 +20,7 @@ std::atomic<bool> online{false},detached{false};
 std::atomic<uint32_t> epoch{0};
 uint16_t sequence[3];
 HatLink::Touch lastTouch{};
+uint8_t scan_bins[126]={};uint32_t scan_revision=0;
 portMUX_TYPE touchLock=portMUX_INITIALIZER_UNLOCKED;
 std::atomic<uint32_t> drops{0};
 bool initialization_attempted=false,initialization_ok=false;
@@ -95,15 +96,20 @@ void radio_worker(void *){
  hat_packet p;
  for(;;)if(xQueueReceive(inbound[1],&p,portMAX_DELAY)==pdTRUE){
   if(p.type==HAT_RADIO_RX){
-   LOG("RADIO RX seq=%u len=%u (bench mock)",p.seq,p.length);
+   LOG("RADIO RX seq=%u len=%u (real NRF24)",p.seq,p.length);
    for(unsigned i=0;i<p.length;i++)Serial.printf("%02X%s",p.payload[i],i+1==p.length?"\n":" ");
   }
  }
 }
 void system_worker(void *){
  hat_packet p;
- for(;;)if(xQueueReceive(inbound[2],&p,portMAX_DELAY)==pdTRUE)
+ for(;;)if(xQueueReceive(inbound[2],&p,portMAX_DELAY)==pdTRUE){
+  if(p.type==HAT_STATUS&&p.length==134&&!memcmp(p.payload,"NRFSCAN ",8)){
+   bool valid=true;for(unsigned i=0;i<126;i++)if(p.payload[8+i]!='0'&&p.payload[8+i]!='1')valid=false;
+   if(valid){portENTER_CRITICAL(&touchLock);for(unsigned i=0;i<126;i++)scan_bins[i]=p.payload[8+i]-'0';scan_revision++;portEXIT_CRITICAL(&touchLock);}
+  }
   LOG("SYSTEM seq=%u: %.*s",p.seq,p.length,(const char *)p.payload);
+ }
 }
 bool send(hat_packet &p,bool wait_ack){
  if(!online)return false;
@@ -134,6 +140,7 @@ bool send(hat_packet &p,bool wait_ack){
 }
 }
 namespace HatLink {
+uint32_t scanSnapshot(uint8_t *bins){portENTER_CRITICAL(&touchLock);memcpy(bins,scan_bins,126);uint32_t rev=scan_revision;portEXIT_CRITICAL(&touchLock);return rev;}
 bool begin(){
  if(initialization_attempted)return initialization_ok;
  initialization_attempted=true;

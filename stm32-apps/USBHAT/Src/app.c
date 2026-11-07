@@ -4,12 +4,13 @@
 #include "hat_protocol.h"
 #include "hat_window.h"
 #include "tusb.h"
+#include "nrf24.h"
 #include <stdio.h>
 const char app_display_name[]="USB Peripheral Bench";
 #define LOG(s) serial("[USBHAT] " s "\r\n")
 static bool started,servicing,reset_pending,tile_tracing;
 static uint32_t reset_at,tx_dropped,touch_report_at;
-static uint8_t radio_mode=1;
+static uint8_t radio_mode=0;
 static uint16_t event_seq;
 static hat_parser parser;
 static hat_queue tx[3];
@@ -29,7 +30,7 @@ static void ack(const hat_packet *p,uint8_t status){
 static void status(const hat_packet *p){
  hat_packet a={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
  int n=snprintf((char *)a.payload,sizeof a.payload,
-  "USBHAT v1; viewport=320x182; physical_y=30; radio=MOCK:%u; rx=%lu; crc=%lu; malformed=%lu; txdrop=%lu",
+  "USBHAT v1; viewport=320x182; physical_y=30; radio=REAL:%u; rx=%lu; crc=%lu; malformed=%lu; txdrop=%lu",
   radio_mode,(unsigned long)parser.good,(unsigned long)parser.bad_crc,
   (unsigned long)parser.malformed,(unsigned long)tx_dropped);
  a.length=(uint16_t)((n<0)?0:((unsigned)n<sizeof a.payload?(unsigned)n:sizeof a.payload-1));enqueue(&a);
@@ -60,16 +61,23 @@ static void receive(void *ctx,const hat_packet *p){
   ack(p,code);tile_trace(p,code,Display_Last_Pixel_Words());
  }else if(p->channel==HAT_RADIO && p->type==HAT_RADIO_SELECT){
   if(p->length!=3||p->payload[0]!=0xaa||p->payload[1]!=5||p->payload[2]<1||p->payload[2]>2){ack(p,HAT_BAD_PACKET);return;}
-  radio_mode=p->payload[2];ack(p,HAT_OK);
+  if(p->payload[2]!=2){ack(p,HAT_UNSUPPORTED);return;}
+  radio_mode=nrf_start()?2:0;ack(p,radio_mode?HAT_OK:HAT_BAD_PACKET);
+  hat_packet info={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
+  nrf_info((char *)info.payload,sizeof info.payload);info.length=strlen((char *)info.payload);enqueue(&info);
  }else if(p->channel==HAT_RADIO && p->type==HAT_RADIO_TX){
   if(!p->length||!Radio_SPI_Transmit(radio_mode,p->payload,p->length)){ack(p,HAT_BAD_PACKET);return;}
-  if(tx[HAT_RADIO].count>HAT_QUEUE_DEPTH-2){ack(p,HAT_BUSY);return;}
-  hat_packet loop=*p;loop.type=HAT_RADIO_RX;enqueue(&loop);ack(p,HAT_OK);
+  ack(p,HAT_OK);
  }else if(p->channel==HAT_SYSTEM && p->type==HAT_PING){status(p);}
  else if(p->channel==HAT_SYSTEM && p->type==HAT_COMMAND){
   if(p->length==12&&!memcmp(p->payload,"SYS:LAUNCHER",12)){
    ack(p,HAT_OK);reset_pending=true;reset_at=tusb_time_millis_api();LOG("launcher exit requested");
   }else if(p->length==10&&!memcmp(p->payload,"SYS:STATUS",10))status(p);
+  else if(p->length==11&&!memcmp(p->payload,"SYS:NRFSCAN",11)){ack(p,nrf_scan_start()?HAT_OK:HAT_BUSY);}
+  else if(p->length==11&&!memcmp(p->payload,"SYS:NRFINFO",11)){
+   hat_packet info={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
+   nrf_info((char *)info.payload,sizeof info.payload);info.length=strlen((char *)info.payload);enqueue(&info);ack(p,HAT_OK);
+  }else if(p->length==11&&!memcmp(p->payload,"SYS:NRFOFF!",11)){nrf_stop();radio_mode=0;ack(p,HAT_OK);}
   else if(p->length==11&&!memcmp(p->payload,"SYS:TRACE=1",11)){tile_tracing=true;ack(p,HAT_OK);}
   else if(p->length==11&&!memcmp(p->payload,"SYS:TRACE=0",11)){tile_tracing=false;ack(p,HAT_OK);}
   else ack(p,HAT_UNSUPPORTED);
@@ -105,8 +113,8 @@ void app_init(void){
  memset(&parser,0,sizeof parser);memset(tx,0,sizeof tx);wire_length=wire_offset=0;
  reset_pending=false;touch_pressed=false;touch_dirty=true;
  rectangle(0,30,320,182,BLACK);text(8,48,"USB HAT: CDC / 3 logical channels",CYAN);
- text(8,70,"Radio: MOCK loopback; no RF TX",WHITE);
- started=hat_usb_start();LOG("starting CDC bench (mock radio)");
+ text(8,70,"Radio idle: select NRF24 on host",WHITE);
+ started=hat_usb_start();LOG("starting CDC bench (real NRF24, initially idle)");
  if(!started)text(8,96,"USB initialization FAILED",RED);
 }
 void app_update(uint32_t now){
@@ -122,6 +130,17 @@ void app_update(uint32_t now){
   p.payload[0]=0xbb;hat_put16(p.payload+1,touch_x);hat_put16(p.payload+3,touch_y);p.payload[5]=touch_pressed;
   if(enqueue(&p)){touch_dirty=false;touch_report_at=now;}
  }
+ if(radio_mode==2){
+  if(tx[HAT_RADIO].count<HAT_QUEUE_DEPTH){
+   hat_packet rx={.channel=HAT_RADIO,.type=HAT_RADIO_RX,.seq=event_seq++};
+   rx.length=nrf_rx(rx.payload);if(rx.length)enqueue(&rx);
+  }
+  static uint8_t scan[126];
+  if(tx[HAT_SYSTEM].count<HAT_QUEUE_DEPTH && nrf_scan_tick(now,scan)){
+   hat_packet report={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=event_seq++,.length=134};
+   memcpy(report.payload,"NRFSCAN ",8);for(unsigned i=0;i<126;i++)report.payload[8+i]='0'+scan[i];enqueue(&report);
+  }
+ }
  pump_tx();
  if(reset_pending && (uint32_t)(now-reset_at)>=100){app_shutdown();board_return_to_launcher();}
 }
@@ -129,4 +148,4 @@ void app_touch(int x,int y,bool pressed){
  touch_x=(uint16_t)x;touch_y=(uint16_t)(y-30);touch_pressed=pressed;touch_dirty=true;
 }
 void app_button(unsigned buttons){(void)buttons;}
-void app_shutdown(void){if(started){started=false;hat_usb_stop();LOG("USB stopped");}}
+void app_shutdown(void){nrf_stop();radio_mode=0;if(started){started=false;hat_usb_stop();LOG("USB stopped");}}

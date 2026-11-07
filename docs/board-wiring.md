@@ -31,10 +31,10 @@ not proof of matching physical module orientation, supply, or SO-ready timing.
 Do not assume a generic CC1101 module plugs into an nRF24 socket without the
 correct adapter. No verified CC1101 register profile or detection is claimed.
 
-`USBHAT.APP` currently uses explicit mock radio loopback. It drives **none** of
-these RF pins. The recovered map is recorded here for the next physical-radio
-driver step; the transport accepts binary payloads including AA/7D/7E without
-interpreting payload bytes as commands.
+`USBHAT.APP` now uses these pins for the real nRF24 driver only after explicit
+selection. PB14 remains untouched. CC1101 is unsupported. See
+[nRF24 bench](nrf24-bench.md) for the fixed profile, limits and test procedure.
+The transport accepts binary AA/7D/7E without treating payload bytes as commands.
 
 ## Existing launcher ownership
 

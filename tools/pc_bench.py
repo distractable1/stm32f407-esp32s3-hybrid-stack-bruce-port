@@ -55,14 +55,14 @@ def main():
                     if p[:3]==(ch,reply,seq):return pending.pop(i)[3]
             raise RuntimeError(f'timeout ch={ch} type={typ} seq={seq}')
         info=request(2,11,reply=9).decode('ascii');print(port,info)
-        if 'radio=MOCK:' not in info:raise RuntimeError('Expected MOCK radio; refusing radio test')
+        mock_radio='radio=MOCK:' in info
         raw=struct.pack('>BBHHHHH',0xaa,1,16,16,31,31,512)+b'\xf8\x00'*256
         assert request(0,1,raw,fragment=True)==b'\x01\x00'
         print('PASS fragmented display window ACK')
         invalid=struct.pack('>BBHHHHH',0xaa,1,319,0,320,0,4)+b'\0'*4
         assert request(0,1,invalid)==b'\x01\x01'
         print('PASS out-of-bounds window rejected')
-        for mode in (1,2):
+        for mode in ((1,2) if mock_radio else ()):
             assert request(1,5,bytes((0xaa,5,mode)))==b'\x05\0'
             payload=bytes((0xaa,0x7d,0x7e,0,0xff,1,2))
             assert request(1,6,payload)==b'\x06\0'
@@ -74,6 +74,7 @@ def main():
                     assert rx[3]==payload;pending.remove(rx);break
             else:raise RuntimeError('Missing exact loopback payload')
             print(f'PASS mode {mode} binary loopback')
+        if not mock_radio:print('Radio RF tests skipped: real hardware requires explicit bench actions')
         print('PASS CDC smoke test; no launcher reset requested')
     return 0
 if __name__=='__main__':raise SystemExit(main())

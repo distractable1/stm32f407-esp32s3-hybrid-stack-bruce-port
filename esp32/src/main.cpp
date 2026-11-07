@@ -16,7 +16,7 @@ void setup(){
 #endif
 }
 void loop(){
- static uint32_t display_at,radio_at,status_at;static uint16_t color;static uint8_t mode=1;
+ static uint32_t display_at,status_at;static uint16_t color;
  if(HatLink::connected()){
   if(millis()-display_at>=1000){
    display_at=millis();uint8_t pixels[16*16*2];color+=0x841;
@@ -27,17 +27,16 @@ void loop(){
    Serial.printf("[BENCH] window ACK=%d\n",HatLink::window(32,32,16,16,pixels));
 #endif
   }
-  if(millis()-radio_at>=3000){
-   radio_at=millis();mode=mode==1?2:1;
-   const uint8_t payload[]={0xaa,0x7e,0x7d,0,1,2,0xff};
-   if(HatLink::selectRadio(mode))HatLink::radioTransmit(payload,sizeof payload);
-  }
   if(millis()-status_at>=5000){status_at=millis();HatLink::status();}
  }
  static uint32_t touch_at;HatLink::Touch t;
  if(HatLink::touch(t)&&t.at!=touch_at){touch_at=t.at;Serial.printf("[BENCH] touch %u,%u\n",t.x,t.y);}
  if(Serial.available()){
   char c=Serial.read();if(c=='s')HatLink::status();if(c=='L')HatLink::command("SYS:LAUNCHER");
+  if(c=='n')Serial.printf("NRF24 detection=%d\n",HatLink::selectRadio(2));
+  if(c=='c')HatLink::command("SYS:NRFSCAN");
+  if(c=='o')HatLink::command("SYS:NRFOFF!");
+  if(c=='t'){const uint8_t p[]={'U','S','B','H','A','T'};Serial.printf("NRF24 TX=%d\n",HatLink::radioTransmit(p,sizeof p));}
  }
  delay(5);
 }
