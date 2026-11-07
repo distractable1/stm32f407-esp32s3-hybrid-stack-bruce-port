@@ -30,7 +30,7 @@ static void ack(const hat_packet *p,uint8_t status){
 static void status(const hat_packet *p){
  hat_packet a={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
  int n=snprintf((char *)a.payload,sizeof a.payload,
-  "USBHAT v1; viewport=320x182; physical_y=30; radio=REAL:%u; rx=%lu; crc=%lu; malformed=%lu; txdrop=%lu",
+  "USBHAT radio-v2; viewport=320x182; physical_y=30; radio=REAL:%u; rx=%lu; crc=%lu; malformed=%lu; txdrop=%lu",
   radio_mode,(unsigned long)parser.good,(unsigned long)parser.bad_crc,
   (unsigned long)parser.malformed,(unsigned long)tx_dropped);
  a.length=(uint16_t)((n<0)?0:((unsigned)n<sizeof a.payload?(unsigned)n:sizeof a.payload-1));enqueue(&a);
@@ -65,6 +65,7 @@ static void receive(void *ctx,const hat_packet *p){
   radio_mode=nrf_start()?2:0;ack(p,radio_mode?HAT_OK:HAT_BAD_PACKET);
   hat_packet info={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
   nrf_info((char *)info.payload,sizeof info.payload);info.length=strlen((char *)info.payload);enqueue(&info);
+  serial("[USBHAT] ");serial((char *)info.payload);serial("\r\n");
  }else if(p->channel==HAT_RADIO && p->type==HAT_RADIO_TX){
   if(!p->length||!Radio_SPI_Transmit(radio_mode,p->payload,p->length)){ack(p,HAT_BAD_PACKET);return;}
   ack(p,HAT_OK);
@@ -76,7 +77,8 @@ static void receive(void *ctx,const hat_packet *p){
   else if(p->length==11&&!memcmp(p->payload,"SYS:NRFSCAN",11)){ack(p,nrf_scan_start()?HAT_OK:HAT_BUSY);}
   else if(p->length==11&&!memcmp(p->payload,"SYS:NRFINFO",11)){
    hat_packet info={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
-   nrf_info((char *)info.payload,sizeof info.payload);info.length=strlen((char *)info.payload);enqueue(&info);ack(p,HAT_OK);
+   nrf_info((char *)info.payload,sizeof info.payload);info.length=strlen((char *)info.payload);enqueue(&info);
+  serial("[USBHAT] ");serial((char *)info.payload);serial("\r\n");ack(p,HAT_OK);
   }else if(p->length==11&&!memcmp(p->payload,"SYS:NRFOFF!",11)){nrf_stop();radio_mode=0;ack(p,HAT_OK);}
   else if(p->length==11&&!memcmp(p->payload,"SYS:TRACE=1",11)){tile_tracing=true;ack(p,HAT_OK);}
   else if(p->length==11&&!memcmp(p->payload,"SYS:TRACE=0",11)){tile_tracing=false;ack(p,HAT_OK);}

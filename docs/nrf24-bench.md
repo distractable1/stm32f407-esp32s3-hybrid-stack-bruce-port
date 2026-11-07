@@ -46,3 +46,28 @@ register/FIFO bus verifies missing-module rejection, the fixed profile, TX
 bounds and padding, receive payloads, all 126 scan bins, RX restoration,
 bus-failure shutdown and pin-owner close callbacks. Physical RF qualification
 requires the user's board and a matching peer; it has not been claimed.
+
+## Remote configuration and detection diagnostics
+
+ESP32 NRF24/CC1101 pin entries remain -1 because the socket is on STM32.
+Advanced radio pin settings now show a read-only STM32 pin map and an explicit
+remote detection action. RF module selection opens the bridge radio menu.
+Unported local RF24 entry points cannot silently probe ESP32 GPIO -1.
+
+Detection errors distinguish USB disconnected, missing ACK, request/queue busy,
+unsupported firmware and an explicit rejected STM32 probe. The STM32 diagnostic
+is mirrored on its UART and channel 2 with error text and two RF_CH readbacks:
+expected 2A/55; FF/FF suggests a nonresponding bus, not an ESP32 pin mapping.
+This is diagnostic evidence, not a conclusive electrical diagnosis.
+
+A previous launcher app can leave SPI3 SPE set. The USBHAT driver now adopts an
+idle inherited SPI3, saves/restores its CR1/CR2, and refuses only a controller
+that stays busy beyond a bounded wait. The protected launcher SDK uses separate
+bit-banged LCD/touch/SD drivers, not hardware SPI3. PB4 MISO uses the pull-up from
+the earlier working scanner. PB14 remains untouched: its physical purpose has
+not been established. The older scanner drove it high; that remaining difference
+must be checked if the two-pattern register probe still fails.
+
+The normal protected SDK return-to-launcher path resets the MCU. Inherited
+SPI3 adoption is a robustness fix, not confirmation of the reported failure.
+Use the actual USB ACK and two-pattern probe results to locate that failure.

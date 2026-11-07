@@ -23,6 +23,18 @@
     "bytes": 78397460,
     "sha256": "435d9993126d39578b37804cc69cfda57e196c452a606ee71b4aafc78e7f58ab"
   },
+  "bruce-usbhat-radio-bridge-fix-merged.bin": {
+    "bytes": 3805008,
+    "sha256": "c850f64831de0548c69fd03d68e02a2bb00dfedcb48258e015b1a704ac348fa7"
+  },
+  "bruce-usbhat-radio-bridge-fix.bin": {
+    "bytes": 3739472,
+    "sha256": "74738f25799d6a84199fd3825e7ff62b43ecd57329a589344634fca59b95f97a"
+  },
+  "bruce-usbhat-radio-bridge-fix.elf": {
+    "bytes": 78410340,
+    "sha256": "218851d0101981b1c91029e65ab234e1934164143bfee96aceb65670ee986227"
+  },
   "bruce-usbhat-refresh-merged.bin": {
     "bytes": 3802080,
     "sha256": "b02c44c24e64731d800bd1833150e2ab38224961710c9716b889014b3a935fc3"
@@ -56,8 +68,8 @@
     "sha256": "aecd26e1779a526a3d2c165a9301941e12cad7be1d4cdafc5f663b0c0e0df973"
   },
   "USBHAT.APP": {
-    "bytes": 44716,
-    "sha256": "86b2188c451f714ae13c3b43b9244f148d587c2fe2e103985162f2eca9fe5b56"
+    "bytes": 45016,
+    "sha256": "2fa6ae632d80408f70f5910c50506e6f38971dc1122176551bd408e674ea00c6"
   },
   "source_revisions": {
     "Bruce": "a59213f3ec6cd302fa32c2042b2700c9c24d991a",

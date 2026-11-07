@@ -60,8 +60,13 @@ bool nrf_hw_open(void){
  RCC->AHB1ENR|=RCC_AHB1ENR_GPIOBEN|RCC_AHB1ENR_GPIOGEN;
  spi_clock_was_on=(RCC->APB1ENR&RCC_APB1ENR_SPI3EN)!=0;
  RCC->APB1ENR|=RCC_APB1ENR_SPI3EN;(void)RCC->APB1ENR;
- if(SPI3->CR1&SPI_CR1_SPE){if(!spi_clock_was_on)RCC->APB1ENR&=~RCC_APB1ENR_SPI3EN;return false;} // do not steal an active peripheral
+ // The protected SDK does not use SPI3; a previous launcher app can leave
+ // SPE set. Adopt an idle inherited controller instead of rejecting it.
+ unsigned budget=100000;while((SPI3->SR&SPI_SR_BSY)&&--budget){}
+ if(!budget){if(!spi_clock_was_on)RCC->APB1ENR&=~RCC_APB1ENR_SPI3EN;return false;}
  prior_cr1=SPI3->CR1;prior_cr2=SPI3->CR2;
+ SPI3->CR1&=~SPI_CR1_SPE;
+ (void)SPI3->DR;(void)SPI3->SR;
  pb_mode=GPIOB->MODER;pb_af=GPIOB->AFR[0];pb_speed=GPIOB->OSPEEDR;pb_pull=GPIOB->PUPDR;pb_type=GPIOB->OTYPER;
  pg_mode=GPIOG->MODER;pg_pull=GPIOG->PUPDR;pg_out=GPIOG->ODR;pg_type=GPIOG->OTYPER;
  GPIOG->BSRR=(1u<<7)|(1u<<(6+16));
@@ -70,6 +75,7 @@ bool nrf_hw_open(void){
   GPIOB->AFR[0]=(GPIOB->AFR[0]&~(15u<<(4*p)))|(6u<<(4*p));
   GPIOB->OSPEEDR|=3u<<(2*p);GPIOB->PUPDR&=~(3u<<(2*p));GPIOB->OTYPER&=~(1u<<p);
  }
+ GPIOB->PUPDR=(GPIOB->PUPDR&~(3u<<8))|(1u<<8); // match reference scanner MISO pull-up
  GPIOG->MODER=(GPIOG->MODER&~(0x3fu<<12))|(1u<<12)|(1u<<14);
  GPIOG->OTYPER&=~((1u<<6)|(1u<<7));
  GPIOG->PUPDR=(GPIOG->PUPDR&~(0x3fu<<12))|(1u<<16);

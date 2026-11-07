@@ -2,8 +2,8 @@
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
-static uint8_t regs[32][5];static bool opened,floating,failed,ce,queued;static unsigned sent;
-bool nrf_hw_open(void){opened=true;return true;}
+static uint8_t regs[32][5];static bool opened,floating,failed,ce,queued,open_failed;static unsigned sent;
+bool nrf_hw_open(void){if(open_failed)return false;opened=true;return true;}
 void nrf_hw_close(void){opened=false;ce=false;}
 void nrf_hw_delay(unsigned us){(void)us;}
 void nrf_hw_ce(bool value){ce=value;if(value&&queued&&!(regs[0][0]&1)){regs[7][0]|=0x20;queued=false;sent++;}}
@@ -19,7 +19,7 @@ bool nrf_hw_bus(uint8_t cmd,const uint8_t *tx,uint8_t *rx,unsigned n){
 }
 int main(void){
  uint8_t data[32]={1,2,3},bins[126];char info[200];
- assert(!nrf_tx(data,3));floating=true;assert(!nrf_start());assert(!opened);
+ assert(!nrf_tx(data,3));open_failed=true;assert(!nrf_start());nrf_info(info,sizeof info);assert(strstr(info,"SPI3 busy"));open_failed=false;floating=true;assert(!nrf_start());assert(!opened);nrf_info(info,sizeof info);assert(strstr(info,"register probe mismatch")&&strstr(info,"probe=FF/FF"));
  floating=false;assert(nrf_start());assert(opened&&ce);
  assert(regs[0][0]==15&&regs[1][0]==0&&regs[5][0]==76&&regs[6][0]==0&&regs[0x11][0]==32);
  assert(!memcmp(regs[0x0a],"USBH1",5)&&!memcmp(regs[0x10],"USBH1",5));

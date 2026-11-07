@@ -179,3 +179,15 @@ replace(Path('src/core/main_menu.cpp'), '                     obj->draw(scale);'
  '#ifdef HAT_REMOTE_DISPLAY\n                     scale = std::min(float(tftWidth) / 240.0f, float(tftHeight) / 135.0f);\n#endif\n                     obj->draw(scale);')
 replace(Path('src/core/settings.cpp'), 'int gsetRotation(bool set) {',
  'int gsetRotation(bool set) {\n#ifdef HAT_REMOTE_DISPLAY\n    (void)set;\n    bruceConfigPins.rotation = 0;\n    tft.setRotation(0);\n    tftWidth = tft.width();\n    tftHeight = tft.height() - 20;\n    return 0;\n#endif')
+
+# The remote radio socket has STM32 pins, not ESP32 GPIO assignments.
+replace(Path('src/core/settings.cpp'),'void setSPIPinsMenu(BruceConfigPins::SPIPins &value) {',
+ 'void setSPIPinsMenu(BruceConfigPins::SPIPins &value) {\n#ifdef HAT_REMOTE_DISPLAY\n    if (&value == &bruceConfigPins.NRF24_bus || &value == &bruceConfigPins.CC1101_bus) {\n        extern void usbhat_radio_pins(); usbhat_radio_pins(); return;\n    }\n#endif')
+replace(Path('src/core/settings.cpp'),'void setRFModuleMenu() {',
+ 'void setRFModuleMenu() {\n#ifdef HAT_REMOTE_DISPLAY\n    extern void usbhat_bench_menu(); usbhat_bench_menu(); return;\n#endif')
+# Unported local RF24 tools must not silently probe GPIO -1 or claim a remote
+# RF24 object exists. Only the bridge menu implements the remote operations.
+replace(Path('src/modules/NRF24/nrf_common.cpp'),'bool nrf_start(NRF24_MODE mode) {',
+ 'bool nrf_start(NRF24_MODE mode) {\n#ifdef HAT_REMOTE_DISPLAY\n    (void)mode; displayError("Use USB HAT Radio menu"); return false;\n#endif')
+replace(Path('src/modules/NRF24/nrf_common.cpp'),'NRF24_MODE nrf_setMode() {',
+ 'NRF24_MODE nrf_setMode() {\n#ifdef HAT_REMOTE_DISPLAY\n    displayError("Use USB HAT Radio menu"); return NRF_MODE_DISABLED;\n#endif')

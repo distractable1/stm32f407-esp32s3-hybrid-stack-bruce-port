@@ -34,9 +34,23 @@ void InputHandler(){
 void powerOff(){HatLink::command("SYS:LAUNCHER");}
 void checkReboot(){}
 
-namespace HatLink {uint32_t scanSnapshot(uint8_t *bins);}
+namespace HatLink {uint32_t scanSnapshot(uint8_t *bins);void radioDiagnostic(char *,size_t);}
+static bool usbhat_detect(){
+ if(HatLink::selectRadio(2))return true;
+ vTaskDelay(pdMS_TO_TICKS(100));
+ char error[80];HatLink::radioDiagnostic(error,sizeof error);displayError(error);return false;
+}
+void usbhat_radio_pins(){
+ options={
+  {"Transport: STM32 USB bridge",[]{displayInfo("ESP32 radio GPIOs unused",true);}},
+  {"SCK PB3 / MISO PB4 / MOSI PB5",[]{displayInfo("Fixed STM32 SPI3 pins",true);}},
+  {"CS PG7 / CE PG6 / IRQ PG8",[]{displayInfo("Fixed STM32 socket pins",true);}},
+  {"Detect remote NRF24",[]{if(usbhat_detect())displayInfo("STM32 NRF24 detected");}},
+ };
+ addOptionToMainMenu();loopOptions(options,MENU_TYPE_SUBMENU,"STM32 Radio Pins");
+}
 static void usbhat_scan(){
- if(!HatLink::selectRadio(2)){displayError("NRF24 not detected");return;}
+ if(!usbhat_detect())return;
  uint8_t bins[126];uint32_t revision=HatLink::scanSnapshot(bins);
  tft.fillScreen(bruceConfig.bgColor);tft.setTextSize(1);
  tft.drawString("NRF24 energy scan (RX only)",8,8);
@@ -51,7 +65,8 @@ static void usbhat_scan(){
    tft.fillRect(8,42,304,90,bruceConfig.bgColor);
    for(unsigned i=0;i<126;i++)tft.fillRect(10+i*2,130-(bins[i]?75:2),2,bins[i]?75:2,bruceConfig.priColor);
    tft.drawString("2400            2463           2525 MHz",8,132);
-   if(!HatLink::command("SYS:NRFSCAN"))break;requested=millis();
+   if(!HatLink::command("SYS:NRFSCAN"))break;
+   requested=millis();
   }
   if((uint32_t)(millis()-requested)>3000){displayError("NRF scan timeout");break;}
   vTaskDelay(pdMS_TO_TICKS(20));
@@ -62,13 +77,13 @@ void usbhat_bench_menu(){
  options={
   {"Link status (UART)",[]{HatLink::status();}},
   {"NRF24 detect / start RX",[]{
-    if(HatLink::selectRadio(2)){HatLink::command("SYS:NRFINFO");displayInfo("NRF24 RX ch76; info on UART");}
-    else displayError("NRF24 not detected");
+    if(usbhat_detect()){HatLink::command("SYS:NRFINFO");displayInfo("NRF24 RX ch76; info on UART");}
+
   }},
   {"NRF24 energy scanner",usbhat_scan},
   {"NRF24 send bench packet",[]{
     const uint8_t p[]={'U','S','B','H','A','T',0xaa,0x7e,0x7d,0,0xff};
-    if(HatLink::selectRadio(2)&&HatLink::radioTransmit(p,sizeof p))displayInfo("Packet sent; peer RX not verified");
+    if(usbhat_detect()&&HatLink::radioTransmit(p,sizeof p))displayInfo("Packet sent; peer RX not verified");
     else displayError("NRF24 TX failed");
   }},
   {"Radio off",[]{HatLink::command("SYS:NRFOFF!");}},

@@ -21,6 +21,8 @@ std::atomic<uint32_t> epoch{0};
 uint16_t sequence[3];
 HatLink::Touch lastTouch{};
 uint8_t scan_bins[126]={};uint32_t scan_revision=0;
+char radio_info[240]="No STM32 radio diagnostic received";
+std::atomic<int> radio_result{-1};
 portMUX_TYPE touchLock=portMUX_INITIALIZER_UNLOCKED;
 std::atomic<uint32_t> drops{0};
 bool initialization_attempted=false,initialization_ok=false;
@@ -108,12 +110,18 @@ void system_worker(void *){
    bool valid=true;for(unsigned i=0;i<126;i++)if(p.payload[8+i]!='0'&&p.payload[8+i]!='1')valid=false;
    if(valid){portENTER_CRITICAL(&touchLock);for(unsigned i=0;i<126;i++)scan_bins[i]=p.payload[8+i]-'0';scan_revision++;portEXIT_CRITICAL(&touchLock);}
   }
+  if(p.type==HAT_STATUS&&p.length>=6&&!memcmp(p.payload,"NRF24 ",6)){
+   portENTER_CRITICAL(&touchLock);size_t n=p.length<sizeof radio_info-1?p.length:sizeof radio_info-1;
+   memcpy(radio_info,p.payload,n);radio_info[n]=0;portEXIT_CRITICAL(&touchLock);
+  }
   LOG("SYSTEM seq=%u: %.*s",p.seq,p.length,(const char *)p.payload);
  }
 }
 bool send(hat_packet &p,bool wait_ack){
- if(!online)return false;
- if(xSemaphoreTake(requests[p.channel],pdMS_TO_TICKS(600))!=pdTRUE)return false;
+ const bool select=p.channel==HAT_RADIO&&p.type==HAT_RADIO_SELECT;
+ if(select)radio_result=-2;
+ if(!online){if(select)radio_result=-1;return false;}
+ if(xSemaphoreTake(requests[p.channel],pdMS_TO_TICKS(600))!=pdTRUE){if(select)radio_result=-3;return false;}
  const uint32_t start_epoch=epoch.load();
  p.seq=++sequence[p.channel];
  const bool tile=p.channel==HAT_DISPLAY&&p.type==HAT_WINDOW;
@@ -123,12 +131,14 @@ bool send(hat_packet &p,bool wait_ack){
  xSemaphoreTake(lock,portMAX_DELAY);
  bool queued=online&&hat_push(&outbound[p.channel],&p);
  xSemaphoreGive(lock);
+ if(select&&!queued)radio_result=-4;
  bool ok=queued&&!wait_ack;
  if(queued&&wait_ack){
   uint32_t start=millis();hat_packet a;
   while(online&&epoch.load()==start_epoch&&(uint32_t)(millis()-start)<600){
    if(xQueueReceive(acks[p.channel],&a,pdMS_TO_TICKS(20))==pdTRUE && a.seq==p.seq &&
       a.length==2&&a.payload[0]==p.type){ok=a.payload[1]==HAT_OK;
+      if(select){radio_result=a.payload[1];LOG("REMOTE RADIO ACK seq=%u status=%u",p.seq,a.payload[1]);}
       if(tile&&HAT_TILE_TRACE)LOG("TILE ACK seq=%u x1=%u y1=%u x2=%u y2=%u payload=%u status=%u",
        p.seq,hat_get16(p.payload+2),hat_get16(p.payload+4),hat_get16(p.payload+6),
        hat_get16(p.payload+8),p.length,a.payload[1]);break;}
@@ -140,6 +150,16 @@ bool send(hat_packet &p,bool wait_ack){
 }
 }
 namespace HatLink {
+void radioDiagnostic(char *out,size_t n){
+ const int result=radio_result.load();
+ const char *reason=result==-1?"USB bridge disconnected":result==-2?"USB radio ACK missing":
+ result==-3?"Radio request busy":result==-4?"USB radio queue full":
+ result==HAT_UNSUPPORTED?"STM32 radio unsupported":result==HAT_BUSY?"STM32 radio busy":
+ result==HAT_OK?"STM32 radio ready":"STM32 probe rejected";
+ snprintf(out,n,"%s",reason);
+ char detail[240];portENTER_CRITICAL(&touchLock);memcpy(detail,radio_info,sizeof detail);portEXIT_CRITICAL(&touchLock);
+ LOG("REMOTE RADIO diagnostic: %s",detail);
+}
 uint32_t scanSnapshot(uint8_t *bins){portENTER_CRITICAL(&touchLock);memcpy(bins,scan_bins,126);uint32_t rev=scan_revision;portEXIT_CRITICAL(&touchLock);return rev;}
 bool begin(){
  if(initialization_attempted)return initialization_ok;

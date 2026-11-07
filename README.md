@@ -189,3 +189,8 @@ The latest radio pair is `dist/USBHAT.APP` and `dist/bruce-usbhat-nrf24.bin`
 (application offset 0x10000), or `dist/bruce-usbhat-nrf24-merged.bin` at offset 0.
 The nRF24 register/FIFO simulation passes; physical detection/RF tests are pending.
 [Optional future SPI assessment](docs/future-spi-link.md).
+
+The radio-bridge-fix revision adds idle inherited-SPI3 adoption, a read-only
+STM32 radio pin page and distinct USB/probe failure messages. The matching ESP32
+images are `dist/bruce-usbhat-radio-bridge-fix.bin` and
+`dist/bruce-usbhat-radio-bridge-fix-merged.bin`. Hardware retest is pending.

@@ -4,7 +4,8 @@
 static bool ready,scanning,bus_failed;
 static unsigned channel,scan_channel;
 static uint32_t scan_at,rx_count,tx_count,failures;
-static uint8_t bins[126];
+static uint8_t bins[126],probe_a,probe_b;
+static const char *last_error="none";
 static bool bus(uint8_t cmd,const uint8_t *tx,uint8_t *rx,unsigned n){
  bool ok=nrf_hw_bus(cmd,tx,rx,n);if(!ok){bus_failed=true;failures++;}return ok;
 }
@@ -16,12 +17,13 @@ void nrf_stop(void){
  ready=false;scanning=false;nrf_hw_close();
 }
 bool nrf_start(void){
- nrf_stop();bus_failed=false;
- if(!nrf_hw_open())return false;
+ nrf_stop();bus_failed=false;last_error="none";probe_a=probe_b=255;
+ if(!nrf_hw_open()){last_error="SPI3 busy";return false;}
  nrf_hw_ce(false);
  // Reversible two-pattern register test rejects floating 00/FF SPI buses.
  uint8_t saved=rd(5);wr(5,42);uint8_t a=rd(5);wr(5,85);uint8_t b=rd(5);wr(5,saved);
- if(bus_failed||a!=42||b!=85){failures++;nrf_hw_close();return false;}
+ probe_a=a;probe_b=b;
+ if(bus_failed||a!=42||b!=85){last_error=bus_failed?"SPI timeout":"register probe mismatch";failures++;nrf_hw_close();return false;}
  wr(0,0x0c);wr(1,0);wr(2,1);wr(3,3);wr(4,0);wr(6,0); // CRC16, no auto-ACK, 1Mbps, -18dBm
  wr(0x1c,0);wr(0x1d,0);wr(0x11,32);
  const uint8_t address[5]={'U','S','B','H','1'};
@@ -29,8 +31,8 @@ bool nrf_start(void){
  bus(0xe1,0,0,0);bus(0xe2,0,0,0);wr(7,0x70);
  wr(0,0x0f);nrf_hw_delay(2000);
  ready=!bus_failed;
- if(!ready){nrf_hw_close();return false;}
- rx_mode();if(bus_failed){nrf_stop();return false;}return true;
+ if(!ready){last_error="configuration SPI timeout";nrf_hw_close();return false;}
+ rx_mode();if(bus_failed){last_error="RX setup SPI timeout";nrf_stop();return false;}return true;
 }
 bool nrf_tx(const uint8_t *data,unsigned n){
  if(!ready||scanning||!data||!n||n>32)return false;
@@ -65,7 +67,7 @@ bool nrf_scan_tick(uint32_t now,uint8_t result[126]){
  wr(5,scan_channel);nrf_hw_ce(true);scan_at=now;return false;
 }
 void nrf_info(char *out,size_t n){
- snprintf(out,n,"NRF24 %s; mode=%s; ch=%u; 1Mbps CRC16 addr=USBH1 fixed32 noAA; tx=%lu rx=%lu fail=%lu",
+ snprintf(out,n,"NRF24 %s; mode=%s; ch=%u; 1Mbps CRC16 addr=USBH1 fixed32 noAA; tx=%lu rx=%lu fail=%lu; error=%s probe=%02X/%02X",
  ready?"DETECTED":"NOT DETECTED",!ready?"IDLE":(scanning?"SCAN":"RX"),channel,
- (unsigned long)tx_count,(unsigned long)rx_count,(unsigned long)failures);
+ (unsigned long)tx_count,(unsigned long)rx_count,(unsigned long)failures,last_error,probe_a,probe_b);
 }
