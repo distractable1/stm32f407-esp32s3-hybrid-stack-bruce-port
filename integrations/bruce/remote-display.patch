@@ -1,0 +1,419 @@
+diff --git a/lib/HAL/display/lovyan.cpp b/lib/HAL/display/lovyan.cpp
+index cf552b2..a77c45e 100644
+--- a/lib/HAL/display/lovyan.cpp
++++ b/lib/HAL/display/lovyan.cpp
+@@ -10,15 +10,20 @@
+  // #define RUN_ON_MUTEX(fn) \
+ //     xSemaphoreTakeRecursive(tftMutex, portMAX_DELAY); \
+ //     fn; \
+- xSemaphoreGiveRecursive(tftMutex);
++ // obsolete semaphore statement removed
+ 
++#ifdef HAT_REMOTE_DISPLAY
++#define RUN_ON_MUTEX(fn) { HatGraphicsGuard hat_guard; fn; }
++#else
+ #define RUN_ON_MUTEX(fn) fn;
++#endif
+ 
+ tft_display::tft_display(int16_t _W, int16_t _H) : _height(_H), _width(_W) {}
+ 
+ void tft_display::begin(uint32_t speed) {
+     (void)speed;
+ 
++#ifndef HAT_REMOTE_DISPLAY
+     {
+         auto cfg = _bus_instance.config();
+ #if defined(LOVYAN_SPI_BUS)
+@@ -133,6 +138,9 @@ void tft_display::begin(uint32_t speed) {
+         _panel_instance.config(cfg);
+         setPanel(&_panel_instance);
+     }
++#else
++    setPanel(&_panel_instance);
++#endif
+     RUN_ON_MUTEX(lgfx::LGFX_Device::begin());
+ }
+ 
+@@ -143,7 +151,11 @@ void tft_display::init(uint8_t tc) {
+ 
+ void tft_display::setRotation(uint8_t r) {
+     lgfx::LGFX_Device::setRotation(r);
++#ifdef HAT_REMOTE_DISPLAY
++    _rotation = 0;
++#else
+     _rotation = r;
++#endif
+ }
+ 
+ void tft_display::drawPixel(int32_t x, int32_t y, uint32_t color) {
+diff --git a/lib/HAL/display/lovyan.h b/lib/HAL/display/lovyan.h
+index 41b8527..da392bb 100644
+--- a/lib/HAL/display/lovyan.h
++++ b/lib/HAL/display/lovyan.h
+@@ -2,6 +2,9 @@
+ #define LIB_HAL_LOVYAN_H
+ #include <pins_arduino.h>
+ 
++#ifdef HAT_REMOTE_DISPLAY
++#include <HatDisplay.h>
++#else
+ #if !defined(LOVYAN_PANEL)
+ #error "You must define LOVYAN_PANEL:\n \
+ - Panel_ST7789\n \
+@@ -42,6 +45,7 @@
+ #error "You must define the bus macro: LOVYAN_SPI_BUS or LOVYAN_I2C_BUS or LOVYAN_8PARALLEL_BUS\n"
+ #endif
+ 
++#endif // HAT_REMOTE_DISPLAY
+ #include <LovyanGFX.hpp>
+ #include <SPI.h>
+ #include <algorithm>
+@@ -120,8 +124,16 @@ public:
+ 
+     size_t write(uint8_t c);
+     size_t write(const uint8_t *buffer, size_t size);
+-    template <typename T> size_t print(const T &val) { return lgfx::LGFX_Device::print(val); }
+-    template <typename T> size_t println(const T &val) { return lgfx::LGFX_Device::println(val); }
++    template <typename T> size_t print(const T &val) {
++#ifdef HAT_REMOTE_DISPLAY
++        HatGraphicsGuard guard;
++#endif
++        return lgfx::LGFX_Device::print(val); }
++    template <typename T> size_t println(const T &val) {
++#ifdef HAT_REMOTE_DISPLAY
++        HatGraphicsGuard guard;
++#endif
++        return lgfx::LGFX_Device::println(val); }
+     size_t println();
+ 
+     size_t printf(const char *fmt, ...);
+@@ -152,8 +164,12 @@ private:
+ 
+     int16_t drawAlignedString(const String &s, int32_t x, int32_t y, uint8_t datum);
+ 
++#ifdef HAT_REMOTE_DISPLAY
++    HatPanel _panel_instance;
++#else
+     lgfx::LOVYAN_PANEL _panel_instance;
+     lgfx::LOVYAN_BUS _bus_instance;
++#endif
+     uint16_t _height = TFT_HEIGHT;
+     uint16_t _width = TFT_WIDTH;
+     bool _swapBytes = false;
+diff --git a/patch.py b/patch.py
+index f8538e5..2120bf0 100644
+--- a/patch.py
++++ b/patch.py
+@@ -18,46 +18,82 @@ board_mcu = env.BoardConfig()
+ mcu = board_mcu.get("build.mcu", "")
+ patchflag_path = join(FRAMEWORK_DIR,mcu, "lib", ".patched")
+ 
+-# patch file only if we didn't do it befored
+-if not isfile(join(FRAMEWORK_DIR,mcu, "lib", ".patched")):
+-    original_file = join(FRAMEWORK_DIR,mcu, "lib", "libnet80211.a")
+-    patched_file = join(
+-        FRAMEWORK_DIR, mcu, "lib", "libnet80211.a.patched"
+-    )
+-
+-    if mcu=="esp32c5" or mcu=="esp32c6" :
+-        env.Execute(
+-            "pio pkg exec -p toolchain-riscv32-esp -- riscv32-esp-elf-objcopy  --weaken-symbol=ieee80211_raw_frame_sanity_check %s %s"
+-            % (original_file, patched_file)
+-        )
+-    elif mcu=="esp32p4":
+-        """Do nothing"""
+-    else:
+-        env.Execute(
+-            "pio pkg exec -p toolchain-xtensa-%s -- xtensa-%s-elf-objcopy  --weaken-symbol=ieee80211_raw_frame_sanity_check %s %s"
+-            % (mcu, mcu, original_file, patched_file)
++# USBHAT_LOCAL_ARCHIVE
++if env.get("PIOENV") == "usbhat-bruce":
++    import os
++    import subprocess
++    from pathlib import Path
++    from functools import lru_cache
++    from platformio.builder.tools.piolib import LibBuilderBase
++    cached_realpath = lru_cache(maxsize=65536)(os.path.realpath)
++    def source_membership(self, root_path, child_path):
++        if os.name == "nt":
++            root_path = root_path.lower()
++            child_path = child_path.lower()
++        if root_path == child_path:
++            return True
++        if os.path.commonprefix([root_path + os.path.sep, child_path]) == root_path + os.path.sep:
++            return True
++        root_path = cached_realpath(root_path)
++        child_path = cached_realpath(child_path)
++        return os.path.commonprefix([root_path + os.path.sep, child_path]) == root_path + os.path.sep
++    import sys
++    patched_scanners = []
++    for module_name, module in tuple(sys.modules.items()):
++        module_file = str(getattr(module, "__file__", "")).replace(chr(92), "/")
++        if module_file.endswith("/piolib.py") and hasattr(module, "LibBuilderBase"):
++            module.LibBuilderBase.is_common_builder = source_membership
++            patched_scanners.append(module_name)
++    print("USBHAT scanner path cache active:", patched_scanners)
++    archive_dir = Path(env.subst("$PROJECT_BUILD_DIR")) / "usbhat-sdk"
++    archive_dir.mkdir(parents=True, exist_ok=True)
++    src = Path(FRAMEWORK_DIR) / mcu / "lib" / "libnet80211.a"
++    dst = archive_dir / src.name
++    tool_dir = env.PioPlatform().get_package_dir("toolchain-xtensa-esp-elf")
++    objcopy = Path(tool_dir) / "bin" / ("xtensa-esp-elf-objcopy.exe" if os.name == "nt" else "xtensa-esp-elf-objcopy")
++    if not dst.exists() or src.stat().st_mtime > dst.stat().st_mtime:
++        subprocess.run([str(objcopy), "--weaken-symbol=ieee80211_raw_frame_sanity_check", str(src), str(dst)], check=True)
++    env.Prepend(LIBPATH=[str(archive_dir)])
++else:
++    # patch file only if we didn't do it befored
++    if not isfile(join(FRAMEWORK_DIR,mcu, "lib", ".patched")):
++        original_file = join(FRAMEWORK_DIR,mcu, "lib", "libnet80211.a")
++        patched_file = join(
++            FRAMEWORK_DIR, mcu, "lib", "libnet80211.a.patched"
+         )
+ 
+-    if isfile("%s.old" % (original_file)):
+-        remove("%s.old" % (original_file))
+-
+-    if isfile(original_file):
+-        rename(original_file, "%s.old" % (original_file))
+-    else:
+-        print("Patch: Original file not found")
+-
+-    if isfile(patched_file):
+-        rename(patched_file, original_file)
+-    else:
+-        print("Patch: Patched file not found")
+-
+-
+-    def _touch(path):
+-        with open(path, "w") as fp:
+-            fp.write("")
+-
+-    env.Execute(lambda *args, **kwargs: _touch(patchflag_path))
+-
++        if mcu=="esp32c5" or mcu=="esp32c6" :
++            env.Execute(
++                "pio pkg exec -p toolchain-riscv32-esp -- riscv32-esp-elf-objcopy  --weaken-symbol=ieee80211_raw_frame_sanity_check %s %s"
++                % (original_file, patched_file)
++            )
++        elif mcu=="esp32p4":
++            """Do nothing"""
++        else:
++            env.Execute(
++                "pio pkg exec -p toolchain-xtensa-%s -- xtensa-%s-elf-objcopy  --weaken-symbol=ieee80211_raw_frame_sanity_check %s %s"
++                % (mcu, mcu, original_file, patched_file)
++            )
++
++        if isfile("%s.old" % (original_file)):
++            remove("%s.old" % (original_file))
++
++        if isfile(original_file):
++            rename(original_file, "%s.old" % (original_file))
++        else:
++            print("Patch: Original file not found")
++
++        if isfile(patched_file):
++            rename(patched_file, original_file)
++        else:
++            print("Patch: Patched file not found")
++
++
++        def _touch(path):
++            with open(path, "w") as fp:
++                fp.write("")
++
++        env.Execute(lambda *args, **kwargs: _touch(patchflag_path))
+ 
+ def hash_file(file_path):
+     """Generate SHA-256 hash for a single file."""
+diff --git a/platformio.ini b/platformio.ini
+index 49d7584..fda7392 100644
+--- a/platformio.ini
++++ b/platformio.ini
+@@ -10,7 +10,7 @@
+ 
+ [platformio]
+ default_envs =
+-	m5stack-cardputer
++	usbhat-bruce
+ 	;m5stack-sticks3
+ 	;m5stack-cplus2
+ 	;m5stack-cplus1_1
+@@ -202,7 +202,7 @@ lib_deps =
+ 	bitbank2/AnimatedGIF
+ 	bitbank2/PNGdec @ ^1.1.2
+ 	ESP32Async/ESPAsyncWebServer
+-	fastled/FastLED @^3.10.3
++	fastled/FastLED @3.10.3
+ 	jgromes/RadioLib @ ^7.4.0
+ 	; Pinned to fixed commits so upstream changes never break our patches
+ 	; (applied by patch_library_conflicts.py): IRQ-less I2C polling for
+diff --git a/src/core/menu_items/FileMenu.cpp b/src/core/menu_items/FileMenu.cpp
+index e73dc32..1312de6 100644
+--- a/src/core/menu_items/FileMenu.cpp
++++ b/src/core/menu_items/FileMenu.cpp
+@@ -26,7 +26,7 @@ void FileMenu::optionsMenu() {
+     }});
+ #endif
+ 
+-#if defined(SOC_USB_OTG_SUPPORTED)
++#if defined(SOC_USB_OTG_SUPPORTED) && !defined(HAT_REMOTE_DISPLAY)
+     options.push_back({"Mass Storage", [=]() { MassStorage(); }});
+ #endif
+     addOptionToMainMenu();
+diff --git a/src/core/menu_items/NRF24.cpp b/src/core/menu_items/NRF24.cpp
+index def1bdf..b137b8d 100644
+--- a/src/core/menu_items/NRF24.cpp
++++ b/src/core/menu_items/NRF24.cpp
+@@ -6,7 +6,13 @@
+ #include "modules/NRF24/nrf_mousejack.h"
+ #include "modules/NRF24/nrf_spectrum.h"
+ 
++#ifdef HAT_REMOTE_DISPLAY
++extern void usbhat_bench_menu();
++#endif
+ void NRF24Menu::optionsMenu() {
++#ifdef HAT_REMOTE_DISPLAY
++    usbhat_bench_menu(); return;
++#endif
+     options.clear();
+     options.push_back({"Information", nrf_info});
+     options.push_back({"Spectrum", nrf_spectrum});
+diff --git a/src/core/menu_items/OthersMenu.cpp b/src/core/menu_items/OthersMenu.cpp
+index 0de6d4a..f360594 100644
+--- a/src/core/menu_items/OthersMenu.cpp
++++ b/src/core/menu_items/OthersMenu.cpp
+@@ -12,8 +12,14 @@
+ #include "modules/others/u2f.h"
+ // Removed: #include "modules/others/timer.h"
+ 
++#ifdef HAT_REMOTE_DISPLAY
++extern void usbhat_bench_menu();
++#endif
+ void OthersMenu::optionsMenu() {
+     options = {
++#ifdef HAT_REMOTE_DISPLAY
++        {"USB HAT Bench", usbhat_bench_menu},
++#endif
+         {"QRCodes",      qrcode_menu                  },
+         {"Megalodon",    shark_setup                  },
+ 
+@@ -22,7 +28,7 @@ void OthersMenu::optionsMenu() {
+ #endif
+ 
+ // New consolidated BadUSB & HID submenu
+-#if !defined(LITE_VERSION)
++#if !defined(LITE_VERSION) && !defined(HAT_REMOTE_DISPLAY)
+         {"BadUSB & HID", [this]() { badUsbHidMenu(); }},
+ #endif
+ 
+diff --git a/src/core/menu_items/RFMenu.cpp b/src/core/menu_items/RFMenu.cpp
+index f283a19..54827c0 100644
+--- a/src/core/menu_items/RFMenu.cpp
++++ b/src/core/menu_items/RFMenu.cpp
+@@ -12,7 +12,13 @@
+ #include "modules/rf/rf_spectrum.h"
+ #include "modules/rf/rf_waterfall.h"
+ 
++#ifdef HAT_REMOTE_DISPLAY
++extern void usbhat_bench_menu();
++#endif
+ void RFMenu::optionsMenu() {
++#ifdef HAT_REMOTE_DISPLAY
++    usbhat_bench_menu(); return;
++#endif
+     options = {
+         {"Scan/copy",       [=]() { RFScan(); }       },
+ #if !defined(LITE_VERSION)
+diff --git a/src/main.cpp b/src/main.cpp
+index d45c091..21b03c1 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -231,9 +231,11 @@ void setup_gpio() {
+     // Smoochiee v2 uses a AW9325 tro control GPS, MIC, Vibro and CC1101 RX/TX powerlines
+     ioExpander.init(IO_EXPANDER_ADDRESS, &Wire);
+ 
++#ifndef HAT_REMOTE_DISPLAY
+     initCC1101once(acquireSPIBus(
+         bruceConfigPins.CC1101_bus.sck, bruceConfigPins.CC1101_bus.miso, bruceConfigPins.CC1101_bus.mosi
+     ));
++#endif
+     // acquireSPIBus() returns nullptr when these pins have no hardware controller left (e.g.
+     // ARDUINO_M5STICK_C_PLUS and others that don't share SPI with the display/SD/aux bus);
+     // initCC1101once(NULL) lets the driver fall back to managing the default SPI object itself.
+diff --git a/src/modules/badusb_ble/ducky_typer.cpp b/src/modules/badusb_ble/ducky_typer.cpp
+index c1a2f5e..034fd68 100644
+--- a/src/modules/badusb_ble/ducky_typer.cpp
++++ b/src/modules/badusb_ble/ducky_typer.cpp
+@@ -580,6 +580,9 @@ DuckyCombination *findDuckyCombination(const char *cmd) {
+ // ============================================================================
+ 
+ void ducky_startKb(HIDInterface *&hid, bool ble, int functionId) {
++#ifdef HAT_REMOTE_DISPLAY
++    if (!ble) { displayError("USB reserved for STM32"); return; }
++#endif
+     Serial.printf("\nducky_startKb: BLE=%d, hid=%p, func=%d\n", ble, hid, functionId);
+ 
+     if (hid == nullptr) {
+@@ -662,7 +665,10 @@ void ducky_startKb(HIDInterface *&hid, bool ble, int functionId) {
+ 
+             printStatusBadUSBBLE("USB Host Connected");
+ #else
+-            mySerial.begin(CH9329_DEFAULT_BAUDRATE, SERIAL_8N1, BAD_RX, BAD_TX);
++            // USBHAT no external keyboard UART
++#ifndef HAT_REMOTE_DISPLAY
++        mySerial.begin(CH9329_DEFAULT_BAUDRATE, SERIAL_8N1, BAD_RX, BAD_TX);
++#endif
+             delay(100);
+             hid = new CH9329_Keyboard_();
+ #endif
+@@ -691,7 +697,10 @@ void ducky_startKb(HIDInterface *&hid, bool ble, int functionId) {
+         hid->begin(layout);
+         hid->setDelay(bruceConfig.badUSBBLEKeyDelay);
+ #else
++        // USBHAT no external keyboard UART
++#ifndef HAT_REMOTE_DISPLAY
+         mySerial.begin(CH9329_DEFAULT_BAUDRATE, SERIAL_8N1, BAD_RX, BAD_TX);
++#endif
+         delay(100);
+         const uint8_t *layout =
+             (const uint8_t *)pgm_read_ptr(&keyboardLayouts[bruceConfig.badUSBBLEKeyboardLayout]);
+@@ -706,6 +715,9 @@ void ducky_startKb(HIDInterface *&hid, bool ble, int functionId) {
+ // ============================================================================
+ 
+ void ducky_setup(HIDInterface *&hid, bool ble) {
++#ifdef HAT_REMOTE_DISPLAY
++    if (!ble) { displayError("USB reserved for STM32"); return; }
++#endif
+     Serial.println("Ducky typer begin");
+ 
+     if (ble && bruceConfig.badUSBBLEKeyDelay < 50) {
+@@ -977,6 +989,9 @@ EXIT:
+ // ============================================================================
+ 
+ void key_input_from_string(const String &text) {
++#ifdef HAT_REMOTE_DISPLAY
++    displayError("USB reserved for STM32"); return;
++#endif
+     ducky_startKb(hid_usb, false, 0);
+     hid_usb->print(text.c_str());
+     delete hid_usb;
+@@ -995,6 +1010,9 @@ void key_input_from_string(const String &text) {
+ // ============================================================================
+ 
+ void ducky_keyboard(HIDInterface *&hid, bool ble) {
++#ifdef HAT_REMOTE_DISPLAY
++    if (!ble) { displayError("USB reserved for STM32"); return; }
++#endif
+     String _mymsg = "";
+     keyStroke key;
+     long debounce = millis();
+@@ -1387,6 +1405,9 @@ bool handlePauseResume() {
+ // ============================================================================
+ 
+ void PresenterMode(HIDInterface *&hid, bool ble) {
++#ifdef HAT_REMOTE_DISPLAY
++    if (!ble) { displayError("USB reserved for STM32"); return; }
++#endif
+     // Double cleanup before starting
+     if (ble) safeCleanupDuckyBLE(hid);
+     ducky_startKb(hid, ble, 3); // functionId 3 = Presenter

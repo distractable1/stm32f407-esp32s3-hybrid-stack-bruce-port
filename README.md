@@ -1,5 +1,11 @@
 # ESP32-S3 / STM32 T100 USB HAT bench
 
+Current bench status: touch works according to the owner's test, but the display
+has shown a single dot. The diagnostic revision logs every tile on both MCUs
+and keeps LCD chip-select asserted across each full window write. Software
+tests verify the complete area; a hardware retest is still required before
+calling the display issue resolved.
+
 One USB CDC ACM function carries three framed logical channels. The ESP32 is
 USB host; the STM32 is USB device. No external hub or inter-board GPIO wiring
 is used. Native USB is exclusively owned by the host stack on ESP32; console
@@ -137,8 +143,11 @@ launcher return or flash commands. This PC test has not run on physical hardware
 
 The parser's native C tests passed, as did the STM32 launcher build/package,
 the standalone ESP32 transport build, and the ESP32 framebuffer-driver build.
-The full modified Bruce build is still being validated; no Bruce binary is
-claimed ready until that build succeeds.
+The modified Bruce target has also built successfully. See `dist/manifest.json`
+for the exported images and checksums; hardware display qualification remains
+open as described above.
+ELF debug images are kept locally; the Git repository includes firmware binaries,
+source and reproducible build inputs without the large ELF files or flash backups.
 
 Build success is not physical USB or RF validation. The first device test is:
 install/run STM32 app, start ESP32 bench, confirm CDC attach/status, touch events,
@@ -146,3 +155,19 @@ changing colored window, exact escaped-byte radio loopback, then launcher return
 Recalibration/resume, unplug/replug, sustained display updates and physical RF
 remain separate bench checks. No hardware has been programmed by these build
 and packaging operations.
+
+## Tile diagnostics
+
+ESP32 UART logs `TILE TX` and `TILE ACK` with sequence, inclusive x1/y1/x2/y2,
+payload length, pixel-byte length, CRC and ACK status. The STM32 logs `STM TILE`
+on its SDK UART and mirrors it through logical system channel 2, so its receipt,
+full pixel-word count and ACK status are visible in the ESP32 console too.
+For a 16x16 tile expect payload=524, pixels_bytes=512, words=256, ACK=0.
+The last tile row is 16x6: payload=204, pixels_bytes=192, words=96.
+Coordinates in the protocol are client coordinates; the LCD Y range is +30.
+Per-tile UART tracing intentionally slows display updates during diagnosis.
+
+`tests/window_test.c` checks all 240 tile positions and all 58,240 ordered pixel
+words using the same LCD emitter compiled into the STM32 app. It verifies 2A/2B
+register bytes, inclusive endpoints, the +30 Y offset, RGB565 ordering, clipped
+bottom-row tiles, malformed lengths, zero dimensions and overflow rejection.

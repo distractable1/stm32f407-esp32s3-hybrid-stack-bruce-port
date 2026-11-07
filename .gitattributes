@@ -1,0 +1,7 @@
+* text=auto eol=lf
+# Launcher validation hashes exact SDK bytes; preserve their original line endings.
+stm32-apps/USBHAT/** -text
+*.bin binary
+*.APP binary
+*.zip binary
+*.elf binary

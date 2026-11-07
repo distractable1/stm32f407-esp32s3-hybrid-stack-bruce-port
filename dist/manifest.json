@@ -1,0 +1,32 @@
+{
+  "bruce-usbhat-tile-diagnostics-merged.bin": {
+    "bytes": 3802272,
+    "sha256": "df5bc740cbb08b9224190f8d333c907f368c6ae557fad9516afbbb4137a687ab"
+  },
+  "bruce-usbhat-tile-diagnostics.bin": {
+    "bytes": 3736736,
+    "sha256": "10a16cd76b6b8184ded7b191c7776e4b14701eff909c83dd8d2fd17c3ed1fe12"
+  },
+  "bruce-usbhat-tile-diagnostics.elf": {
+    "bytes": 78386812,
+    "sha256": "d32611fb1e5435a866a794764e9626a637c6f6a1c850b99e9455f4872aa78fa6"
+  },
+  "esp32-usbhat-display-bench-merged.bin": {
+    "bytes": 491376,
+    "sha256": "43c82f906d14e802c1a269db3ecaf9feb633e663c5a3c5096cc500e7d3e55a93"
+  },
+  "esp32-usbhat-display-bench.elf": {
+    "bytes": 10426484,
+    "sha256": "aecd26e1779a526a3d2c165a9301941e12cad7be1d4cdafc5f663b0c0e0df973"
+  },
+  "USBHAT.APP": {
+    "bytes": 40340,
+    "sha256": "2dbc3fa7df5ee2d5e9a3693ada757a51ad55e8a91e94320855d7603e96220b1a"
+  },
+  "source_revisions": {
+    "Bruce": "a59213f3ec6cd302fa32c2042b2700c9c24d991a",
+    "tinyusb": "8692556e335a0bf3b0a054a959efd2a3ee677cb6",
+    "esp-usb": "51fcfb96417f8634f0117591d76b1aca645ef185",
+    "LovyanGFX": "dd228d15a03900ce658fd62e120dc7cc489915dd"
+  }
+}

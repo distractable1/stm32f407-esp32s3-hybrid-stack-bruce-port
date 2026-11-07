@@ -4,6 +4,7 @@ dependencies/
 **/Debug/
 **/build/
 **/.build-workspace/
+**/.build-temp/
 **/__pycache__/
 tools/.python/
 tools/.zig-cache/
@@ -11,3 +12,7 @@ tests/*.exe
 tests/*.pdb
 tests/*.obj
 backups/
+/.zip
+/project compressed.zip
+*.log
+dist/*.elf
