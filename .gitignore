@@ -1,0 +1,13 @@
+upstream/
+dependencies/
+.pio/
+**/Debug/
+**/build/
+**/.build-workspace/
+**/__pycache__/
+tools/.python/
+tools/.zig-cache/
+tests/*.exe
+tests/*.pdb
+tests/*.obj
+backups/
