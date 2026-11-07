@@ -1,4 +1,16 @@
 {
+  "bruce-usbhat-layout-touch-merged.bin": {
+    "bytes": 3801440,
+    "sha256": "69068cf20936d2f5564a57619ee30b4358a40ef068321144c7af42c68c81c420"
+  },
+  "bruce-usbhat-layout-touch.bin": {
+    "bytes": 3735904,
+    "sha256": "2bd945ee046c6bdcb7ed0ddef770a10816101494f37c4bb739750bc7278d122d"
+  },
+  "bruce-usbhat-layout-touch.elf": {
+    "bytes": 78381792,
+    "sha256": "57a3bb95c777304d389413608cbb627fd2d9241b9ece791772f04e37ddafb662"
+  },
   "bruce-usbhat-refresh-merged.bin": {
     "bytes": 3802080,
     "sha256": "b02c44c24e64731d800bd1833150e2ab38224961710c9716b889014b3a935fc3"
@@ -32,8 +44,8 @@
     "sha256": "aecd26e1779a526a3d2c165a9301941e12cad7be1d4cdafc5f663b0c0e0df973"
   },
   "USBHAT.APP": {
-    "bytes": 40488,
-    "sha256": "86b7b8dcc308c42628bb56af824c423e5f53a09bc4bb3d6b0024f46b8600e094"
+    "bytes": 40516,
+    "sha256": "f45f825d6bcf9c6f1b53673c13cc379513539054dd3aad1436a213e27bde3864"
   },
   "source_revisions": {
     "Bruce": "a59213f3ec6cd302fa32c2042b2700c9c24d991a",

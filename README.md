@@ -1,9 +1,11 @@
 # ESP32-S3 / STM32 T100 USB HAT bench
 
-Current bench status: the owner confirmed display and touch working. Video shows
-mixed old/new menu tiles during refresh. The refresh revision disables blocking
-per-tile traces by default, sends larger windows, and takes one consistent RAM
-snapshot per sweep. Physical validation of this revision is still pending.
+Current bench status: the owner confirmed the refresh revision is good, but
+main-menu icons were clipped and navigation sometimes advanced unexpectedly.
+The layout/input revision initializes main-menu geometry with the actual
+320x162 content area (plus 20-pixel touch footer), fixes rotation to the remote
+canvas, and uses one action per touch with periodic state renewal.
+Physical validation of this revision is pending.
 
 One USB CDC ACM function carries three framed logical channels. The ESP32 is
 USB host; the STM32 is USB device. No external hub or inter-board GPIO wiring
@@ -35,9 +37,9 @@ bus. Radio operations are explicit **MOCK loopback**, without configuring SPI
 or transmitting RF. [Recovered radio wiring](docs/board-wiring.md) records the
 earlier NRF scanner connections and unresolved CC1101 detection.
 
-The refresh pair is `dist/USBHAT.APP` and `dist/bruce-usbhat-refresh.bin`
+The current layout/input pair is `dist/USBHAT.APP` and `dist/bruce-usbhat-layout-touch.bin`
 (application image at ESP32 flash offset 0x10000);
-`dist/bruce-usbhat-refresh-merged.bin` is the complete flash image at offset 0.
+`dist/bruce-usbhat-layout-touch-merged.bin` is the complete flash image at offset 0.
 Install both sides for the normal, quiet refresh path.
 
 ## ESP32 applications
@@ -54,8 +56,9 @@ adaptation applied by `tools/integrate_bruce.py`. The selected target is
 CC1101/NRF24 mock loopback, and STM32 launcher return. It keeps Bruce's existing
 menu/application framework, font and sprite rendering through a RAM-backed
 LovyanGFX panel, and converts calibrated remote touch to Bruce input events.
-Touch select/back fire once per contact; navigation holds wait 350 ms, then
-repeat at most once per 180 ms. Only changed 32x15 tiles are transferred; a shadow tile is committed after ACK.
+All navigation actions fire once per contact; holding or sliding a finger does
+not auto-repeat. STM32 renews touch state every 100 ms; stale state expires on
+the host after 350 ms. Each accepted action is logged on the ESP32 UART. Only changed 32x15 tiles are transferred; a shadow tile is committed after ACK.
 Reconnect invalidates the shadow so all tiles refresh. About 350 KB of PSRAM
 holds the framebuffer, sweep snapshot and shadow.
 

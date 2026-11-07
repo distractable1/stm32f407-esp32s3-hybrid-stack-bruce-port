@@ -87,7 +87,7 @@ void touch_worker(void *){
  for(;;)if(xQueueReceive(inbound[0],&p,pdMS_TO_TICKS(100))==pdTRUE){
   if(p.type==HAT_TOUCH&&p.length==6&&p.payload[0]==0xbb){
    HatLink::Touch t{hat_get16(p.payload+1),hat_get16(p.payload+3),p.payload[5]!=0,millis()};
-   if(t.x<320&&t.y<182){portENTER_CRITICAL(&touchLock);lastTouch=t;portEXIT_CRITICAL(&touchLock);}
+   if(!t.pressed || (t.x<320&&t.y<182)){portENTER_CRITICAL(&touchLock);lastTouch=t;portEXIT_CRITICAL(&touchLock);}
   }
  }
 }
@@ -161,7 +161,7 @@ bool connected(){return online;}
 uint32_t generation(){return epoch;}
 bool touch(Touch &value){
  portENTER_CRITICAL(&touchLock);value=lastTouch;portEXIT_CRITICAL(&touchLock);
- if(!online)value.pressed=false;
+ if(!online || (uint32_t)(millis()-value.at)>350)value.pressed=false;
  return value.pressed;
 }
 bool command(const char *s){

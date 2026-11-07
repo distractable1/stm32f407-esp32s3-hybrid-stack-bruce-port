@@ -168,3 +168,14 @@ if 'USBHAT scanner path cache active' not in s:
     print("USBHAT scanner path cache active:", patched_scanners)''')
     p.write_text(s)
 print('Applied USB HAT board port to Bruce',subprocess.check_output(['git','rev-parse','HEAD'],cwd=B,text=True).strip())
+
+# Main-menu objects cache global dimensions during static construction.
+# Initialize the fixed remote canvas before those constructors run.
+replace(Path('src/main.cpp'), 'volatile int tftWidth = TFT_HEIGHT;',
+ '#ifdef HAT_REMOTE_DISPLAY\nvolatile int tftWidth = TFT_WIDTH;\n#else\nvolatile int tftWidth = TFT_HEIGHT;\n#endif')
+replace(Path('src/main.cpp'), '    TFT_WIDTH - 20; // 20px to draw the TouchFooter(), were the btns are being read in touch devices.',
+ '#ifdef HAT_REMOTE_DISPLAY\n    TFT_HEIGHT - 20;\n#else\n    TFT_WIDTH - 20; // 20px to draw the TouchFooter(), were the btns are being read in touch devices.\n#endif')
+replace(Path('src/core/main_menu.cpp'), '                     obj->draw(scale);',
+ '#ifdef HAT_REMOTE_DISPLAY\n                     scale = std::min(float(tftWidth) / 240.0f, float(tftHeight) / 135.0f);\n#endif\n                     obj->draw(scale);')
+replace(Path('src/core/settings.cpp'), 'int gsetRotation(bool set) {',
+ 'int gsetRotation(bool set) {\n#ifdef HAT_REMOTE_DISPLAY\n    (void)set;\n    bruceConfigPins.rotation = 0;\n    tft.setRotation(0);\n    tftWidth = tft.width();\n    tftHeight = tft.height() - 20;\n    return 0;\n#endif')

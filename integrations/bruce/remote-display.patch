@@ -247,6 +247,20 @@ index 49d7584..fda7392 100644
  	jgromes/RadioLib @ ^7.4.0
  	; Pinned to fixed commits so upstream changes never break our patches
  	; (applied by patch_library_conflicts.py): IRQ-less I2C polling for
+diff --git a/src/core/main_menu.cpp b/src/core/main_menu.cpp
+index 55a5878..ef08824 100644
+--- a/src/core/main_menu.cpp
++++ b/src/core/main_menu.cpp
+@@ -55,6 +55,9 @@ void MainMenu::begin(void) {
+                      MenuItemInterface *obj = static_cast<MenuItemInterface *>(menuItem);
+                      float scale = float((float)tftWidth / (float)240);
+                      if (bruceConfigPins.rotation & 0b01) scale = float((float)tftHeight / (float)135);
++#ifdef HAT_REMOTE_DISPLAY
++                     scale = std::min(float(tftWidth) / 240.0f, float(tftHeight) / 135.0f);
++#endif
+                      obj->draw(scale);
+ #if defined(HAS_TOUCH)
+                      TouchFooter();
 diff --git a/src/core/menu_items/FileMenu.cpp b/src/core/menu_items/FileMenu.cpp
 index e73dc32..1312de6 100644
 --- a/src/core/menu_items/FileMenu.cpp
@@ -324,11 +338,49 @@ index f283a19..54827c0 100644
      options = {
          {"Scan/copy",       [=]() { RFScan(); }       },
  #if !defined(LITE_VERSION)
+diff --git a/src/core/settings.cpp b/src/core/settings.cpp
+index 6a44125..30666c0 100644
+--- a/src/core/settings.cpp
++++ b/src/core/settings.cpp
+@@ -58,6 +58,14 @@ void getBrightness() {
+ **  get/set rotation value
+ **********************************************************************/
+ int gsetRotation(bool set) {
++#ifdef HAT_REMOTE_DISPLAY
++    (void)set;
++    bruceConfigPins.rotation = 0;
++    tft.setRotation(0);
++    tftWidth = tft.width();
++    tftHeight = tft.height() - 20;
++    return 0;
++#endif
+     int getRot = bruceConfigPins.rotation;
+     int result = ROTATION;
+     int mask = ROTATION > 1 ? -2 : 2;
 diff --git a/src/main.cpp b/src/main.cpp
-index d45c091..21b03c1 100644
+index d45c091..91b8aa5 100644
 --- a/src/main.cpp
 +++ b/src/main.cpp
-@@ -231,9 +231,11 @@ void setup_gpio() {
+@@ -153,10 +153,18 @@ std::vector<Option> options;
+ tft_logger tft = tft_logger(); // Invoke custom library
+ tft_sprite sprite = tft_sprite(&tft);
+ tft_sprite draw = tft_sprite(&tft);
++#ifdef HAT_REMOTE_DISPLAY
++volatile int tftWidth = TFT_WIDTH;
++#else
+ volatile int tftWidth = TFT_HEIGHT;
++#endif
+ #ifdef HAS_TOUCH
+ volatile int tftHeight =
++#ifdef HAT_REMOTE_DISPLAY
++    TFT_HEIGHT - 20;
++#else
+     TFT_WIDTH - 20; // 20px to draw the TouchFooter(), were the btns are being read in touch devices.
++#endif
+ #else
+ volatile int tftHeight = TFT_WIDTH;
+ #endif
+@@ -231,9 +239,11 @@ void setup_gpio() {
      // Smoochiee v2 uses a AW9325 tro control GPS, MIC, Vibro and CC1101 RX/TX powerlines
      ioExpander.init(IO_EXPANDER_ADDRESS, &Wire);
  

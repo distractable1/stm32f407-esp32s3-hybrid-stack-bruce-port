@@ -8,7 +8,7 @@
 const char app_display_name[]="USB Peripheral Bench";
 #define LOG(s) serial("[USBHAT] " s "\r\n")
 static bool started,servicing,reset_pending,tile_tracing;
-static uint32_t reset_at,tx_dropped;
+static uint32_t reset_at,tx_dropped,touch_report_at;
 static uint8_t radio_mode=1;
 static uint16_t event_seq;
 static hat_parser parser;
@@ -117,10 +117,10 @@ void app_update(uint32_t now){
   hat_feed(&parser,buf,n,now,receive,NULL);budget-=n;
  }
  hat_parser_tick(&parser,now);
- if(touch_dirty){
+ if(touch_dirty || (uint32_t)(now-touch_report_at)>=100){
   hat_packet p={.channel=HAT_DISPLAY,.type=HAT_TOUCH,.seq=event_seq++,.length=6};
   p.payload[0]=0xbb;hat_put16(p.payload+1,touch_x);hat_put16(p.payload+3,touch_y);p.payload[5]=touch_pressed;
-  if(enqueue(&p))touch_dirty=false;
+  if(enqueue(&p)){touch_dirty=false;touch_report_at=now;}
  }
  pump_tx();
  if(reset_pending && (uint32_t)(now-reset_at)>=100){app_shutdown();board_return_to_launcher();}
