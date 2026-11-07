@@ -16,3 +16,4 @@ backups/
 /project compressed.zip
 *.log
 dist/*.elf
+tools/.video/

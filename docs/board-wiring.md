@@ -46,4 +46,8 @@ about that Euse board, not verified measurements of this T100.
 USB uses PA11 D− and PA12 D+. ESP32-S3 native USB uses GPIO19 D− and GPIO20 D+,
 through the board's native USB connector. COM3 is the separate CH343 UART
 adapter, VID:PID 1A86:55D3. N16R8 does not identify a VBUS
-power switch; the host must actually provide 5 V at its native connector.
+power switch. The owner's working arrangement uses STM32 USB-UART connected to
+PC or a power source, and STM32 USB-Slave connected to ESP32 native USB OTG.
+This ESP32 board does not source OTG power. ESP32 COM is needed only for flashing
+or optional UART diagnostics. This observation does not establish isolation or
+backfeed protection of either board's USB power rails.

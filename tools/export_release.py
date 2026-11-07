@@ -13,7 +13,7 @@ manifest['source_revisions']={
     'Bruce':subprocess.check_output(['git','rev-parse','HEAD'],cwd=B,text=True).strip(),
     **json.loads((R/'dependencies.lock.json').read_text())}
 (D/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-exclude={'.git','.pio','Debug','build','.build-workspace','__pycache__','.zig-cache','.python'}
+exclude={'.git','.pio','Debug','build','.build-workspace','__pycache__','.zig-cache','.python','.video'}
 with zipfile.ZipFile(D/'usbhat-source.zip','w',zipfile.ZIP_DEFLATED) as z:
     for root in ['shared','esp32','stm32-apps/USBHAT','integrations','docs','tests','tools','third_party']:
         for p in (R/root).rglob('*'):

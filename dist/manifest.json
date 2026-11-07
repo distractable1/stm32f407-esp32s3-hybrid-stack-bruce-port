@@ -1,4 +1,16 @@
 {
+  "bruce-usbhat-refresh-merged.bin": {
+    "bytes": 3802080,
+    "sha256": "b02c44c24e64731d800bd1833150e2ab38224961710c9716b889014b3a935fc3"
+  },
+  "bruce-usbhat-refresh.bin": {
+    "bytes": 3736544,
+    "sha256": "1078a65a1a5cfc54fe541edeedd32caa308b6a4523f11b6ff85e2c50a86680eb"
+  },
+  "bruce-usbhat-refresh.elf": {
+    "bytes": 78389880,
+    "sha256": "05c5e5f8d1587b76ec3aa4e323de2a582faaad837f945de0e22b83d7e62a72fd"
+  },
   "bruce-usbhat-tile-diagnostics-merged.bin": {
     "bytes": 3802272,
     "sha256": "df5bc740cbb08b9224190f8d333c907f368c6ae557fad9516afbbb4137a687ab"
@@ -20,8 +32,8 @@
     "sha256": "aecd26e1779a526a3d2c165a9301941e12cad7be1d4cdafc5f663b0c0e0df973"
   },
   "USBHAT.APP": {
-    "bytes": 40340,
-    "sha256": "2dbc3fa7df5ee2d5e9a3693ada757a51ad55e8a91e94320855d7603e96220b1a"
+    "bytes": 40488,
+    "sha256": "86b7b8dcc308c42628bb56af824c423e5f53a09bc4bb3d6b0024f46b8600e094"
   },
   "source_revisions": {
     "Bruce": "a59213f3ec6cd302fa32c2042b2700c9c24d991a",

@@ -1,10 +1,9 @@
 # ESP32-S3 / STM32 T100 USB HAT bench
 
-Current bench status: touch works according to the owner's test, but the display
-has shown a single dot. The diagnostic revision logs every tile on both MCUs
-and keeps LCD chip-select asserted across each full window write. Software
-tests verify the complete area; a hardware retest is still required before
-calling the display issue resolved.
+Current bench status: the owner confirmed display and touch working. Video shows
+mixed old/new menu tiles during refresh. The refresh revision disables blocking
+per-tile traces by default, sends larger windows, and takes one consistent RAM
+snapshot per sweep. Physical validation of this revision is still pending.
 
 One USB CDC ACM function carries three framed logical channels. The ESP32 is
 USB host; the STM32 is USB device. No external hub or inter-board GPIO wiring
@@ -36,6 +35,11 @@ bus. Radio operations are explicit **MOCK loopback**, without configuring SPI
 or transmitting RF. [Recovered radio wiring](docs/board-wiring.md) records the
 earlier NRF scanner connections and unresolved CC1101 detection.
 
+The refresh pair is `dist/USBHAT.APP` and `dist/bruce-usbhat-refresh.bin`
+(application image at ESP32 flash offset 0x10000);
+`dist/bruce-usbhat-refresh-merged.bin` is the complete flash image at offset 0.
+Install both sides for the normal, quiet refresh path.
+
 ## ESP32 applications
 
 `esp32/` is the small Arduino/PlatformIO transport bench. It sends a 16x16
@@ -50,9 +54,10 @@ adaptation applied by `tools/integrate_bruce.py`. The selected target is
 CC1101/NRF24 mock loopback, and STM32 launcher return. It keeps Bruce's existing
 menu/application framework, font and sprite rendering through a RAM-backed
 LovyanGFX panel, and converts calibrated remote touch to Bruce input events.
-Only changed 16x16 tiles are transferred; a shadow tile is committed after ACK.
-Reconnect invalidates the shadow so all tiles refresh. About 233 KB of PSRAM
-holds the framebuffer and shadow.
+Touch select/back fire once per contact; navigation holds wait 350 ms, then
+repeat at most once per 180 ms. Only changed 32x15 tiles are transferred; a shadow tile is committed after ACK.
+Reconnect invalidates the shadow so all tiles refresh. About 350 KB of PSRAM
+holds the framebuffer, sweep snapshot and shadow.
 
 Existing Bruce RF tools still expect their native local drivers; this first
 bench adaptation routes the RF/NRF menus to the USB bench menu and does **not**
@@ -60,11 +65,10 @@ claim the existing RF tools work over the new USB radio channel. Native
 USB device/HID/MSC use conflicts with USB host and must stay disabled in this
 target. SD file access on the STM32 is not exported by this protocol.
 
-The default `HAT_VBUS_ENABLE_PIN=-1` does not invent a power-switch GPIO for a
-generic board. Verify the ESP32 native connector supplies VBUS. Keep COM3
-connected for console/programming and connect the **native** USB port to the
-STM32 USB-Slave connector for the direct link. Neither USB initialization nor
-a cable can create a missing host 5 V supply circuit.
+The working power arrangement is STM32 USB-UART to PC/power, and STM32
+USB-Slave to ESP32 native USB OTG. This generic ESP32 does not source OTG power.
+ESP32 COM can remain disconnected except for flashing or optional diagnostics.
+`HAT_VBUS_ENABLE_PIN=-1` leaves power-switch GPIO control disabled.
 
 ## Wire protocol v1
 
@@ -158,16 +162,18 @@ and packaging operations.
 
 ## Tile diagnostics
 
-ESP32 UART logs `TILE TX` and `TILE ACK` with sequence, inclusive x1/y1/x2/y2,
-payload length, pixel-byte length, CRC and ACK status. The STM32 logs `STM TILE`
+With `HAT_TILE_TRACE=1`, ESP32 UART logs `TILE TX` and `TILE ACK` with sequence, inclusive x1/y1/x2/y2,
+payload length, pixel-byte length, CRC and ACK status. Send `SYS:TRACE=1` to enable STM32 per-tile tracing (`SYS:TRACE=0` disables it). The STM32 logs `STM TILE`
 on its SDK UART and mirrors it through logical system channel 2, so its receipt,
 full pixel-word count and ACK status are visible in the ESP32 console too.
-For a 16x16 tile expect payload=524, pixels_bytes=512, words=256, ACK=0.
-The last tile row is 16x6: payload=204, pixels_bytes=192, words=96.
+For a 32x15 tile expect payload=972, pixels_bytes=960, words=480, ACK=0.
+The last tile row is 32x2: payload=140, pixels_bytes=128, words=64.
 Coordinates in the protocol are client coordinates; the LCD Y range is +30.
-Per-tile UART tracing intentionally slows display updates during diagnosis.
+Per-tile tracing defaults off; errors remain logged. It slows refresh when enabled.
+The refresh grid is 10x13 (130 windows); full windows contain 480 pixel words,
+960 pixel bytes and a 972-byte payload; the bottom row is 32x2.
 
-`tests/window_test.c` checks all 240 tile positions and all 58,240 ordered pixel
+`tests/window_test.c` checks all 130 tile positions and all 58,240 ordered pixel
 words using the same LCD emitter compiled into the STM32 app. It verifies 2A/2B
 register bytes, inclusive endpoints, the +30 Y offset, RGB565 ordering, clipped
 bottom-row tiles, malformed lengths, zero dimensions and overflow rejection.

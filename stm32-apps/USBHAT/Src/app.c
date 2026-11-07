@@ -7,7 +7,7 @@
 #include <stdio.h>
 const char app_display_name[]="USB Peripheral Bench";
 #define LOG(s) serial("[USBHAT] " s "\r\n")
-static bool started,servicing,reset_pending;
+static bool started,servicing,reset_pending,tile_tracing;
 static uint32_t reset_at,tx_dropped;
 static uint8_t radio_mode=1;
 static uint16_t event_seq;
@@ -35,6 +35,7 @@ static void status(const hat_packet *p){
  a.length=(uint16_t)((n<0)?0:((unsigned)n<sizeof a.payload?(unsigned)n:sizeof a.payload-1));enqueue(&a);
 }
 static void tile_trace(const hat_packet *p,unsigned code,uint32_t words){
+ if(!tile_tracing && code==HAT_OK)return;
  hat_packet trace={.channel=HAT_SYSTEM,.type=HAT_STATUS,.seq=p->seq};
  unsigned x=0,y=0,xe=0,ye=0,n=0;
  if(p->length>=12){x=hat_get16(p->payload+2);y=hat_get16(p->payload+4);
@@ -69,6 +70,8 @@ static void receive(void *ctx,const hat_packet *p){
   if(p->length==12&&!memcmp(p->payload,"SYS:LAUNCHER",12)){
    ack(p,HAT_OK);reset_pending=true;reset_at=tusb_time_millis_api();LOG("launcher exit requested");
   }else if(p->length==10&&!memcmp(p->payload,"SYS:STATUS",10))status(p);
+  else if(p->length==11&&!memcmp(p->payload,"SYS:TRACE=1",11)){tile_tracing=true;ack(p,HAT_OK);}
+  else if(p->length==11&&!memcmp(p->payload,"SYS:TRACE=0",11)){tile_tracing=false;ack(p,HAT_OK);}
   else ack(p,HAT_UNSUPPORTED);
  }else ack(p,HAT_UNSUPPORTED);
 }
@@ -108,9 +111,9 @@ void app_init(void){
 }
 void app_update(uint32_t now){
  if(!started)return;
- board_background();uint8_t buf[128];unsigned budget=512;
+ board_background();uint8_t buf[128];unsigned budget=2048;
  while(budget&&tud_cdc_n_available(0)){
-  uint32_t n=tud_cdc_n_read(0,buf,sizeof buf);if(!n)break;
+  uint32_t n=tud_cdc_n_read(0,buf,budget<sizeof buf?budget:sizeof buf);if(!n)break;
   hat_feed(&parser,buf,n,now,receive,NULL);budget-=n;
  }
  hat_parser_tick(&parser,now);

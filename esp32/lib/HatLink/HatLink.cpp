@@ -8,6 +8,9 @@
 #ifndef HAT_VBUS_ENABLE_PIN
 #define HAT_VBUS_ENABLE_PIN -1
 #endif
+#ifndef HAT_TILE_TRACE
+#define HAT_TILE_TRACE 0
+#endif
 #define LOG(fmt,...) Serial.printf("[HAT %lu] " fmt "\n",(unsigned long)millis(),##__VA_ARGS__)
 namespace {
 SemaphoreHandle_t lock,requests[3];
@@ -108,7 +111,7 @@ bool send(hat_packet &p,bool wait_ack){
  const uint32_t start_epoch=epoch.load();
  p.seq=++sequence[p.channel];
  const bool tile=p.channel==HAT_DISPLAY&&p.type==HAT_WINDOW;
- if(tile)LOG("TILE TX seq=%u x1=%u y1=%u x2=%u y2=%u payload=%u pixels_bytes=%u crc=%04X",
+ if(tile&&HAT_TILE_TRACE)LOG("TILE TX seq=%u x1=%u y1=%u x2=%u y2=%u payload=%u pixels_bytes=%u crc=%04X",
   p.seq,hat_get16(p.payload+2),hat_get16(p.payload+4),hat_get16(p.payload+6),
   hat_get16(p.payload+8),p.length,hat_get16(p.payload+10),hat_crc(p.payload+12,p.length-12));
  xSemaphoreTake(lock,portMAX_DELAY);
@@ -120,7 +123,7 @@ bool send(hat_packet &p,bool wait_ack){
   while(online&&epoch.load()==start_epoch&&(uint32_t)(millis()-start)<600){
    if(xQueueReceive(acks[p.channel],&a,pdMS_TO_TICKS(20))==pdTRUE && a.seq==p.seq &&
       a.length==2&&a.payload[0]==p.type){ok=a.payload[1]==HAT_OK;
-      if(tile)LOG("TILE ACK seq=%u x1=%u y1=%u x2=%u y2=%u payload=%u status=%u",
+      if(tile&&HAT_TILE_TRACE)LOG("TILE ACK seq=%u x1=%u y1=%u x2=%u y2=%u payload=%u status=%u",
        p.seq,hat_get16(p.payload+2),hat_get16(p.payload+4),hat_get16(p.payload+6),
        hat_get16(p.payload+8),p.length,a.payload[1]);break;}
   }
