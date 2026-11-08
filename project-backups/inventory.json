@@ -39,7 +39,7 @@
     },
     {
       "branch": "projects/rfscope",
-      "commit": "f8c8ecccce1fea52e02a8105daf4e7010de54f56",
+      "commit": "26481f1a3e965a0ecbd79bef982ca1476e0c8b47",
       "status": "Latest lab v0.2 source and exact compiled APP, SHA256 d15fae81b63fd178b0d5fbb750073554a8a390deed22cfc1c31dfdc5ca1f68ee. All source hashes match its successful ARM build receipt. Physical CC1101 tests and UI redesign remain open. Original PC RFSCOPE folder is unchanged."
     },
     {
