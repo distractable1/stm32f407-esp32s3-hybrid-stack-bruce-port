@@ -1,0 +1,425 @@
+{
+  "project_branch": "projects/hello",
+  "source_locations": [
+    "C:\\Users\\666br\\Documents\\Codex\\STM32LauncherApps\\HELLO"
+  ],
+  "captured": "2026-11-08",
+  "status": "Current managed Hello Launcher example and its compiled SD APP.",
+  "files": [
+    {
+      "path": "stm32-apps/HELLO/.cproject",
+      "bytes": 25511,
+      "sha256": "447adc1c3b1781195ef5f1899c196f1486711a8a3bb78dd7606871e7d4f57b33"
+    },
+    {
+      "path": "stm32-apps/HELLO/.project",
+      "bytes": 1149,
+      "sha256": "91875a73953938c8bed1638569974b02f23d47e4564fc61555fbf1fc8530597f"
+    },
+    {
+      "path": "stm32-apps/HELLO/launcher-app.json",
+      "bytes": 8231,
+      "sha256": "2981fa8193d06da76e3f34de4477ccfb0d255ffbbd3855999af8dd2db0501154"
+    },
+    {
+      "path": "stm32-apps/HELLO/STM32F407ZETX_FLASH.ld",
+      "bytes": 6574,
+      "sha256": "eba7f629af06cd7d305c898c705674818bfa425610315cd54521569cdb34e8d8"
+    },
+    {
+      "path": "stm32-apps/HELLO/.settings/language.settings.xml",
+      "bytes": 2168,
+      "sha256": "a5e060107c3c173969b1093017939a93970eb87e906ee9c4aec5bf1d0ea0d61f"
+    },
+    {
+      "path": "stm32-apps/HELLO/dist/HELLO.APP",
+      "bytes": 22748,
+      "sha256": "c0c00af019cf9b2b0a1205ca4b75c8e4318cd9c63d8ac26d31f97052af74a9ac"
+    },
+    {
+      "path": "stm32-apps/HELLO/Licenses/CMSIS-DSP.txt",
+      "bytes": 11558,
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    {
+      "path": "stm32-apps/HELLO/Licenses/CMSIS.txt",
+      "bytes": 11558,
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    {
+      "path": "stm32-apps/HELLO/Licenses/OriginalSynth.txt",
+      "bytes": 1085,
+      "sha256": "1c406411ccbd9be3fa801154b3625705fa129481a6b18dbeb4723b9c20bc18aa"
+    },
+    {
+      "path": "stm32-apps/HELLO/Licenses/STM32-CMSIS.txt",
+      "bytes": 9840,
+      "sha256": "f2e4f78dabd3d2d81f9a04ec5b88b00d590f8faf5270ef9658f7be2929c637e7"
+    },
+    {
+      "path": "stm32-apps/HELLO/Licenses/TinyUSB.txt",
+      "bytes": 1116,
+      "sha256": "e8a6384b2081f29305ab2c68d5eea187b8a9de61544a42f6c62fcb104516eabd"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/app.c",
+      "bytes": 2585,
+      "sha256": "bd208b68ea1f2c2c707282a3ce15940417f66e054a3ab18274b39289e9428d65"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/app.h",
+      "bytes": 1187,
+      "sha256": "d692ee9e3a1e94d89668245049fc72c942ca204ad80fa735c754ecd15d934bad"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/board_support.c",
+      "bytes": 18467,
+      "sha256": "798bd8666da3501652316af6c1d5540bc95f99a0a1ef2237ea04dd34dd27d987"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/board_support.h",
+      "bytes": 992,
+      "sha256": "0fb618f93670a30f87344078039b3807d9fcae8fcb70e4a9ac8ac73b549b62f6"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/calibration-font.h",
+      "bytes": 3938,
+      "sha256": "1d695defbd7cbe892285708e52ebcf8abc618b923fdd349d59ed3d316d5d168b"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/calibration_store.c",
+      "bytes": 3280,
+      "sha256": "f8052780abdc1d629c25051b33c7248dd938bb73072d5b8a68171455e1b05264"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/calibration_store.h",
+      "bytes": 179,
+      "sha256": "bed98e0a75ab2b1f8d1feb53422324c0ec205742eb979e3ee526815744970453"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/main.c",
+      "bytes": 2203,
+      "sha256": "39a74510d8305cfe41ecdfb0f7bcc4fe2e9c9b1934efe420dedea1f9a9479018"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/sd_diskio.c",
+      "bytes": 6813,
+      "sha256": "089e456d50f3dd964e2ec3cfe949818051e43f508ed9580e5e5e2bb23485da2e"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/syscalls.c",
+      "bytes": 2847,
+      "sha256": "b993ebb4f882e8be21cec8d95983655a0caf4f0eb11348f20f6371f5a5031717"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/sysmem.c",
+      "bytes": 2987,
+      "sha256": "147c60a13e805f62003d63f9de068b925e386de6d8844b1279620f715919c940"
+    },
+    {
+      "path": "stm32-apps/HELLO/Startup/startup_stm32f407zetx.s",
+      "bytes": 21164,
+      "sha256": "99ff9a5011aef857451c1dee938585e581eb0d33c175e19d6e870512fbf1d9f0"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/FatFs/diskio.h",
+      "bytes": 2733,
+      "sha256": "1c2b29f53e061c55d43b2e412c3a61320b2621bac7561a05e275514baa44785a"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/FatFs/ff.c",
+      "bytes": 266710,
+      "sha256": "dbeae3d7d22dbc070983e31af897fa5e43d29c726a0a240fe9589ffe2ec0ef1e"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/FatFs/ff.h",
+      "bytes": 17365,
+      "sha256": "42920ae4d6080bfc2a72d92a9969b5e94eeaff070e5e71d90da9ab6d7d8e158e"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/FatFs/ffconf.h",
+      "bytes": 12715,
+      "sha256": "08c695b82b5c4e49ef99f62f952e1ad4c93c3bf166fd69f7693bb292e15c9a2d"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cachel1_armv7.h",
+      "bytes": 13702,
+      "sha256": "b80d89aacf7389d664b25dcba61838d3c30e85757a24e958c6884d3e69c5f625"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_armcc.h",
+      "bytes": 29123,
+      "sha256": "e2b7b1cbda34424cfed74544db55e6a25d885ce3baaf6ee63d33603f24d4131b"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_armclang.h",
+      "bytes": 50161,
+      "sha256": "b7359bfa3155e6bb430e3af4246f42e29e6c3b6c889cb7b9ec4003677249317f"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_armclang_ltm.h",
+      "bytes": 58174,
+      "sha256": "cb88dfba4f942dd05f2123157abc2c9a582137104f4cd44f96f80475f22d2c52"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_compiler.h",
+      "bytes": 10568,
+      "sha256": "f13b8e9ea2b29673ca24ae05f987f23522d87e84a770e7feecf6f89f8e37b406"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_gcc.h",
+      "bytes": 65837,
+      "sha256": "c0e9ccf9f66f55a998c0e50bb1c5af89cd9bb3a7f297083fb7623b489a80c99f"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_iccarm.h",
+      "bytes": 30233,
+      "sha256": "914c75c9d1efdc33a1ea580eacd9c604aa7b8ae8ea8a9914af40e6ec834deeb6"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_tiarmclang.h",
+      "bytes": 50114,
+      "sha256": "0117b650aa16dcb85f209e5c1ca6c86fe84b19c8d2e4ef70d992617943fa594d"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/cmsis_version.h",
+      "bytes": 1719,
+      "sha256": "8cda7ac3ff6f0eb5e83c4fe613dd195151b24da54167f5c3c007e599a03f1edc"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_armv81mml.h",
+      "bytes": 281616,
+      "sha256": "17e10722698329a690850a432454611c10a9e6401d7c629c0aea23286437c67b"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_armv8mbl.h",
+      "bytes": 117388,
+      "sha256": "19a09a1ad3c3a6deea8c9f2612e0c2255747c55e7a7e4c0fe9e5b2d03f861349"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_armv8mml.h",
+      "bytes": 187196,
+      "sha256": "34c90d2ba70c92dee91d26bdd861b2b27295a7b6f0213316e5af0c9ddf14fced"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm0.h",
+      "bytes": 42754,
+      "sha256": "cac48dfc93e01e61f6d541902f9612c2afcbc56a53bcbdf85d041bc63b4343fa"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm0plus.h",
+      "bytes": 51123,
+      "sha256": "7721c53e23be58339c20f670af1baf01b9b551d974581000a17bde7991831ead"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm1.h",
+      "bytes": 43762,
+      "sha256": "a755a0be73709a78ffbb92ac7199959486ef33147d5320bb430ab432f0d50d74"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm23.h",
+      "bytes": 124010,
+      "sha256": "3d474b7bed7e4ade1675760807917dcbe5753d1c37f82ebbfbff0123da51ca7e"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm3.h",
+      "bytes": 113113,
+      "sha256": "e5310f16caf22df490279b01dd1585bd5968f1eb91d786aaf88d9631745033ff"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm33.h",
+      "bytes": 193549,
+      "sha256": "26b4307df6eaeacf78bbfc0da33fe8bae39fb4117916359616f77f70609efcaf"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm35p.h",
+      "bytes": 193564,
+      "sha256": "12229007f3bedc124b3ed23473ed74b05b4fd8021f442928af3a605406528b4c"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm4.h",
+      "bytes": 124946,
+      "sha256": "e69d7a0b3241ddd6538eca6501bb0d58cd65d1a21edb0cb24e8078e7fcb2fb7c"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm55.h",
+      "bytes": 329952,
+      "sha256": "68f0b6a0a82cbb4b3d65eb6479da11f0ce239f3b57df0de5881c56fdb9fb3d33"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm7.h",
+      "bytes": 143156,
+      "sha256": "5214f848d1f94c1b216664a08363745af026c590a4995c315dba8f850533d993"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_cm85.h",
+      "bytes": 321417,
+      "sha256": "6f40e0496ed4cd903dd0f377daf946073acea36ab4c4115a64d3d0b0405a4708"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_sc000.h",
+      "bytes": 47754,
+      "sha256": "e91d49bcfe99ee9a794b1797705ea2ef2a86037018c518de1259e54cddf5c500"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_sc300.h",
+      "bytes": 112083,
+      "sha256": "22b1c242dfe30f5afb4ebdc29dd2e4ac2cb772989d9456e6c79aa3b333d3cfad"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/core_starmc1.h",
+      "bytes": 197397,
+      "sha256": "cf4d2dae937c085a2065b7a4336627c6f01e7d778e27e2abb4fc29be51603bae"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/mpu_armv7.h",
+      "bytes": 12006,
+      "sha256": "de1b5eb9ed566527b66dc06f4ecb6a43ab6800f7dac47e87c9cb42984dca41bb"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/mpu_armv8.h",
+      "bytes": 14702,
+      "sha256": "c5de9bd79687fe7d07f3f7e5f255c2392d00317d3dd8e58330700cc092c98ed4"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/pac_armv81.h",
+      "bytes": 6268,
+      "sha256": "f3497af055e95873809e4a79420e2b08915582466cef2eb4235d8e03faa7c3ab"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/pmu_armv8.h",
+      "bytes": 23123,
+      "sha256": "ef9aa2f1c5b03bea488d4b74d33db14acdc6c87e500273d68d75a6d3902a4f62"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Core/tz_context.h",
+      "bytes": 2757,
+      "sha256": "7fcc21fc190f6fd970390e9caaa6a86d72fd10f9edf4efab36f12aecf1a8baa0"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f401xc.h",
+      "bytes": 652917,
+      "sha256": "626ce1c361255589167a8532591a2b2b60d3e35bf5c5e7a0a4750a12438f0f22"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f401xe.h",
+      "bytes": 652917,
+      "sha256": "6d77aa3f78e12ee323b3eaac758c1501eda97b879e5ade057f76cd2a0a3db25f"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f405xx.h",
+      "bytes": 1101534,
+      "sha256": "d0cf660803f2ebe5faf5b22a6e8e08e73a59ecdb028e7a61cb2c1d3b4f7133ef"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f407xx.h",
+      "bytes": 1209605,
+      "sha256": "a739cbe1262290fabc02d1d6cbc531b0b749ab59397f7d963c47aea8f5f954ac"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f410cx.h",
+      "bytes": 539816,
+      "sha256": "8f0265920f95e7524dd8e19fbd15610ab43d9d9a0191078dae44539ad4e366f5"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f410rx.h",
+      "bytes": 540094,
+      "sha256": "415afa45a9723d91779a4a7a9ce6ae502dbb93ad0ea101a1d37ac585eff1bfc7"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f410tx.h",
+      "bytes": 536079,
+      "sha256": "7056bb560e3d81341de67fa9fb2388c50e1dc0e420e30a7dc41bff7215e3205b"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f411xe.h",
+      "bytes": 656125,
+      "sha256": "5ab48e624c1717ae8823ed8f857e186f23734d4af5a1953048b52f1f73074009"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f412cx.h",
+      "bytes": 1039665,
+      "sha256": "f95a9171576fd508b759fc7d949153e9a3eb07b339977243524652390b4c1881"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f412rx.h",
+      "bytes": 1120405,
+      "sha256": "c3a490a0f519b53ce0a160df89a2cd6e87f9fd2a04618e89b2cff3adcea101aa"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f412vx.h",
+      "bytes": 1121251,
+      "sha256": "b98fa96961b4f9b87bd689c8a982a62abef60a74b8c3a1fd489a174261bc5caa"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f412zx.h",
+      "bytes": 1123015,
+      "sha256": "60d88e0e3926829e8848016de7de5e097914f79ec9d22cdae2a7e3a88f6d3b8a"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f413xx.h",
+      "bytes": 1197246,
+      "sha256": "110a433bb8da8c676b09638bfbf54c0dacc97c425ba6b82f19c452a345b575df"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f415xx.h",
+      "bytes": 1121926,
+      "sha256": "84e9c856802f1a40f7a8f3bb19696baa8596e60e7f7294552ee6bde5e8db1528"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f417xx.h",
+      "bytes": 1229668,
+      "sha256": "d62427c223d69c06eff42a47cf2b0e750447d7006bf8a3d29751235127ad2560"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f423xx.h",
+      "bytes": 1208256,
+      "sha256": "e59f1731498bd3b7613f577d0f77170a6e6cbf96b69454db7389d66c561e7652"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f427xx.h",
+      "bytes": 1302961,
+      "sha256": "8342bb0d06508a87df55adf491d81e2dbe9d9cfd38731831e3853a30b811c42b"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f429xx.h",
+      "bytes": 1328668,
+      "sha256": "b67d34e8365eef2327f535ff44bea1e5e7d126553abef740657c74fedcaf72c1"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f437xx.h",
+      "bytes": 1324627,
+      "sha256": "b29539c58069331570d12eeae1e366a137270aec911d91949b56fc483d87dce5"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f439xx.h",
+      "bytes": 1349662,
+      "sha256": "73330572d8c4e6324070f1612a819719638627bfbd00ffd4f5c15ad1b7a852ff"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f446xx.h",
+      "bytes": 1232185,
+      "sha256": "55e1b2a7cd38541dcb8a46b589b378d3c967bfc652d9b3fdafda1cda990bcfdb"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f469xx.h",
+      "bytes": 1554280,
+      "sha256": "088f2cf4836d260ea004058d5f23fbde9c3353f01bc6e0ee6d3bc1b24a8dbc67"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f479xx.h",
+      "bytes": 1575468,
+      "sha256": "ee0050524248535017c35589a187b27e569bd3e5ac1ddd9ec04bc48979dd8587"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/stm32f4xx.h",
+      "bytes": 12229,
+      "sha256": "fbce462cc1c35dca569d04b95042862ae00590c26286c3aafc8cd4a76fdff6b1"
+    },
+    {
+      "path": "stm32-apps/HELLO/Src/CMSIS/Device/system_stm32f4xx.h",
+      "bytes": 2318,
+      "sha256": "6ba46a957d0c32196d03304b981db5be8c3969d41953a53a364ca861085277d1"
+    }
+  ]
+}
