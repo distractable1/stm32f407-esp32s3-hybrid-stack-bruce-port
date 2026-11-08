@@ -1,0 +1,57 @@
+{
+  "captured": "2026-11-08",
+  "repository": "distractable1/stm32f407-esp32s3-hybrid-stack-bruce-port",
+  "projects": [
+    {
+      "branch": "projects/launcher",
+      "commit": "bdd5ee90f2c4e3ff6291789d5635068b51fda528",
+      "status": "Recovered T100 launcher source, board SDK and original launcher/SD releases. Existing build artifacts are preserved; no new firmware build or board flash was performed."
+    },
+    {
+      "branch": "projects/launcher-sdk",
+      "commit": "a9b2bdf5d67728381710a53504ff6b5552e95689",
+      "status": "App factory, packaging tools, MCP plugin, template, docs and tests. Output and installed marketplace SDK core script hashes match. Machine-specific paths remain in original plugin config; adapt them on another PC."
+    },
+    {
+      "branch": "projects/synth",
+      "commit": "f085fac755da1b83bbb16b2e0dbaf01d2db51f1e",
+      "status": "Standalone and launcher synth sources, Windows companion and original compiled artifacts. No new hardware validation."
+    },
+    {
+      "branch": "projects/touch",
+      "commit": "fb9eb340f87ef4446fe5c6de115e8c575f688919",
+      "status": "Launcher touch app source and original probe/calibration tools. These diagnostic raw images have different flash layouts; this backup does not authorize flashing them."
+    },
+    {
+      "branch": "projects/multi",
+      "commit": "5f5e1815401d6096b273d4e647daa51120178f2c",
+      "status": "Latest touchpad multi-tool source and SD APP. app.c matches the newest saved multi-tool-touchpad source archive."
+    },
+    {
+      "branch": "projects/hello",
+      "commit": "b9c53d7b0de3bcb1557c4b89f50a2853da825092",
+      "status": "Current managed Hello Launcher example and its compiled SD APP."
+    },
+    {
+      "branch": "projects/nrf-workbench",
+      "commit": "c8b66590123e2b5f8e78a615dc4f837ae405b289",
+      "status": "Historical standalone nRF workbench source archive and compiled BIN/ELF. Archive has only 19 entries and is not a complete standalone SDK; retain the launcher SDK/CMSIS sources too."
+    },
+    {
+      "branch": "projects/rfscope",
+      "commit": "f8c8ecccce1fea52e02a8105daf4e7010de54f56",
+      "status": "Latest lab v0.2 source and exact compiled APP, SHA256 d15fae81b63fd178b0d5fbb750073554a8a390deed22cfc1c31dfdc5ca1f68ee. All source hashes match its successful ARM build receipt. Physical CC1101 tests and UI redesign remain open. Original PC RFSCOPE folder is unchanged."
+    },
+    {
+      "branch": "projects/usbhat",
+      "commit": "c61ccfe52ec8422b4e8755c3ba6e7ab90cb86b42",
+      "status": "Existing USBHAT/Bruce repository snapshot including committed source and dist artifacts; no claim about unavailable PC-only edits."
+    },
+    {
+      "branch": "projects/bruce-esp32",
+      "commit": "c61ccfe52ec8422b4e8755c3ba6e7ab90cb86b42",
+      "status": "Existing USBHAT/Bruce repository snapshot including committed source and dist artifacts; no claim about unavailable PC-only edits."
+    }
+  ],
+  "scope": "Recovered STM32/T100 launcher ecosystem from accessible Codex session folders and current GitHub USBHAT/Bruce baseline."
+}
