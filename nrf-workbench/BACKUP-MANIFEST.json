@@ -1,0 +1,120 @@
+{
+  "project_branch": "projects/nrf-workbench",
+  "source_locations": [
+    "C:\\Users\\666br\\Documents\\Codex\\2026-11-06\\plugin-creator-plugin-plugin-connector-1p-2\\outputs\\nrf-workbench-source.zip"
+  ],
+  "captured": "2026-11-08",
+  "status": "Historical standalone nRF workbench source archive and compiled BIN/ELF. Archive has only 19 entries and is not a complete standalone SDK; retain the launcher SDK/CMSIS sources too.",
+  "files": [
+    {
+      "path": "nrf-workbench/releases/nrf-workbench-source.zip",
+      "bytes": 102128,
+      "sha256": "e8eeba421cee73c771c96711c29a158666212a1f887ce107dd68ceaa55b0c3db"
+    },
+    {
+      "path": "nrf-workbench/releases/nrf-workbench.bin",
+      "bytes": 41508,
+      "sha256": "a3d2f7a9f329e903aa3208b909c0a458ca8682c4d8904547a3cad6e437e2e4d3"
+    },
+    {
+      "path": "nrf-workbench/releases/nrf-workbench.elf",
+      "bytes": 210540,
+      "sha256": "4f5c53b8e351de9f42780edc9a5c91f523b82da2dfe1059adc380d38522ad0a3"
+    },
+    {
+      "path": "nrf-workbench/source/.cproject",
+      "bytes": 24409,
+      "sha256": "eda9a2b83e019f7c3d9353e4d66fa352f9fe4f7b3acb2f76ee72466e9a2c4860"
+    },
+    {
+      "path": "nrf-workbench/source/.project",
+      "bytes": 1146,
+      "sha256": "39a5af1b950270586d7d4059dd2625333e03055d2d6634e2b750a3f9a7e60025"
+    },
+    {
+      "path": "nrf-workbench/source/STM32F407ZETX_FLASH.ld",
+      "bytes": 5867,
+      "sha256": "62b3d8f4f87809362d37c6792cab6e116907436240c17f32b72db29625ce7fa0"
+    },
+    {
+      "path": "nrf-workbench/source/STM32F407ZETX_RAM.ld",
+      "bytes": 5856,
+      "sha256": "8eb6a0a23357275168bce83afc225cf0b38ae8edc8bebc653d44f55b62882cd0"
+    },
+    {
+      "path": "nrf-workbench/source/.settings/language.settings.xml",
+      "bytes": 2168,
+      "sha256": "ed49b7fec8c1e9168b8e048977553aad1b86f8e7d83e0c51e216673098128ea8"
+    },
+    {
+      "path": "nrf-workbench/source/.settings/org.eclipse.core.resources.prefs",
+      "bytes": 57,
+      "sha256": "1a5b17d8a429f89e30d0d5fc6e12e81d37ea8f6f3f4a206383f4af8564292ac0"
+    },
+    {
+      "path": "nrf-workbench/source/Src/calibration-font.h",
+      "bytes": 3938,
+      "sha256": "1d695defbd7cbe892285708e52ebcf8abc618b923fdd349d59ed3d316d5d168b"
+    },
+    {
+      "path": "nrf-workbench/source/Src/main.c",
+      "bytes": 12204,
+      "sha256": "4cec4975795e8a36374f06f99e0b8a2a35422d223ca9f399b815d46aaafab80c"
+    },
+    {
+      "path": "nrf-workbench/source/Src/nrf_radio.c",
+      "bytes": 4803,
+      "sha256": "932a4079905bdb0c9cea0f04ae539d1229e944d9a26b7cc504f06d2ee15d9d81"
+    },
+    {
+      "path": "nrf-workbench/source/Src/nrf_radio.h",
+      "bytes": 666,
+      "sha256": "d34acf8aa1efee1d96f847a2641639d292fed4f54d9fa2d246428d687536dec1"
+    },
+    {
+      "path": "nrf-workbench/source/Src/radio_ui.inc",
+      "bytes": 20011,
+      "sha256": "98ed4639bddc153eab8053fd52a983570a1177701d75d0a3788ebfaff984a9ed"
+    },
+    {
+      "path": "nrf-workbench/source/Src/sd_diskio.c",
+      "bytes": 6098,
+      "sha256": "7658c68aac0c3e8033eb1e19b3216c21b48b3a68c47f241e90df6538c757fa72"
+    },
+    {
+      "path": "nrf-workbench/source/Src/syscalls.c",
+      "bytes": 2847,
+      "sha256": "b993ebb4f882e8be21cec8d95983655a0caf4f0eb11348f20f6371f5a5031717"
+    },
+    {
+      "path": "nrf-workbench/source/Src/sysmem.c",
+      "bytes": 2987,
+      "sha256": "147c60a13e805f62003d63f9de068b925e386de6d8844b1279620f715919c940"
+    },
+    {
+      "path": "nrf-workbench/source/Startup/startup_stm32f407zetx.s",
+      "bytes": 20369,
+      "sha256": "ce756729481aec4ea4309b93d117e8ca88345a5cce58161fa1a662a397360c4b"
+    },
+    {
+      "path": "nrf-workbench/source/Src/FatFs/diskio.h",
+      "bytes": 2733,
+      "sha256": "1c2b29f53e061c55d43b2e412c3a61320b2621bac7561a05e275514baa44785a"
+    },
+    {
+      "path": "nrf-workbench/source/Src/FatFs/ff.c",
+      "bytes": 266710,
+      "sha256": "dbeae3d7d22dbc070983e31af897fa5e43d29c726a0a240fe9589ffe2ec0ef1e"
+    },
+    {
+      "path": "nrf-workbench/source/Src/FatFs/ff.h",
+      "bytes": 17365,
+      "sha256": "42920ae4d6080bfc2a72d92a9969b5e94eeaff070e5e71d90da9ab6d7d8e158e"
+    },
+    {
+      "path": "nrf-workbench/source/Src/FatFs/ffconf.h",
+      "bytes": 12715,
+      "sha256": "08c695b82b5c4e49ef99f62f952e1ad4c93c3bf166fd69f7693bb292e15c9a2d"
+    }
+  ]
+}
