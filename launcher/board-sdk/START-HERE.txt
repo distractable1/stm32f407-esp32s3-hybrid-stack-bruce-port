@@ -1,0 +1,31 @@
+STM32 T100 SD APP LAUNCHER
+
+The initial combined firmware includes the launcher and the working USB synth.
+Normal jumpers: BT0 to GND, BT1 removed. Connect USB-Slave for synth audio/MIDI.
+The launcher itself is not a USB storage device.
+
+Tap RUN USB Synth to start the preinstalled synth, including without an SD card.
+The display/touch/SD configuration and calibration are handed to the app.
+Hold WK_UP for 1.5 seconds in an app to return to the launcher.
+Touch Test also has an on-screen MENU button.
+
+Copy the APPS folder from this package to the root of the FAT32 SD card using
+a card reader. Preserve the existing SYNTH folder containing calibration.
+Tap SCAN, select an app, then INSTALL. It is checked, installed, verified and
+started. Selecting an already installed identical package skips programming.
+The RUN button starts the installed app without rewriting flash.
+
+APPS/SYNTH.APP is the USB synth.
+APPS/TOUCH.APP is a small touch test for checking app switching and inheritance.
+
+Keep power connected during installation. If it is interrupted, restart into
+the launcher and reinstall an app from SD. The previous app may be replaced,
+but the installer confines its erase/program operations to the app slot.
+The factory ROM DFU bootloader remains available through the boot jumpers.
+
+Only apps built for this T100 profile, launcher ABI and flash address are valid.
+Ordinary existing BIN files must be rebuilt and packaged before use.
+One app is installed at a time. The SD card stores the rest of the library.
+
+The synth's current recorder still holds 0.5 second in RAM. Larger SD-backed
+audio samples and data-driven presets can be added inside the synth app later.
