@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "stm32-launcher-dev": {
+      "type": "stdio",
+      "command": "C:\\Users\\666br\\Documents\\Codex\\2026-11-06\\plugin-creator-plugin-plugin-connector-1p-3\\work\\stm32-venv\\Scripts\\python.exe",
+      "args": [
+        "${PLUGIN_ROOT}/server.py"
+      ],
+      "env": {
+        "STM32_LAUNCHER_APPS": "C:\\Users\\666br\\Documents\\Codex\\STM32LauncherApps"
+      }
+    }
+  }
+}

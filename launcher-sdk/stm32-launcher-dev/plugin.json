@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "stm32-launcher-dev",
+  "version": "0.1.0",
+  "description": "Create, build and package compatible apps for the T100 STM32 SD launcher.",
+  "author": {
+    "name": "Local STM32 Tools"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "STM32 Launcher Dev",
+        "shortDescription": "Build compatible SD apps",
+        "longDescription": "Scaffold apps from the tested board template, preserve the touchscreen and SD handoff, check memory layout, and package verified builds for the launcher.",
+        "developerName": "Local STM32 Tools",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "defaultPrompt": "Create a compatible app for my STM32 SD launcher."
+      }
+    }
+  }
+}
