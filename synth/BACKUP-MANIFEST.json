@@ -1,0 +1,2817 @@
+{
+  "project_branch": "projects/synth",
+  "source_locations": [
+    "C:\\Users\\666br\\Documents\\Codex\\2026-11-06\\plugin-creator-plugin-plugin-connector-1p-2\\outputs\\synth-project",
+    "C:\\Users\\666br\\Documents\\Codex\\2026-11-06\\plugin-creator-plugin-plugin-connector-1p-2\\outputs\\synth-launcher-app",
+    "C:\\Users\\666br\\Documents\\Codex\\2026-11-06\\plugin-creator-plugin-plugin-connector-1p-2\\outputs\\synth-companion-windows"
+  ],
+  "captured": "2026-11-08",
+  "status": "Standalone and launcher synth sources, Windows companion and original compiled artifacts. No new hardware validation.",
+  "files": [
+    {
+      "path": "synth/launcher-app/.cproject",
+      "bytes": 25527,
+      "sha256": "a57ded540254604a02e4ec1fd40d1938ac188fc1f999d840130cc43eed3d60aa"
+    },
+    {
+      "path": "synth/launcher-app/.project",
+      "bytes": 1153,
+      "sha256": "67a8fa6148fc638740556cd4bb2ce4c6d90789f371331ed723b22304f9143a7c"
+    },
+    {
+      "path": "synth/launcher-app/STM32F407ZETX_FLASH.ld",
+      "bytes": 6574,
+      "sha256": "eba7f629af06cd7d305c898c705674818bfa425610315cd54521569cdb34e8d8"
+    },
+    {
+      "path": "synth/releases/stm32-synth-launcher-app.bin",
+      "bytes": 57888,
+      "sha256": "36f82bc98294fa2ad46d8f7bbb0d9cd0db36037368e1338c97412418c927c537"
+    },
+    {
+      "path": "synth/releases/stm32-usb-synth.bin",
+      "bytes": 55944,
+      "sha256": "1f7b5fbc7b00e27a140a758c9639514ed39cc4188d3ff0f67865dd42737fb05a"
+    },
+    {
+      "path": "synth/releases/synth-companion-windows.zip",
+      "bytes": 218720,
+      "sha256": "b6fc4c012f98a6bf885e3637ad4f890adff18190f2d44a68024aa6625f530bac"
+    },
+    {
+      "path": "synth/releases/synth-project-source.zip",
+      "bytes": 4656022,
+      "sha256": "46db83047f5a05cc8836573d59c33a9d78798f38e5a4462ec8063764cc113aed"
+    },
+    {
+      "path": "synth/releases/synth-test-tones.wav",
+      "bytes": 46124,
+      "sha256": "f8e6282a8e93b5e2767d44333ea1319f6dea025c28be23388f04f620623aa02c"
+    },
+    {
+      "path": "synth/releases/SYNTH.APP",
+      "bytes": 57952,
+      "sha256": "f801cf62a495b2c49d8bf71747d0521350e98acec9030eb1e034dc68796d3126"
+    },
+    {
+      "path": "synth/standalone/.cproject",
+      "bytes": 25527,
+      "sha256": "222be790b7e738fba0126522aa171d7a3d285cdc99f01a9b6dfe5151134f7407"
+    },
+    {
+      "path": "synth/standalone/.project",
+      "bytes": 1153,
+      "sha256": "fc2e8d37e1fef2a1c5ac5851de7e2624f68606675d13cfd3501d1bdf8066915d"
+    },
+    {
+      "path": "synth/standalone/README.md",
+      "bytes": 2908,
+      "sha256": "43f45e026f8d12eae218ac55ef09623dbce66b4a623c1a410f7b00b242f5985c"
+    },
+    {
+      "path": "synth/standalone/STM32F407ZETX_FLASH.ld",
+      "bytes": 6076,
+      "sha256": "d266b219fdd402ae793286efa12a8b60f4a785dafe4791e5d837582656312401"
+    },
+    {
+      "path": "synth/standalone/STM32F407ZETX_RAM.ld",
+      "bytes": 6065,
+      "sha256": "1750dc4bf6b0d61b467d83f910c8cec27e0780524ef089ef98a33340650963f5"
+    },
+    {
+      "path": "synth/launcher-app/.settings/language.settings.xml",
+      "bytes": 2168,
+      "sha256": "1ad97e2828a7b2794f9de3801b3d70672368c4069af13dbd9964b61bcf6434a1"
+    },
+    {
+      "path": "synth/launcher-app/Licenses/CMSIS-DSP.txt",
+      "bytes": 11558,
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    {
+      "path": "synth/launcher-app/Licenses/CMSIS.txt",
+      "bytes": 11558,
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    {
+      "path": "synth/launcher-app/Licenses/OriginalSynth.txt",
+      "bytes": 1085,
+      "sha256": "1c406411ccbd9be3fa801154b3625705fa129481a6b18dbeb4723b9c20bc18aa"
+    },
+    {
+      "path": "synth/launcher-app/Licenses/STM32-CMSIS.txt",
+      "bytes": 9840,
+      "sha256": "f2e4f78dabd3d2d81f9a04ec5b88b00d590f8faf5270ef9658f7be2929c637e7"
+    },
+    {
+      "path": "synth/launcher-app/Licenses/TinyUSB.txt",
+      "bytes": 1116,
+      "sha256": "e8a6384b2081f29305ab2c68d5eea187b8a9de61544a42f6c62fcb104516eabd"
+    },
+    {
+      "path": "synth/launcher-app/Src/board_support.c",
+      "bytes": 18467,
+      "sha256": "798bd8666da3501652316af6c1d5540bc95f99a0a1ef2237ea04dd34dd27d987"
+    },
+    {
+      "path": "synth/launcher-app/Src/board_support.h",
+      "bytes": 992,
+      "sha256": "0fb618f93670a30f87344078039b3807d9fcae8fcb70e4a9ac8ac73b549b62f6"
+    },
+    {
+      "path": "synth/launcher-app/Src/calibration-font.h",
+      "bytes": 3938,
+      "sha256": "1d695defbd7cbe892285708e52ebcf8abc618b923fdd349d59ed3d316d5d168b"
+    },
+    {
+      "path": "synth/launcher-app/Src/calibration_store.c",
+      "bytes": 3280,
+      "sha256": "f8052780abdc1d629c25051b33c7248dd938bb73072d5b8a68171455e1b05264"
+    },
+    {
+      "path": "synth/launcher-app/Src/calibration_store.h",
+      "bytes": 179,
+      "sha256": "bed98e0a75ab2b1f8d1feb53422324c0ec205742eb979e3ee526815744970453"
+    },
+    {
+      "path": "synth/launcher-app/Src/main.c",
+      "bytes": 5145,
+      "sha256": "0383bcc3de65fc47b1a13a0373313906f83ebd35c8d8805874c765cf0963ba96"
+    },
+    {
+      "path": "synth/launcher-app/Src/sd_diskio.c",
+      "bytes": 6813,
+      "sha256": "089e456d50f3dd964e2ec3cfe949818051e43f508ed9580e5e5e2bb23485da2e"
+    },
+    {
+      "path": "synth/launcher-app/Src/synth_usb.c",
+      "bytes": 7068,
+      "sha256": "d65d2a2e43b9c78fe27d0d9b1641385e65c3a264a08b499800b04e43a4c624fb"
+    },
+    {
+      "path": "synth/launcher-app/Src/synth_usb.h",
+      "bytes": 773,
+      "sha256": "efe734859945a98bc0d0e98df6e2ab8d4b60c99d60fac4bddbda1d85d54f965f"
+    },
+    {
+      "path": "synth/launcher-app/Src/syscalls.c",
+      "bytes": 2847,
+      "sha256": "b993ebb4f882e8be21cec8d95983655a0caf4f0eb11348f20f6371f5a5031717"
+    },
+    {
+      "path": "synth/launcher-app/Src/sysmem.c",
+      "bytes": 2987,
+      "sha256": "147c60a13e805f62003d63f9de068b925e386de6d8844b1279620f715919c940"
+    },
+    {
+      "path": "synth/launcher-app/Src/tusb_config.h",
+      "bytes": 1249,
+      "sha256": "fee2e2df4816b5450be27e3957b8d782ff184e6dec12b4990e923ac38ef9a4e8"
+    },
+    {
+      "path": "synth/launcher-app/Src/usb_descriptors.c",
+      "bytes": 2701,
+      "sha256": "0197f5418b1b13da07a0af4d03f224bc05a0547967e494d883b0f521ce549b41"
+    },
+    {
+      "path": "synth/launcher-app/Startup/startup_stm32f407zetx.s",
+      "bytes": 21164,
+      "sha256": "99ff9a5011aef857451c1dee938585e581eb0d33c175e19d6e870512fbf1d9f0"
+    },
+    {
+      "path": "synth/launcher-app/Src/Engine/elementary_wave.c",
+      "bytes": 20561,
+      "sha256": "e77ea367e71bf529d5b53648b3bcd5fe2e4af475e5108495f30a623c8cd85b59"
+    },
+    {
+      "path": "synth/launcher-app/Src/Engine/elementary_wave.h",
+      "bytes": 2101,
+      "sha256": "638480fa67be10fe20e155ebcfda118dcd3c1761c2903f0dfe0aa7fae6b85718"
+    },
+    {
+      "path": "synth/launcher-app/Src/Engine/engine_usb.c",
+      "bytes": 2274,
+      "sha256": "79f0577a46cd0d33f3b4cbb1304869447cb3afdbc64430cbb5e895f4df0706b4"
+    },
+    {
+      "path": "synth/launcher-app/Src/Engine/engine_usb.h",
+      "bytes": 347,
+      "sha256": "ee0d82b9539eb6a5b4eb4a68dccae63d54b0e2f9f0ae9d41e7b2a84d6ee2d16d"
+    },
+    {
+      "path": "synth/launcher-app/Src/Engine/synthesizer_parameters.h",
+      "bytes": 5946,
+      "sha256": "22ee5bc531b869cb1dc8347f23d5c40996226e82be94864dac89fd5437373e4c"
+    },
+    {
+      "path": "synth/launcher-app/Src/FatFs/diskio.h",
+      "bytes": 2733,
+      "sha256": "1c2b29f53e061c55d43b2e412c3a61320b2621bac7561a05e275514baa44785a"
+    },
+    {
+      "path": "synth/launcher-app/Src/FatFs/ff.c",
+      "bytes": 266710,
+      "sha256": "dbeae3d7d22dbc070983e31af897fa5e43d29c726a0a240fe9589ffe2ec0ef1e"
+    },
+    {
+      "path": "synth/launcher-app/Src/FatFs/ff.h",
+      "bytes": 17365,
+      "sha256": "42920ae4d6080bfc2a72d92a9969b5e94eeaff070e5e71d90da9ab6d7d8e158e"
+    },
+    {
+      "path": "synth/launcher-app/Src/FatFs/ffconf.h",
+      "bytes": 12715,
+      "sha256": "08c695b82b5c4e49ef99f62f952e1ad4c93c3bf166fd69f7693bb292e15c9a2d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/tusb.c",
+      "bytes": 26821,
+      "sha256": "6f6db5181ae20a095ef75e4a80f101f7472d56afe1eb40493a3f85c2d9e51a37"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/tusb.h",
+      "bytes": 4152,
+      "sha256": "04e8b6de95ff380ef8e6f8bc85b1ee8547c3c6b72b502fb1f9f7c6126f679fe0"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/tusb_option.h",
+      "bytes": 35344,
+      "sha256": "ba8cc4ff052ae52704c98cce9520f16e94ad16af5b16d75604f87c2011c67fee"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cachel1_armv7.h",
+      "bytes": 13702,
+      "sha256": "b80d89aacf7389d664b25dcba61838d3c30e85757a24e958c6884d3e69c5f625"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_armcc.h",
+      "bytes": 29123,
+      "sha256": "e2b7b1cbda34424cfed74544db55e6a25d885ce3baaf6ee63d33603f24d4131b"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_armclang.h",
+      "bytes": 50161,
+      "sha256": "b7359bfa3155e6bb430e3af4246f42e29e6c3b6c889cb7b9ec4003677249317f"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_armclang_ltm.h",
+      "bytes": 58174,
+      "sha256": "cb88dfba4f942dd05f2123157abc2c9a582137104f4cd44f96f80475f22d2c52"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_compiler.h",
+      "bytes": 10568,
+      "sha256": "f13b8e9ea2b29673ca24ae05f987f23522d87e84a770e7feecf6f89f8e37b406"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_gcc.h",
+      "bytes": 65837,
+      "sha256": "c0e9ccf9f66f55a998c0e50bb1c5af89cd9bb3a7f297083fb7623b489a80c99f"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_iccarm.h",
+      "bytes": 30233,
+      "sha256": "914c75c9d1efdc33a1ea580eacd9c604aa7b8ae8ea8a9914af40e6ec834deeb6"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_tiarmclang.h",
+      "bytes": 50114,
+      "sha256": "0117b650aa16dcb85f209e5c1ca6c86fe84b19c8d2e4ef70d992617943fa594d"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/cmsis_version.h",
+      "bytes": 1719,
+      "sha256": "8cda7ac3ff6f0eb5e83c4fe613dd195151b24da54167f5c3c007e599a03f1edc"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_armv81mml.h",
+      "bytes": 281616,
+      "sha256": "17e10722698329a690850a432454611c10a9e6401d7c629c0aea23286437c67b"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_armv8mbl.h",
+      "bytes": 117388,
+      "sha256": "19a09a1ad3c3a6deea8c9f2612e0c2255747c55e7a7e4c0fe9e5b2d03f861349"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_armv8mml.h",
+      "bytes": 187196,
+      "sha256": "34c90d2ba70c92dee91d26bdd861b2b27295a7b6f0213316e5af0c9ddf14fced"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm0.h",
+      "bytes": 42754,
+      "sha256": "cac48dfc93e01e61f6d541902f9612c2afcbc56a53bcbdf85d041bc63b4343fa"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm0plus.h",
+      "bytes": 51123,
+      "sha256": "7721c53e23be58339c20f670af1baf01b9b551d974581000a17bde7991831ead"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm1.h",
+      "bytes": 43762,
+      "sha256": "a755a0be73709a78ffbb92ac7199959486ef33147d5320bb430ab432f0d50d74"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm23.h",
+      "bytes": 124010,
+      "sha256": "3d474b7bed7e4ade1675760807917dcbe5753d1c37f82ebbfbff0123da51ca7e"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm3.h",
+      "bytes": 113113,
+      "sha256": "e5310f16caf22df490279b01dd1585bd5968f1eb91d786aaf88d9631745033ff"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm33.h",
+      "bytes": 193549,
+      "sha256": "26b4307df6eaeacf78bbfc0da33fe8bae39fb4117916359616f77f70609efcaf"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm35p.h",
+      "bytes": 193564,
+      "sha256": "12229007f3bedc124b3ed23473ed74b05b4fd8021f442928af3a605406528b4c"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm4.h",
+      "bytes": 124946,
+      "sha256": "e69d7a0b3241ddd6538eca6501bb0d58cd65d1a21edb0cb24e8078e7fcb2fb7c"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm55.h",
+      "bytes": 329952,
+      "sha256": "68f0b6a0a82cbb4b3d65eb6479da11f0ce239f3b57df0de5881c56fdb9fb3d33"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm7.h",
+      "bytes": 143156,
+      "sha256": "5214f848d1f94c1b216664a08363745af026c590a4995c315dba8f850533d993"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_cm85.h",
+      "bytes": 321417,
+      "sha256": "6f40e0496ed4cd903dd0f377daf946073acea36ab4c4115a64d3d0b0405a4708"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_sc000.h",
+      "bytes": 47754,
+      "sha256": "e91d49bcfe99ee9a794b1797705ea2ef2a86037018c518de1259e54cddf5c500"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_sc300.h",
+      "bytes": 112083,
+      "sha256": "22b1c242dfe30f5afb4ebdc29dd2e4ac2cb772989d9456e6c79aa3b333d3cfad"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/core_starmc1.h",
+      "bytes": 197397,
+      "sha256": "cf4d2dae937c085a2065b7a4336627c6f01e7d778e27e2abb4fc29be51603bae"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/mpu_armv7.h",
+      "bytes": 12006,
+      "sha256": "de1b5eb9ed566527b66dc06f4ecb6a43ab6800f7dac47e87c9cb42984dca41bb"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/mpu_armv8.h",
+      "bytes": 14702,
+      "sha256": "c5de9bd79687fe7d07f3f7e5f255c2392d00317d3dd8e58330700cc092c98ed4"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/pac_armv81.h",
+      "bytes": 6268,
+      "sha256": "f3497af055e95873809e4a79420e2b08915582466cef2eb4235d8e03faa7c3ab"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/pmu_armv8.h",
+      "bytes": 23123,
+      "sha256": "ef9aa2f1c5b03bea488d4b74d33db14acdc6c87e500273d68d75a6d3902a4f62"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Core/tz_context.h",
+      "bytes": 2757,
+      "sha256": "7fcc21fc190f6fd970390e9caaa6a86d72fd10f9edf4efab36f12aecf1a8baa0"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f401xc.h",
+      "bytes": 652917,
+      "sha256": "626ce1c361255589167a8532591a2b2b60d3e35bf5c5e7a0a4750a12438f0f22"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f401xe.h",
+      "bytes": 652917,
+      "sha256": "6d77aa3f78e12ee323b3eaac758c1501eda97b879e5ade057f76cd2a0a3db25f"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f405xx.h",
+      "bytes": 1101534,
+      "sha256": "d0cf660803f2ebe5faf5b22a6e8e08e73a59ecdb028e7a61cb2c1d3b4f7133ef"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f407xx.h",
+      "bytes": 1209605,
+      "sha256": "a739cbe1262290fabc02d1d6cbc531b0b749ab59397f7d963c47aea8f5f954ac"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f410cx.h",
+      "bytes": 539816,
+      "sha256": "8f0265920f95e7524dd8e19fbd15610ab43d9d9a0191078dae44539ad4e366f5"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f410rx.h",
+      "bytes": 540094,
+      "sha256": "415afa45a9723d91779a4a7a9ce6ae502dbb93ad0ea101a1d37ac585eff1bfc7"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f410tx.h",
+      "bytes": 536079,
+      "sha256": "7056bb560e3d81341de67fa9fb2388c50e1dc0e420e30a7dc41bff7215e3205b"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f411xe.h",
+      "bytes": 656125,
+      "sha256": "5ab48e624c1717ae8823ed8f857e186f23734d4af5a1953048b52f1f73074009"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f412cx.h",
+      "bytes": 1039665,
+      "sha256": "f95a9171576fd508b759fc7d949153e9a3eb07b339977243524652390b4c1881"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f412rx.h",
+      "bytes": 1120405,
+      "sha256": "c3a490a0f519b53ce0a160df89a2cd6e87f9fd2a04618e89b2cff3adcea101aa"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f412vx.h",
+      "bytes": 1121251,
+      "sha256": "b98fa96961b4f9b87bd689c8a982a62abef60a74b8c3a1fd489a174261bc5caa"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f412zx.h",
+      "bytes": 1123015,
+      "sha256": "60d88e0e3926829e8848016de7de5e097914f79ec9d22cdae2a7e3a88f6d3b8a"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f413xx.h",
+      "bytes": 1197246,
+      "sha256": "110a433bb8da8c676b09638bfbf54c0dacc97c425ba6b82f19c452a345b575df"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f415xx.h",
+      "bytes": 1121926,
+      "sha256": "84e9c856802f1a40f7a8f3bb19696baa8596e60e7f7294552ee6bde5e8db1528"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f417xx.h",
+      "bytes": 1229668,
+      "sha256": "d62427c223d69c06eff42a47cf2b0e750447d7006bf8a3d29751235127ad2560"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f423xx.h",
+      "bytes": 1208256,
+      "sha256": "e59f1731498bd3b7613f577d0f77170a6e6cbf96b69454db7389d66c561e7652"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f427xx.h",
+      "bytes": 1302961,
+      "sha256": "8342bb0d06508a87df55adf491d81e2dbe9d9cfd38731831e3853a30b811c42b"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f429xx.h",
+      "bytes": 1328668,
+      "sha256": "b67d34e8365eef2327f535ff44bea1e5e7d126553abef740657c74fedcaf72c1"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f437xx.h",
+      "bytes": 1324627,
+      "sha256": "b29539c58069331570d12eeae1e366a137270aec911d91949b56fc483d87dce5"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f439xx.h",
+      "bytes": 1349662,
+      "sha256": "73330572d8c4e6324070f1612a819719638627bfbd00ffd4f5c15ad1b7a852ff"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f446xx.h",
+      "bytes": 1232185,
+      "sha256": "55e1b2a7cd38541dcb8a46b589b378d3c967bfc652d9b3fdafda1cda990bcfdb"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f469xx.h",
+      "bytes": 1554280,
+      "sha256": "088f2cf4836d260ea004058d5f23fbde9c3353f01bc6e0ee6d3bc1b24a8dbc67"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f479xx.h",
+      "bytes": 1575468,
+      "sha256": "ee0050524248535017c35589a187b27e569bd3e5ac1ddd9ec04bc48979dd8587"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/stm32f4xx.h",
+      "bytes": 12229,
+      "sha256": "fbce462cc1c35dca569d04b95042862ae00590c26286c3aafc8cd4a76fdff6b1"
+    },
+    {
+      "path": "synth/launcher-app/Src/CMSIS/Device/system_stm32f4xx.h",
+      "bytes": 2318,
+      "sha256": "6ba46a957d0c32196d03304b981db5be8c3969d41953a53a364ca861085277d1"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_common_tables.h",
+      "bytes": 11397,
+      "sha256": "dc6076293d3bf19228dff889a5659f7408baa286b9f13f296374e69f1efd2139"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_common_tables_f16.h",
+      "bytes": 2711,
+      "sha256": "32d00d64e460a45433440feec905e91d30576ae979668f942f2d296bf314b458"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_const_structs.h",
+      "bytes": 3721,
+      "sha256": "586a66c7eaf667a5d61a96d1924a2e6b496d3257e5bed4e7b1403344d546d5ce"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_const_structs_f16.h",
+      "bytes": 2136,
+      "sha256": "3a0ecbb55b432814cfd254e0b5213cc302ded9479792c5f3733131f649ba9be3"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_helium_utils.h",
+      "bytes": 22017,
+      "sha256": "38dc8ad779b02d1bcc21ee5a2412848686157aabae12a3e123c905ec0680d623"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_math.h",
+      "bytes": 2002,
+      "sha256": "dccfb78a3d71f970b63fc2119988521cca85b6c0ace904e3160193d8f8c94e4a"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_math_f16.h",
+      "bytes": 1869,
+      "sha256": "c69af3449d65a02aa74f0158878f0f92f52e095c05ecb90dfe818077677b7aac"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_math_memory.h",
+      "bytes": 5798,
+      "sha256": "849ad814348d068ea92e549130eb10234b8b37589ea3c2485ede0a000a2d11c7"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_math_types.h",
+      "bytes": 19321,
+      "sha256": "914dc12a4e0218b68cd0c3524f0d971f23ac29a5575d823bca20473b31ed6265"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_math_types_f16.h",
+      "bytes": 4002,
+      "sha256": "99846080ad9ad051b9c88923c878d22bb42dc12eb16c357fc8031a3299721747"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_mve_tables.h",
+      "bytes": 7742,
+      "sha256": "352352bb544e758e0d9ce81d77b1afe8cb89cff0034b621dc86de836bed2aa21"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_mve_tables_f16.h",
+      "bytes": 3590,
+      "sha256": "cd58c9d7fb7d9f7aea221c094397114097730d9584d6bad08ed702cbae36c8a5"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_neon_tables.h",
+      "bytes": 26897,
+      "sha256": "56b7e3b19476644de49e1032cf5e5025a381bf470b420f96af8885fc3ee471f4"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_neon_tables_f16.h",
+      "bytes": 11871,
+      "sha256": "cec2392a05b3e84a7a1c3b13d4dd8d3f4c883388951bf99312a9215b44e0bc4b"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_vec_math.h",
+      "bytes": 10215,
+      "sha256": "efaa842e04a5b5cccd8c0decb14e2e7f09425b40a4425c92efb8c3b8dcb32166"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/arm_vec_math_f16.h",
+      "bytes": 8626,
+      "sha256": "28320100350d702469dcd7e3880d0bc9aff76a165f7f022d37e43bcadad40126"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/PrivateInclude/arm_compiler_specific.h",
+      "bytes": 492,
+      "sha256": "7d77d4836a6ae1ec2a23e7c86677ae48d9781af03dfaa960934b1fe01a2052f0"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/PrivateInclude/arm_neon_private.h",
+      "bytes": 1831,
+      "sha256": "3a6dd6e5808693d0b4b850424e70638c8e46d71bcf7b027f10aded4d87c210f9"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/PrivateInclude/arm_sorting.h",
+      "bytes": 6851,
+      "sha256": "4466e621b17841c82cd946b50472d824b9d0e91e9be0142e949c603123266864"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/PrivateInclude/arm_vec_fft.h",
+      "bytes": 11845,
+      "sha256": "d674bc01c98fbd07a614f1ff79a186266dede1c8f968cd3deac66d2d8d732666"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/PrivateInclude/arm_vec_filtering.h",
+      "bytes": 125233,
+      "sha256": "f2cd0796cb782dd149556f1524aea90177da08e5a6a76b137b56f44c04d1ed9f"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/basic_math_functions.h",
+      "bytes": 26673,
+      "sha256": "ca1115db2c4987be3580088813642b8c088026a302abc855b42574ed5f840cd2"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/basic_math_functions_f16.h",
+      "bytes": 5302,
+      "sha256": "14b4a70d0c04b2aa3f25ad8474dc7741a1cc2ec7ec811ee12b4a5c60553befff"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/bayes_functions.h",
+      "bytes": 7734,
+      "sha256": "c6a5e889ddcba6f1c9a8afb5094c19cffe8947586129f64085d961ac872d8a2b"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/bayes_functions_f16.h",
+      "bytes": 2699,
+      "sha256": "f60616045891dc68dbb4f7a5ef17abbdb9726c7439394be3bab3dff25061da77"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/complex_math_functions.h",
+      "bytes": 11266,
+      "sha256": "87bfc6aeb204879640dab460c5320ce0f0b6212db271984785ff9f027967c768"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/complex_math_functions_f16.h",
+      "bytes": 4203,
+      "sha256": "6788da1c0e46005d096409e980f3a97cf0f906e0781b60c954528c8d8e06c4a1"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/controller_functions.h",
+      "bytes": 29924,
+      "sha256": "c735e3376bdb7bea0d395ab9bd42020e1554a22e199f20699e251e309e0570e7"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/controller_functions_f16.h",
+      "bytes": 1338,
+      "sha256": "86fc1668bee24dda17837d5f0e60a2543d898fc32f32f3953df06537d8e80b88"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/debug.h",
+      "bytes": 5143,
+      "sha256": "cb37a90439b3bee8074b7fe2a19c855c564d454f6cf655ca32f41594612136ee"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/distance_functions.h",
+      "bytes": 12081,
+      "sha256": "8b12362476b604b7ca18e2c69cb70fde812c5da2b7d8a8c1928973a324829158"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/distance_functions_f16.h",
+      "bytes": 5462,
+      "sha256": "09d76ea9e2ba3203c7129f9ee6df421ea9462786c251643cc3de7866f17e1e94"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/fast_math_functions.h",
+      "bytes": 10767,
+      "sha256": "59e4448676af29ce56a1eb5f915b6d7ec4ead7df64aa08c1644837c682030249"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/fast_math_functions_f16.h",
+      "bytes": 3555,
+      "sha256": "f292ae5f26b53626e1632b60c96d4df9d58461f5388a0f912cab256f0e655f09"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/filtering_functions.h",
+      "bytes": 102717,
+      "sha256": "e2b09ed399f2f2432200b639498634a033962cc0d6b8b72b0d6ed3b2ebab091c"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/filtering_functions_f16.h",
+      "bytes": 9408,
+      "sha256": "d2267879d27d13ec318ff40bc010bf14f364cc5cdcbb3b07009a72b7bff0996a"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/interpolation_functions.h",
+      "bytes": 9471,
+      "sha256": "07d4f395d21688a455ca6728d6afbc1365595c049395d0caca87ef2c8007e31a"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/interpolation_functions_f16.h",
+      "bytes": 3201,
+      "sha256": "a7490aca8f564eea2e41c6ac8155c69e3ff8c9b1051365eb8adba4210fcb651b"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/matrix_functions.h",
+      "bytes": 35963,
+      "sha256": "dd9a51d92a18cd38f242f68ad0c959969c0b0108d8cab5946856ff964aeba997"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/matrix_functions_f16.h",
+      "bytes": 10450,
+      "sha256": "13b85f1c1e986e52fc8994267f91040baafa41a20fae620a5c3b1a8f70cfb5d8"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/matrix_utils.h",
+      "bytes": 26532,
+      "sha256": "467d5fa3ee86b82f45b2a4cd030a9ebc9b3ad70178993ea15cd741183b47aa0c"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/none.h",
+      "bytes": 15473,
+      "sha256": "de66113dfc34a595465dee9ff4fa29ecf0004ad6785daf57a6ec51adf34d2e69"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/quaternion_math_functions.h",
+      "bytes": 5574,
+      "sha256": "e01f02d2d76219a4aee9134d62f4d7f4e38bd2f45b33ceed3dc32b5945554485"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/statistics_functions.h",
+      "bytes": 30704,
+      "sha256": "06379d42470c71658dd8af248aa6a7a7b41ef91be1c88d00cad440f9b2955500"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/statistics_functions_f16.h",
+      "bytes": 8735,
+      "sha256": "74dba07a993604f341a55340fe3968bd174232ac78bc6da6f3a27cf49c26b971"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/support_functions.h",
+      "bytes": 15668,
+      "sha256": "aac9a26414047add6d7e9f14f5518acc052b4292be8a208cbf6ff4c55264c24a"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/support_functions_f16.h",
+      "bytes": 6493,
+      "sha256": "34de1f8a307a18b47d581e0025c6690e2e6417799c9dee1c22e902ecc158ee12"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/svm_defines.h",
+      "bytes": 1485,
+      "sha256": "df9dc2e83fec7b74725f88a0afd16df8ecdca5ced2bd6166a28a1972a1802216"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/svm_functions.h",
+      "bytes": 10031,
+      "sha256": "23ef4ee1731c87f493a33fb5c7007f91133f2b4ce6a8c7fdc78afad65707db40"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/svm_functions_f16.h",
+      "bytes": 9788,
+      "sha256": "72f0faf4439eadf0c2ea3744e0aeb03aa0faa486e764c3fb43b4ade9e1e2190d"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/transform_functions.h",
+      "bytes": 51443,
+      "sha256": "091977428ca51fe99b995876662d3bb6a9b8bc44ef1ce127df74569f41daffd8"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/transform_functions_f16.h",
+      "bytes": 13433,
+      "sha256": "9ce0ebeb028ccc885b2fa92d74a83c2b7f864bf926b3f9f65027bff8754a0f56"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/utils.h",
+      "bytes": 7800,
+      "sha256": "490847a2c11e864f5b9e8c5e67cecbe6df1c2242f81225cc6200f44b2c058e3b"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Include/dsp/window_functions.h",
+      "bytes": 30832,
+      "sha256": "82eb2ea74581cec69ae68a7532ebea041b79c7d026f1e40a5adeeb12662e9f84"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/BasicMathFunctions/arm_add_f32.c",
+      "bytes": 4888,
+      "sha256": "e5afa3ca4743caf047aa69a1d79fb283a3cd11c57dfae0e869e12de02408a80b"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/BasicMathFunctions/arm_offset_f32.c",
+      "bytes": 4957,
+      "sha256": "86e56ae61288983bc4f722807cf0aa20f75f1457aaa5ed204c8e44ff80f8d9c3"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/BasicMathFunctions/arm_scale_f32.c",
+      "bytes": 5488,
+      "sha256": "664b5e5ebae808fdbbe6f6253564b04e19f2f8623d10375d25c4e89476f6fe7f"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/CommonTables/arm_common_tables.c",
+      "bytes": 2940246,
+      "sha256": "edb1670440ba680dc471fecefe0000b4e75ba67ace5b939341625a5ba691357a"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/FastMathFunctions/arm_cos_f32.c",
+      "bytes": 3749,
+      "sha256": "aa81cd42ad84eec1fd94619cce58107e71db27bbb764510e527b93b1a56ea3a9"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/FastMathFunctions/arm_sin_f32.c",
+      "bytes": 3700,
+      "sha256": "5a7f97bd29cc256c481f7aac94d4608eb6b726439bff08793fca2e433e9d3cc2"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c",
+      "bytes": 16611,
+      "sha256": "16a05e0fc3854a690ed9fd67f52ebf2b2b71342bafbb66652db789de4d58610c"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c",
+      "bytes": 7168,
+      "sha256": "549a6dace9eb0d147f6a6186cafc95f98059fabee2391211d9e01e9a0b21cac3"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/SupportFunctions/arm_copy_f32.c",
+      "bytes": 4644,
+      "sha256": "d1122c488f02a77a09887af04b22eb2a456f6a38bf08736487c96bcb4019f7e1"
+    },
+    {
+      "path": "synth/launcher-app/Src/DSP/Source/SupportFunctions/arm_fill_f32.c",
+      "bytes": 4482,
+      "sha256": "c7b0a4dd28e54a27a4daf5f6629537ff4bbb379929aabca3680b5767ba61bd46"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_common.h",
+      "bytes": 15654,
+      "sha256": "bccafa2ce858f1d7855b58464c8d8edb71ccedecb843003f5639ef8f4815d816"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_compiler.h",
+      "bytes": 15260,
+      "sha256": "598b8bc89c016b50e2270c7cdf1df8065e0b25f7789c9f697947d94bd5907d12"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_debug.h",
+      "bytes": 10081,
+      "sha256": "d6691e1d3e74f9ddc35c292755760b33936f42c9b51226515f96a056fb1acac5"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_fifo.c",
+      "bytes": 28151,
+      "sha256": "615f609156db847a8453e815f1ab7922621ffd497e87ad453d92ad6a4b2f4751"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_fifo.h",
+      "bytes": 13031,
+      "sha256": "82f74aaf7f90ae674f1e8bd10b916974b276027c0564a04aa158faf679abee62"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_mcu.h",
+      "bytes": 28506,
+      "sha256": "ab84026fdf8f715b416fd8d08bcb1d2eb17ac5f5e2f4d6b13b73334505ab0471"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_private.h",
+      "bytes": 6516,
+      "sha256": "4f9049a79c425c548cfec2f9cbe67c57dcbb5a6a57517ab5fabe623768d5f344"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_types.h",
+      "bytes": 22775,
+      "sha256": "2e5b652afde80a429ece167293dbd75ce04e993d9745512426e374fcdeb5619b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/common/tusb_verify.h",
+      "bytes": 4947,
+      "sha256": "ee6b9ea34a85ee6a5a8d8606d22ed05e32380dec8c15bdb7eef9064514889aba"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/device/dcd.h",
+      "bytes": 9917,
+      "sha256": "3e97d032c65e33fa2459af725965ecfe9a9fdef5f7ebc327da5c815968930806"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/device/usbd.c",
+      "bytes": 68532,
+      "sha256": "ab432ba41eba6ba88f54080813d787444bf29d03a95c3978a43a4f27e9a6017d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/device/usbd.h",
+      "bytes": 66481,
+      "sha256": "fa64abca44a4dfcafcba7473a2ca1b1c291d298c19f9e94814b3dd7cfc17ca98"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/device/usbd_pvt.h",
+      "bytes": 5343,
+      "sha256": "667ab6fa73d57c8788476b5633590bb488acb18bbc0c82eeba51df8b03ee2b32"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/host/hcd.h",
+      "bytes": 6798,
+      "sha256": "e631654c8d1b7edf2d5bf93b3e6c64037fde324e208b821abcdfcac77f7b4313"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/host/hub.h",
+      "bytes": 8027,
+      "sha256": "346b8aca8f49228a1d51e9042c36ae526641c1eeba8c9076fae2ae6871b3372d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/host/usbh.h",
+      "bytes": 18350,
+      "sha256": "a5055e6e771757978d67a28276a4355af44b404e3929bc3592c27a839ba6c19b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/host/usbh_pvt.h",
+      "bytes": 3961,
+      "sha256": "01e9419242ddc619493afd2aef3ad3654561612d6e055c7867f3d31e5ea35192"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal.h",
+      "bytes": 3219,
+      "sha256": "a573b016a38434533ed944cf381d6cb2b345bebbd3008f7e143eec6ce2249046"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_freertos.h",
+      "bytes": 8880,
+      "sha256": "5af2d7bbf3d64c5776a9b603b30c8ee69e685318f47a05ead6aa0fb882d868a1"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_mynewt.h",
+      "bytes": 6901,
+      "sha256": "3c451c3347aa3671a8e2cc2cd1f2bdc8682d008071f7d6229a3d633acf22523e"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_none.h",
+      "bytes": 7253,
+      "sha256": "41f68ee034938962521cb10936875f263247aa3b65b9ba780b5df29037e41cfc"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_pico.h",
+      "bytes": 6012,
+      "sha256": "a31b9990fe6c54b95cb0a79ed0cf90a0f4ffaaedba43d12208f0af3229cbea21"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_rtthread.h",
+      "bytes": 5728,
+      "sha256": "65913ac6ef139ebdb4ff49d5eacc1f6677ad37b49e7275ca8e4e7d477db59ac9"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_rtx4.h",
+      "bytes": 5957,
+      "sha256": "9231aeda63e2a077456b2e0aed152f3238a460bea083d41ee8c3dfcdaefda286"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_stk.h",
+      "bytes": 18247,
+      "sha256": "b80101a202069f7641705bb45aaeb6a7edfee7af66961c840eda36668f763918"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_threadx.h",
+      "bytes": 6335,
+      "sha256": "a562a96e25200f7094f10e0f64ac7645a53ec6501fb34cbed6b0d6684be636e4"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/osal/osal_zephyr.h",
+      "bytes": 4829,
+      "sha256": "e6e88eb8596e8227d4f709ae488afc1926b927618b95385c0ce37e66b669c7e1"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/typec/pd_types.h",
+      "bytes": 9134,
+      "sha256": "c8129335f220167ed1431b420784b19a3a92e59bdbcdb4708cd4a9b470439ff2"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/typec/tcd.h",
+      "bytes": 3239,
+      "sha256": "82f7f6c3732458926bc0db6831771cd2b561886af362b167185c8e052337bfc2"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/typec/usbc.h",
+      "bytes": 2418,
+      "sha256": "47fd9757b99e4405b16de923615b5be6e15b6921b12dec079f9ef994c47e2ba3"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/audio/audio.h",
+      "bytes": 68305,
+      "sha256": "15791a4239a3823c91203086f4e3617e40b407e91a4f06287867153bf4645e31"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/audio/audio_device.c",
+      "bytes": 79086,
+      "sha256": "8a2e06a770d1333f724dc3e09cd5984365ebb159e6f31745579a760851d5dcab"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/audio/audio_device.h",
+      "bytes": 19689,
+      "sha256": "bb7ed60f97fcbc4b5e65d0580d08555e07b9da581b871e0863c8dafa535bcc5d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/audio/audio_host.h",
+      "bytes": 17222,
+      "sha256": "bdcaaac002a8244b0adb40aa4812a961b4e27866e60737d9a82e7f5ae4d5277c"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/bth/bth_device.h",
+      "bytes": 3960,
+      "sha256": "90293dc5934d550dd9df6ce187a5206cf132d86cea1effbb037e16be8da0695f"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/cdc.h",
+      "bytes": 25542,
+      "sha256": "59641232f1c74b706b23c3edc1b62c7c3ae5e865dae0e2ecbdef2f1f3247a896"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/cdc_device.h",
+      "bytes": 10503,
+      "sha256": "6a98a0c5be8a463b525496d4b96b9f7fce43bb7192fab8184ff641d3b22cbff9"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/cdc_host.h",
+      "bytes": 10420,
+      "sha256": "d1e398ed1d03594de41c2a48702bde95df97ee67cde9593a4adf945dc2cd8f65"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/cdc_rndis.h",
+      "bytes": 19523,
+      "sha256": "67238d2bebb8006e93e9411c46d1436d46e32dfc29d17b905ccad2250d7f0314"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/dfu/dfu.h",
+      "bytes": 2682,
+      "sha256": "dd90cfab6e25880dd518849f96e6b7b52e0944df8a65fb265705028d6253738c"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/dfu/dfu_device.h",
+      "bytes": 3503,
+      "sha256": "64503aad89b384a49858351bd16c7d7a7fe582b666c4416849607793a0370e02"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/dfu/dfu_rt_device.h",
+      "bytes": 1242,
+      "sha256": "85ba866bb360e18b330a7729a63c33b9c7db48cc9a91e7545ea2ccbcf8ff3647"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/hid/hid.h",
+      "bytes": 168339,
+      "sha256": "396a05e0c60051db5b1ea4beb6d273d80d5c87d97a1035c2ba4fd4eab0e372f8"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/hid/hid_device.h",
+      "bytes": 38938,
+      "sha256": "315db40d73e248174a7b6fd38fabbcc0b1cccb7537c0872598103c5e2b644010"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/hid/hid_host.h",
+      "bytes": 8149,
+      "sha256": "9125469f654ea09c0ecf695a1ef012838de0241eb38b62a70036f31db3deba88"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/midi/midi.h",
+      "bytes": 7048,
+      "sha256": "ed7d8970c574e5b01298cb085b659fcb6af8b0879cb26c9c12756baff3f047a6"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/midi/midi2_device.h",
+      "bytes": 11886,
+      "sha256": "8959984a1b972dfbee45481d5ff128912222c59cbf59ff02506fc8ee059cee1d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/midi/midi2_host.h",
+      "bytes": 3577,
+      "sha256": "c90fdb5244c9f67e4caae2cbc1dc4eb609a410d8612dbdbfa8bb2e3fc3de45fd"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/midi/midi_device.c",
+      "bytes": 19533,
+      "sha256": "de84e050d9f1128d20d93641e5be695d4f24c2275f25e0d0e119833f21e69c02"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/midi/midi_device.h",
+      "bytes": 5029,
+      "sha256": "5dc6c61bf315a1a38ce8c59dd765b97985d9e69e9ae51e4d1f886faca333d12c"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/midi/midi_host.h",
+      "bytes": 7619,
+      "sha256": "13e94ae944ee9a4b45e3a061f8ff9ae469444d249e8fa1cce9fd87de11b5b6e5"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/msc/msc.h",
+      "bytes": 18183,
+      "sha256": "2e3b03c355a6c7957e4d5e8a477d41265520a3c20ff14a1b7e245ce85fbe7ace"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/msc/msc_device.h",
+      "bytes": 7251,
+      "sha256": "b34f7643c993bc59b0df54a28202aa055714b8284709ab35f3fd6d035aed3aa6"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/msc/msc_host.h",
+      "bytes": 5571,
+      "sha256": "64134bdd9a57d39776d638a43c16f8b758299913a820596f2b6d6b5bc2846774"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/mtp/mtp.h",
+      "bytes": 42930,
+      "sha256": "645706372e4c898b1375ad43947697a73fc4c8c817ba339c00fa9fbd6e1eef72"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/mtp/mtp_device.h",
+      "bytes": 6977,
+      "sha256": "322b5f6e62f8b96719867dd5fc943a5a9e4332afd8799a9872dda92a5832bca8"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/net/ncm.h",
+      "bytes": 5121,
+      "sha256": "6d85a5fcbfb37faaa62f07d20747ce029a20a32da72967c0a33d5d69e7e66b2d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/net/net_device.h",
+      "bytes": 4513,
+      "sha256": "15a86f474ac49aefd233b4675de5578e0a5d9e89211607cd549ed300c627d35d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/printer/printer.h",
+      "bytes": 1264,
+      "sha256": "6d5772720b1ba6b338c36256b415267de2fa397770e332d28f09e7235c6071cc"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/printer/printer_device.h",
+      "bytes": 4558,
+      "sha256": "d94e924d900759c258368394ef65cedd05190faed486c11a7990179634ca7fcb"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/usbtmc/usbtmc.h",
+      "bytes": 10017,
+      "sha256": "51ddb3caa69f118b93917bb80e04491eab2848e7f84519b158638af50e903733"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/usbtmc/usbtmc_device.h",
+      "bytes": 3856,
+      "sha256": "f9c16e0207b6adc10b5543dfc628395a6a6e1c03bdc84b853d08715c8912ce46"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/vendor/vendor_device.h",
+      "bytes": 13342,
+      "sha256": "76573016ae1e1a36be5e703519fa9709c51f37da382db4c9f806edbae868c7eb"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/video/video.h",
+      "bytes": 27726,
+      "sha256": "a86fd5894a1295d18b9abefda3619ee5a4347be62350d3e717751b263a60043d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/video/video_device.h",
+      "bytes": 5332,
+      "sha256": "1ca9814bd09622702967efa3dc81a40b369e1e802afc2e9d5bcd4d1ad2c77df2"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/serial/ch34x.h",
+      "bytes": 2700,
+      "sha256": "8da8d0f1c96334459f3fa518e9baa269ecc23306e991fc070ad048e41e43bcfb"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/serial/cp210x.h",
+      "bytes": 3601,
+      "sha256": "353b4349a6f905258c3acea61c42b6906f5d1d75d39fcb2339144d277a980dfb"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/serial/ftdi_sio.h",
+      "bytes": 7309,
+      "sha256": "0d72a56ce81c1292eb4a1de648b25880f932aa9577e20d67fea4d8dacb8e5848"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/class/cdc/serial/pl2303.h",
+      "bytes": 5094,
+      "sha256": "db74c6dd106580e59e3064e7cb38f2eb6b9d78647ee5a6f082a65e5795e276ae"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/ehci/ehci.h",
+      "bytes": 24993,
+      "sha256": "196e7e21ccae82421fb8f695ba377ab3bb697909bb5b98b59391ea1162b028fa"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/ehci/ehci_api.h",
+      "bytes": 658,
+      "sha256": "4be2561fb9ca44c0c5f98e1bb309ff30554165901b7e4e51142c370633222420"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/ohci/ohci.h",
+      "bytes": 11875,
+      "sha256": "366a76d8b84053b6b2fb33c3e5b81428fe081ebae3fb41a5d30c0ad20c5fb8dd"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/ohci/ohci_nxp.h",
+      "bytes": 1016,
+      "sha256": "c0565c28c4b6f8135487cfb3c46c5f16cb7fa656e44f11adac4bc3ca83cecc2e"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/sunxi/musb_def.h",
+      "bytes": 27322,
+      "sha256": "8380c0664e987f38cf8606ef6aa9f7e81288c4e66dd964edef7f3ca884672308"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/wch/ch32_usbfs_reg.h",
+      "bytes": 12131,
+      "sha256": "b885610b0ba5dd7364b684aeae2ce9bf9a17b1ce38e99d9d95aade388c0f9b1b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/wch/ch32_usbhs_reg.h",
+      "bytes": 11249,
+      "sha256": "5f960953b8422c23a55ba3f9ee27be4be2536e24cff2c2473cca2ed0410ef8da"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/analog/max3421/hcd_max3421.h",
+      "bytes": 1561,
+      "sha256": "afda187d13e256e854d789eb3baedeb620bf163d52cda98accc6cfabe7677b7f"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_fs/ci_fs_kinetis.h",
+      "bytes": 672,
+      "sha256": "7a4471da4f6c01643da547b4e34a12906ca31c634cce3c076d03b3dbe10a5f32"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_fs/ci_fs_mcx.h",
+      "bytes": 803,
+      "sha256": "1a4539b7c821424d20168b21ee59478f659e48f48b2dd5f2faa5ecab8a54d1bb"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_fs/ci_fs_type.h",
+      "bytes": 6329,
+      "sha256": "f56a4bf677703c8ccdf60c5c804863107e9bca193f740322f8f16682021f0bcf"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_hpm.h",
+      "bytes": 1013,
+      "sha256": "2e81c26e37c9dde46c516f4cab21569a16e5ab35b6f88d4bad7fec006bf50f15"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_imxrt.h",
+      "bytes": 3579,
+      "sha256": "7eeeb6f005f957a8a16f6f51b8d6d19c026f7918fa7e3b933206ce38d5d8f236"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_lpc18_43.h",
+      "bytes": 1285,
+      "sha256": "9c39eb3495f59f7d1881660fc090ce90232dade02c8a09471f75380bd3f675a7"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_mcx.h",
+      "bytes": 1051,
+      "sha256": "f08fc87f2eecd2389d4aa02716391181a512920a5ec874caca5434d8fa4b788b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_rw61x.h",
+      "bytes": 891,
+      "sha256": "3bbd701d09ec3ef78f14e7c7940d4fd9a2452396fe813ae058fe5c010ec3463b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_type.h",
+      "bytes": 5572,
+      "sha256": "56c2cc5fe212ffc915a3d77aaddfd7a004adc0fc9768df08f5ed45607e68605a"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/mentor/musb/musb_max32.h",
+      "bytes": 4028,
+      "sha256": "a48764a573d3538d9cc05f8878ba4ed68ff1f06bb816183b492ed2534c08ca31"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/mentor/musb/musb_py32.h",
+      "bytes": 2698,
+      "sha256": "1aef83387b8c0b791efa7048677a7760c9de212a97c5a8052749ce47edcca1d9"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/mentor/musb/musb_ti.h",
+      "bytes": 1950,
+      "sha256": "d4ff1b971e1e9435288def5e3014d84361fa184744eaf1d1352c1273e7bae134"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/mentor/musb/musb_type.h",
+      "bytes": 34529,
+      "sha256": "2420b763dd6056f8293fe8e0859d89d3697b04273822f81b963454f5e16a49ca"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/microchip/pic32mz/usbhs_registers.h",
+      "bytes": 21488,
+      "sha256": "1379f0126b3e12bca0678eced1061c76faf9a408a9ac7979381f6d1a4b4c745e"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/microchip/samd/samd_common.h",
+      "bytes": 2364,
+      "sha256": "1956afcdc92b29fe3653f3656f48a5afbacceeb602281fdc71190f4cf5c64915"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/microchip/samx7x/samx7x_common.h",
+      "bytes": 235688,
+      "sha256": "f210505fda81d7398bac0a985703c1c7e77df8c5ba228cf368d9c7e0968d7ef4"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/nxp/lpc17_40/dcd_lpc17_40.h",
+      "bytes": 4565,
+      "sha256": "6ea4a05d6807af3688a555f4f6e970875a1d70e47e968e383e76ac82ad919561"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/nxp/lpc_ip3516/hcd_lpc_ip3516.h",
+      "bytes": 4203,
+      "sha256": "503a080cf803ea16cfc9ac5de262e26b68a5d0c083ffd8cffdeadb6779231053"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/raspberrypi/rp2040/rp2040_usb.h",
+      "bytes": 7057,
+      "sha256": "dc1a40f125819bd2dd8b958045023f1165a0505e26692604fcfd7f5598b65d44"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/renesas/rusb2/rusb2_common.h",
+      "bytes": 1040,
+      "sha256": "3c4257489281263da7277948323d57e9252159352a50ac7d2f9dcf92ff684c20"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/renesas/rusb2/rusb2_ra.h",
+      "bytes": 5089,
+      "sha256": "b88926358589ed21012e47f00aa10fca3b79c3dc13bf839b1a16f2dafc9d3df8"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/renesas/rusb2/rusb2_rx.h",
+      "bytes": 2241,
+      "sha256": "741b900afcd076eb5331655df1f69dec2b7362819c55b47de013fee1fe746f75"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/renesas/rusb2/rusb2_type.h",
+      "bytes": 99306,
+      "sha256": "61cb745e0cbbc9fe141336fed151f3e95e9c08a55de2ddb4b434bea7b341adb1"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_apm32.h",
+      "bytes": 2850,
+      "sha256": "87c2310007e56a2763cbec4e043f3f07641ab703d713d5b0f24709f71d8abedc"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_at32.h",
+      "bytes": 3016,
+      "sha256": "fb707f380deac1670537a7ae7ed0e89630d2209ca5646cd6b277d687f1b8567c"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_ch32.h",
+      "bytes": 2304,
+      "sha256": "2ff994317d3cd711430cbc815a43a87ab3916cc39127430f54c7877258fb75c3"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_common.h",
+      "bytes": 16064,
+      "sha256": "b406340a3e542bc2d4106ec87c25bd503dfa9062e85bdf6919407717da2b673d"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_stm32.h",
+      "bytes": 10953,
+      "sha256": "b71050f92de4ccf69eeee5514b892d6dbc321bd08f5502c911e8784851189cd0"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dcd_dwc2.c",
+      "bytes": 52688,
+      "sha256": "dbad695df42664f4474a896223fabb890fa239c9e99051fffb4e8fb0acb8f1c1"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_apm32.h",
+      "bytes": 5679,
+      "sha256": "9dfaf23d7db43f61ae0591c312d02d6d3eeaa05008e6bb185c58baa0c18e4050"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_at32.h",
+      "bytes": 3837,
+      "sha256": "175b741540635fbb5ec24580f2e261c3b700937e27981d0db844638d268e6198"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_bcm.h",
+      "bytes": 2038,
+      "sha256": "7c81fce7f44e0464cd6f663e25f50c2f7be939eb7df8d67d102fb9c253257114"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_common.c",
+      "bytes": 9018,
+      "sha256": "18f60b25f469b0db59c30ff5ae30df83f9a94800af4d2adaedb09619a42fc99e"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_common.h",
+      "bytes": 3436,
+      "sha256": "e65af921271cadec0f2fc3914b6f35dd2cd9f8235333e97b5b6dab59572496b9"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_efm32.h",
+      "bytes": 2171,
+      "sha256": "456754c6f9dedd6ebc5eedf8aa12b416376b171587451364764acd2262de0ebb"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_esp32.h",
+      "bytes": 6347,
+      "sha256": "f63953383bbd897f804879a23f487bd7db636791f677832572f98517853d831b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_gd32.h",
+      "bytes": 2403,
+      "sha256": "0512ef6d022a886a4146191969124b7f9b05d88b1acf730f13e295268ee27b7b"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_ifx.h",
+      "bytes": 8483,
+      "sha256": "6cbd374a6f043e494a2005cb0013415fac6d5d2432e2bb7a636720a130dd0bc8"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_nrf.h",
+      "bytes": 4193,
+      "sha256": "2e4b80b788551b6d9f60a283ed1bbb95676618b12a0c7abae2f41bce2a56a5e5"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_stm32.h",
+      "bytes": 14747,
+      "sha256": "4c6a786b374dbb94a2eb7456662b10ee20ba329141909d39716178173d2ed054"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_type.h",
+      "bytes": 156843,
+      "sha256": "bb1f1e35a6e87f257b34d0c8ac818e78618e3b4bcf1141b2d3d199cfe8faedc0"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/synopsys/dwc2/dwc2_xmc.h",
+      "bytes": 2085,
+      "sha256": "7ae23424aee161f0b21853504f502d3d8eeee287205a30d52f6f3201b87c88db"
+    },
+    {
+      "path": "synth/launcher-app/Src/TinyUSB/portable/valentyusb/eptri/dcd_eptri.h",
+      "bytes": 395,
+      "sha256": "bc9e438789d17b19661fac1cf72877499c19d99962696c8c29c3a79769a3f6eb"
+    },
+    {
+      "path": "synth/standalone/.settings/language.settings.xml",
+      "bytes": 2170,
+      "sha256": "c246bbc74765a689a0a22cf89e7fb30d74ff830e1bf4f72d4ff4e5ceb74a8577"
+    },
+    {
+      "path": "synth/standalone/Licenses/CMSIS-DSP.txt",
+      "bytes": 11558,
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    {
+      "path": "synth/standalone/Licenses/CMSIS.txt",
+      "bytes": 11558,
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    {
+      "path": "synth/standalone/Licenses/OriginalSynth.txt",
+      "bytes": 1085,
+      "sha256": "1c406411ccbd9be3fa801154b3625705fa129481a6b18dbeb4723b9c20bc18aa"
+    },
+    {
+      "path": "synth/standalone/Licenses/STM32-CMSIS.txt",
+      "bytes": 9840,
+      "sha256": "f2e4f78dabd3d2d81f9a04ec5b88b00d590f8faf5270ef9658f7be2929c637e7"
+    },
+    {
+      "path": "synth/standalone/Licenses/TinyUSB.txt",
+      "bytes": 1116,
+      "sha256": "e8a6384b2081f29305ab2c68d5eea187b8a9de61544a42f6c62fcb104516eabd"
+    },
+    {
+      "path": "synth/standalone/Src/calibration-font.h",
+      "bytes": 3938,
+      "sha256": "1d695defbd7cbe892285708e52ebcf8abc618b923fdd349d59ed3d316d5d168b"
+    },
+    {
+      "path": "synth/standalone/Src/calibration_store.c",
+      "bytes": 3280,
+      "sha256": "f8052780abdc1d629c25051b33c7248dd938bb73072d5b8a68171455e1b05264"
+    },
+    {
+      "path": "synth/standalone/Src/calibration_store.h",
+      "bytes": 179,
+      "sha256": "bed98e0a75ab2b1f8d1feb53422324c0ec205742eb979e3ee526815744970453"
+    },
+    {
+      "path": "synth/standalone/Src/main.c",
+      "bytes": 19455,
+      "sha256": "41c066b77e30678ac22dd5a754e0490c408ba429a568f4cfd4b1964032890d10"
+    },
+    {
+      "path": "synth/standalone/Src/sd_diskio.c",
+      "bytes": 6552,
+      "sha256": "01f732d71bbe6f405d8b7877b86658ca397d553e32665e35827ced553fa5513d"
+    },
+    {
+      "path": "synth/standalone/Src/synth_usb.c",
+      "bytes": 8014,
+      "sha256": "e4a73f87150e4a2b97c4705dcbf6b93d40605960c389d0681fa440d4b5db36b0"
+    },
+    {
+      "path": "synth/standalone/Src/synth_usb.h",
+      "bytes": 773,
+      "sha256": "efe734859945a98bc0d0e98df6e2ab8d4b60c99d60fac4bddbda1d85d54f965f"
+    },
+    {
+      "path": "synth/standalone/Src/syscalls.c",
+      "bytes": 2847,
+      "sha256": "b993ebb4f882e8be21cec8d95983655a0caf4f0eb11348f20f6371f5a5031717"
+    },
+    {
+      "path": "synth/standalone/Src/sysmem.c",
+      "bytes": 2987,
+      "sha256": "147c60a13e805f62003d63f9de068b925e386de6d8844b1279620f715919c940"
+    },
+    {
+      "path": "synth/standalone/Src/tusb_config.h",
+      "bytes": 1249,
+      "sha256": "fee2e2df4816b5450be27e3957b8d782ff184e6dec12b4990e923ac38ef9a4e8"
+    },
+    {
+      "path": "synth/standalone/Src/usb_descriptors.c",
+      "bytes": 2701,
+      "sha256": "0197f5418b1b13da07a0af4d03f224bc05a0547967e494d883b0f521ce549b41"
+    },
+    {
+      "path": "synth/standalone/Startup/startup_stm32f407zetx.s",
+      "bytes": 20369,
+      "sha256": "ce756729481aec4ea4309b93d117e8ca88345a5cce58161fa1a662a397360c4b"
+    },
+    {
+      "path": "synth/standalone/Src/Engine/elementary_wave.c",
+      "bytes": 20561,
+      "sha256": "e77ea367e71bf529d5b53648b3bcd5fe2e4af475e5108495f30a623c8cd85b59"
+    },
+    {
+      "path": "synth/standalone/Src/Engine/elementary_wave.h",
+      "bytes": 2101,
+      "sha256": "638480fa67be10fe20e155ebcfda118dcd3c1761c2903f0dfe0aa7fae6b85718"
+    },
+    {
+      "path": "synth/standalone/Src/Engine/engine_usb.c",
+      "bytes": 2274,
+      "sha256": "79f0577a46cd0d33f3b4cbb1304869447cb3afdbc64430cbb5e895f4df0706b4"
+    },
+    {
+      "path": "synth/standalone/Src/Engine/engine_usb.h",
+      "bytes": 347,
+      "sha256": "ee0d82b9539eb6a5b4eb4a68dccae63d54b0e2f9f0ae9d41e7b2a84d6ee2d16d"
+    },
+    {
+      "path": "synth/standalone/Src/Engine/synthesizer_parameters.h",
+      "bytes": 5946,
+      "sha256": "22ee5bc531b869cb1dc8347f23d5c40996226e82be94864dac89fd5437373e4c"
+    },
+    {
+      "path": "synth/standalone/Src/FatFs/diskio.h",
+      "bytes": 2733,
+      "sha256": "1c2b29f53e061c55d43b2e412c3a61320b2621bac7561a05e275514baa44785a"
+    },
+    {
+      "path": "synth/standalone/Src/FatFs/ff.c",
+      "bytes": 266710,
+      "sha256": "dbeae3d7d22dbc070983e31af897fa5e43d29c726a0a240fe9589ffe2ec0ef1e"
+    },
+    {
+      "path": "synth/standalone/Src/FatFs/ff.h",
+      "bytes": 17365,
+      "sha256": "42920ae4d6080bfc2a72d92a9969b5e94eeaff070e5e71d90da9ab6d7d8e158e"
+    },
+    {
+      "path": "synth/standalone/Src/FatFs/ffconf.h",
+      "bytes": 12715,
+      "sha256": "08c695b82b5c4e49ef99f62f952e1ad4c93c3bf166fd69f7693bb292e15c9a2d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/tusb.c",
+      "bytes": 26821,
+      "sha256": "6f6db5181ae20a095ef75e4a80f101f7472d56afe1eb40493a3f85c2d9e51a37"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/tusb.h",
+      "bytes": 4152,
+      "sha256": "04e8b6de95ff380ef8e6f8bc85b1ee8547c3c6b72b502fb1f9f7c6126f679fe0"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/tusb_option.h",
+      "bytes": 35344,
+      "sha256": "ba8cc4ff052ae52704c98cce9520f16e94ad16af5b16d75604f87c2011c67fee"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cachel1_armv7.h",
+      "bytes": 13702,
+      "sha256": "b80d89aacf7389d664b25dcba61838d3c30e85757a24e958c6884d3e69c5f625"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_armcc.h",
+      "bytes": 29123,
+      "sha256": "e2b7b1cbda34424cfed74544db55e6a25d885ce3baaf6ee63d33603f24d4131b"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_armclang.h",
+      "bytes": 50161,
+      "sha256": "b7359bfa3155e6bb430e3af4246f42e29e6c3b6c889cb7b9ec4003677249317f"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_armclang_ltm.h",
+      "bytes": 58174,
+      "sha256": "cb88dfba4f942dd05f2123157abc2c9a582137104f4cd44f96f80475f22d2c52"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_compiler.h",
+      "bytes": 10568,
+      "sha256": "f13b8e9ea2b29673ca24ae05f987f23522d87e84a770e7feecf6f89f8e37b406"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_gcc.h",
+      "bytes": 65837,
+      "sha256": "c0e9ccf9f66f55a998c0e50bb1c5af89cd9bb3a7f297083fb7623b489a80c99f"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_iccarm.h",
+      "bytes": 30233,
+      "sha256": "914c75c9d1efdc33a1ea580eacd9c604aa7b8ae8ea8a9914af40e6ec834deeb6"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_tiarmclang.h",
+      "bytes": 50114,
+      "sha256": "0117b650aa16dcb85f209e5c1ca6c86fe84b19c8d2e4ef70d992617943fa594d"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/cmsis_version.h",
+      "bytes": 1719,
+      "sha256": "8cda7ac3ff6f0eb5e83c4fe613dd195151b24da54167f5c3c007e599a03f1edc"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_armv81mml.h",
+      "bytes": 281616,
+      "sha256": "17e10722698329a690850a432454611c10a9e6401d7c629c0aea23286437c67b"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_armv8mbl.h",
+      "bytes": 117388,
+      "sha256": "19a09a1ad3c3a6deea8c9f2612e0c2255747c55e7a7e4c0fe9e5b2d03f861349"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_armv8mml.h",
+      "bytes": 187196,
+      "sha256": "34c90d2ba70c92dee91d26bdd861b2b27295a7b6f0213316e5af0c9ddf14fced"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm0.h",
+      "bytes": 42754,
+      "sha256": "cac48dfc93e01e61f6d541902f9612c2afcbc56a53bcbdf85d041bc63b4343fa"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm0plus.h",
+      "bytes": 51123,
+      "sha256": "7721c53e23be58339c20f670af1baf01b9b551d974581000a17bde7991831ead"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm1.h",
+      "bytes": 43762,
+      "sha256": "a755a0be73709a78ffbb92ac7199959486ef33147d5320bb430ab432f0d50d74"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm23.h",
+      "bytes": 124010,
+      "sha256": "3d474b7bed7e4ade1675760807917dcbe5753d1c37f82ebbfbff0123da51ca7e"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm3.h",
+      "bytes": 113113,
+      "sha256": "e5310f16caf22df490279b01dd1585bd5968f1eb91d786aaf88d9631745033ff"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm33.h",
+      "bytes": 193549,
+      "sha256": "26b4307df6eaeacf78bbfc0da33fe8bae39fb4117916359616f77f70609efcaf"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm35p.h",
+      "bytes": 193564,
+      "sha256": "12229007f3bedc124b3ed23473ed74b05b4fd8021f442928af3a605406528b4c"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm4.h",
+      "bytes": 124946,
+      "sha256": "e69d7a0b3241ddd6538eca6501bb0d58cd65d1a21edb0cb24e8078e7fcb2fb7c"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm55.h",
+      "bytes": 329952,
+      "sha256": "68f0b6a0a82cbb4b3d65eb6479da11f0ce239f3b57df0de5881c56fdb9fb3d33"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm7.h",
+      "bytes": 143156,
+      "sha256": "5214f848d1f94c1b216664a08363745af026c590a4995c315dba8f850533d993"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_cm85.h",
+      "bytes": 321417,
+      "sha256": "6f40e0496ed4cd903dd0f377daf946073acea36ab4c4115a64d3d0b0405a4708"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_sc000.h",
+      "bytes": 47754,
+      "sha256": "e91d49bcfe99ee9a794b1797705ea2ef2a86037018c518de1259e54cddf5c500"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_sc300.h",
+      "bytes": 112083,
+      "sha256": "22b1c242dfe30f5afb4ebdc29dd2e4ac2cb772989d9456e6c79aa3b333d3cfad"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/core_starmc1.h",
+      "bytes": 197397,
+      "sha256": "cf4d2dae937c085a2065b7a4336627c6f01e7d778e27e2abb4fc29be51603bae"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/mpu_armv7.h",
+      "bytes": 12006,
+      "sha256": "de1b5eb9ed566527b66dc06f4ecb6a43ab6800f7dac47e87c9cb42984dca41bb"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/mpu_armv8.h",
+      "bytes": 14702,
+      "sha256": "c5de9bd79687fe7d07f3f7e5f255c2392d00317d3dd8e58330700cc092c98ed4"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/pac_armv81.h",
+      "bytes": 6268,
+      "sha256": "f3497af055e95873809e4a79420e2b08915582466cef2eb4235d8e03faa7c3ab"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/pmu_armv8.h",
+      "bytes": 23123,
+      "sha256": "ef9aa2f1c5b03bea488d4b74d33db14acdc6c87e500273d68d75a6d3902a4f62"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Core/tz_context.h",
+      "bytes": 2757,
+      "sha256": "7fcc21fc190f6fd970390e9caaa6a86d72fd10f9edf4efab36f12aecf1a8baa0"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f401xc.h",
+      "bytes": 652917,
+      "sha256": "626ce1c361255589167a8532591a2b2b60d3e35bf5c5e7a0a4750a12438f0f22"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f401xe.h",
+      "bytes": 652917,
+      "sha256": "6d77aa3f78e12ee323b3eaac758c1501eda97b879e5ade057f76cd2a0a3db25f"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f405xx.h",
+      "bytes": 1101534,
+      "sha256": "d0cf660803f2ebe5faf5b22a6e8e08e73a59ecdb028e7a61cb2c1d3b4f7133ef"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f407xx.h",
+      "bytes": 1209605,
+      "sha256": "a739cbe1262290fabc02d1d6cbc531b0b749ab59397f7d963c47aea8f5f954ac"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f410cx.h",
+      "bytes": 539816,
+      "sha256": "8f0265920f95e7524dd8e19fbd15610ab43d9d9a0191078dae44539ad4e366f5"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f410rx.h",
+      "bytes": 540094,
+      "sha256": "415afa45a9723d91779a4a7a9ce6ae502dbb93ad0ea101a1d37ac585eff1bfc7"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f410tx.h",
+      "bytes": 536079,
+      "sha256": "7056bb560e3d81341de67fa9fb2388c50e1dc0e420e30a7dc41bff7215e3205b"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f411xe.h",
+      "bytes": 656125,
+      "sha256": "5ab48e624c1717ae8823ed8f857e186f23734d4af5a1953048b52f1f73074009"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f412cx.h",
+      "bytes": 1039665,
+      "sha256": "f95a9171576fd508b759fc7d949153e9a3eb07b339977243524652390b4c1881"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f412rx.h",
+      "bytes": 1120405,
+      "sha256": "c3a490a0f519b53ce0a160df89a2cd6e87f9fd2a04618e89b2cff3adcea101aa"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f412vx.h",
+      "bytes": 1121251,
+      "sha256": "b98fa96961b4f9b87bd689c8a982a62abef60a74b8c3a1fd489a174261bc5caa"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f412zx.h",
+      "bytes": 1123015,
+      "sha256": "60d88e0e3926829e8848016de7de5e097914f79ec9d22cdae2a7e3a88f6d3b8a"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f413xx.h",
+      "bytes": 1197246,
+      "sha256": "110a433bb8da8c676b09638bfbf54c0dacc97c425ba6b82f19c452a345b575df"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f415xx.h",
+      "bytes": 1121926,
+      "sha256": "84e9c856802f1a40f7a8f3bb19696baa8596e60e7f7294552ee6bde5e8db1528"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f417xx.h",
+      "bytes": 1229668,
+      "sha256": "d62427c223d69c06eff42a47cf2b0e750447d7006bf8a3d29751235127ad2560"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f423xx.h",
+      "bytes": 1208256,
+      "sha256": "e59f1731498bd3b7613f577d0f77170a6e6cbf96b69454db7389d66c561e7652"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f427xx.h",
+      "bytes": 1302961,
+      "sha256": "8342bb0d06508a87df55adf491d81e2dbe9d9cfd38731831e3853a30b811c42b"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f429xx.h",
+      "bytes": 1328668,
+      "sha256": "b67d34e8365eef2327f535ff44bea1e5e7d126553abef740657c74fedcaf72c1"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f437xx.h",
+      "bytes": 1324627,
+      "sha256": "b29539c58069331570d12eeae1e366a137270aec911d91949b56fc483d87dce5"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f439xx.h",
+      "bytes": 1349662,
+      "sha256": "73330572d8c4e6324070f1612a819719638627bfbd00ffd4f5c15ad1b7a852ff"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f446xx.h",
+      "bytes": 1232185,
+      "sha256": "55e1b2a7cd38541dcb8a46b589b378d3c967bfc652d9b3fdafda1cda990bcfdb"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f469xx.h",
+      "bytes": 1554280,
+      "sha256": "088f2cf4836d260ea004058d5f23fbde9c3353f01bc6e0ee6d3bc1b24a8dbc67"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f479xx.h",
+      "bytes": 1575468,
+      "sha256": "ee0050524248535017c35589a187b27e569bd3e5ac1ddd9ec04bc48979dd8587"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/stm32f4xx.h",
+      "bytes": 12229,
+      "sha256": "fbce462cc1c35dca569d04b95042862ae00590c26286c3aafc8cd4a76fdff6b1"
+    },
+    {
+      "path": "synth/standalone/Src/CMSIS/Device/system_stm32f4xx.h",
+      "bytes": 2318,
+      "sha256": "6ba46a957d0c32196d03304b981db5be8c3969d41953a53a364ca861085277d1"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_common_tables.h",
+      "bytes": 11397,
+      "sha256": "dc6076293d3bf19228dff889a5659f7408baa286b9f13f296374e69f1efd2139"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_common_tables_f16.h",
+      "bytes": 2711,
+      "sha256": "32d00d64e460a45433440feec905e91d30576ae979668f942f2d296bf314b458"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_const_structs.h",
+      "bytes": 3721,
+      "sha256": "586a66c7eaf667a5d61a96d1924a2e6b496d3257e5bed4e7b1403344d546d5ce"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_const_structs_f16.h",
+      "bytes": 2136,
+      "sha256": "3a0ecbb55b432814cfd254e0b5213cc302ded9479792c5f3733131f649ba9be3"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_helium_utils.h",
+      "bytes": 22017,
+      "sha256": "38dc8ad779b02d1bcc21ee5a2412848686157aabae12a3e123c905ec0680d623"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_math.h",
+      "bytes": 2002,
+      "sha256": "dccfb78a3d71f970b63fc2119988521cca85b6c0ace904e3160193d8f8c94e4a"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_math_f16.h",
+      "bytes": 1869,
+      "sha256": "c69af3449d65a02aa74f0158878f0f92f52e095c05ecb90dfe818077677b7aac"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_math_memory.h",
+      "bytes": 5798,
+      "sha256": "849ad814348d068ea92e549130eb10234b8b37589ea3c2485ede0a000a2d11c7"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_math_types.h",
+      "bytes": 19321,
+      "sha256": "914dc12a4e0218b68cd0c3524f0d971f23ac29a5575d823bca20473b31ed6265"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_math_types_f16.h",
+      "bytes": 4002,
+      "sha256": "99846080ad9ad051b9c88923c878d22bb42dc12eb16c357fc8031a3299721747"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_mve_tables.h",
+      "bytes": 7742,
+      "sha256": "352352bb544e758e0d9ce81d77b1afe8cb89cff0034b621dc86de836bed2aa21"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_mve_tables_f16.h",
+      "bytes": 3590,
+      "sha256": "cd58c9d7fb7d9f7aea221c094397114097730d9584d6bad08ed702cbae36c8a5"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_neon_tables.h",
+      "bytes": 26897,
+      "sha256": "56b7e3b19476644de49e1032cf5e5025a381bf470b420f96af8885fc3ee471f4"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_neon_tables_f16.h",
+      "bytes": 11871,
+      "sha256": "cec2392a05b3e84a7a1c3b13d4dd8d3f4c883388951bf99312a9215b44e0bc4b"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_vec_math.h",
+      "bytes": 10215,
+      "sha256": "efaa842e04a5b5cccd8c0decb14e2e7f09425b40a4425c92efb8c3b8dcb32166"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/arm_vec_math_f16.h",
+      "bytes": 8626,
+      "sha256": "28320100350d702469dcd7e3880d0bc9aff76a165f7f022d37e43bcadad40126"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/PrivateInclude/arm_compiler_specific.h",
+      "bytes": 492,
+      "sha256": "7d77d4836a6ae1ec2a23e7c86677ae48d9781af03dfaa960934b1fe01a2052f0"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/PrivateInclude/arm_neon_private.h",
+      "bytes": 1831,
+      "sha256": "3a6dd6e5808693d0b4b850424e70638c8e46d71bcf7b027f10aded4d87c210f9"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/PrivateInclude/arm_sorting.h",
+      "bytes": 6851,
+      "sha256": "4466e621b17841c82cd946b50472d824b9d0e91e9be0142e949c603123266864"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/PrivateInclude/arm_vec_fft.h",
+      "bytes": 11845,
+      "sha256": "d674bc01c98fbd07a614f1ff79a186266dede1c8f968cd3deac66d2d8d732666"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/PrivateInclude/arm_vec_filtering.h",
+      "bytes": 125233,
+      "sha256": "f2cd0796cb782dd149556f1524aea90177da08e5a6a76b137b56f44c04d1ed9f"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/basic_math_functions.h",
+      "bytes": 26673,
+      "sha256": "ca1115db2c4987be3580088813642b8c088026a302abc855b42574ed5f840cd2"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/basic_math_functions_f16.h",
+      "bytes": 5302,
+      "sha256": "14b4a70d0c04b2aa3f25ad8474dc7741a1cc2ec7ec811ee12b4a5c60553befff"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/bayes_functions.h",
+      "bytes": 7734,
+      "sha256": "c6a5e889ddcba6f1c9a8afb5094c19cffe8947586129f64085d961ac872d8a2b"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/bayes_functions_f16.h",
+      "bytes": 2699,
+      "sha256": "f60616045891dc68dbb4f7a5ef17abbdb9726c7439394be3bab3dff25061da77"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/complex_math_functions.h",
+      "bytes": 11266,
+      "sha256": "87bfc6aeb204879640dab460c5320ce0f0b6212db271984785ff9f027967c768"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/complex_math_functions_f16.h",
+      "bytes": 4203,
+      "sha256": "6788da1c0e46005d096409e980f3a97cf0f906e0781b60c954528c8d8e06c4a1"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/controller_functions.h",
+      "bytes": 29924,
+      "sha256": "c735e3376bdb7bea0d395ab9bd42020e1554a22e199f20699e251e309e0570e7"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/controller_functions_f16.h",
+      "bytes": 1338,
+      "sha256": "86fc1668bee24dda17837d5f0e60a2543d898fc32f32f3953df06537d8e80b88"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/debug.h",
+      "bytes": 5143,
+      "sha256": "cb37a90439b3bee8074b7fe2a19c855c564d454f6cf655ca32f41594612136ee"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/distance_functions.h",
+      "bytes": 12081,
+      "sha256": "8b12362476b604b7ca18e2c69cb70fde812c5da2b7d8a8c1928973a324829158"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/distance_functions_f16.h",
+      "bytes": 5462,
+      "sha256": "09d76ea9e2ba3203c7129f9ee6df421ea9462786c251643cc3de7866f17e1e94"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/fast_math_functions.h",
+      "bytes": 10767,
+      "sha256": "59e4448676af29ce56a1eb5f915b6d7ec4ead7df64aa08c1644837c682030249"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/fast_math_functions_f16.h",
+      "bytes": 3555,
+      "sha256": "f292ae5f26b53626e1632b60c96d4df9d58461f5388a0f912cab256f0e655f09"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/filtering_functions.h",
+      "bytes": 102717,
+      "sha256": "e2b09ed399f2f2432200b639498634a033962cc0d6b8b72b0d6ed3b2ebab091c"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/filtering_functions_f16.h",
+      "bytes": 9408,
+      "sha256": "d2267879d27d13ec318ff40bc010bf14f364cc5cdcbb3b07009a72b7bff0996a"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/interpolation_functions.h",
+      "bytes": 9471,
+      "sha256": "07d4f395d21688a455ca6728d6afbc1365595c049395d0caca87ef2c8007e31a"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/interpolation_functions_f16.h",
+      "bytes": 3201,
+      "sha256": "a7490aca8f564eea2e41c6ac8155c69e3ff8c9b1051365eb8adba4210fcb651b"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/matrix_functions.h",
+      "bytes": 35963,
+      "sha256": "dd9a51d92a18cd38f242f68ad0c959969c0b0108d8cab5946856ff964aeba997"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/matrix_functions_f16.h",
+      "bytes": 10450,
+      "sha256": "13b85f1c1e986e52fc8994267f91040baafa41a20fae620a5c3b1a8f70cfb5d8"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/matrix_utils.h",
+      "bytes": 26532,
+      "sha256": "467d5fa3ee86b82f45b2a4cd030a9ebc9b3ad70178993ea15cd741183b47aa0c"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/none.h",
+      "bytes": 15473,
+      "sha256": "de66113dfc34a595465dee9ff4fa29ecf0004ad6785daf57a6ec51adf34d2e69"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/quaternion_math_functions.h",
+      "bytes": 5574,
+      "sha256": "e01f02d2d76219a4aee9134d62f4d7f4e38bd2f45b33ceed3dc32b5945554485"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/statistics_functions.h",
+      "bytes": 30704,
+      "sha256": "06379d42470c71658dd8af248aa6a7a7b41ef91be1c88d00cad440f9b2955500"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/statistics_functions_f16.h",
+      "bytes": 8735,
+      "sha256": "74dba07a993604f341a55340fe3968bd174232ac78bc6da6f3a27cf49c26b971"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/support_functions.h",
+      "bytes": 15668,
+      "sha256": "aac9a26414047add6d7e9f14f5518acc052b4292be8a208cbf6ff4c55264c24a"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/support_functions_f16.h",
+      "bytes": 6493,
+      "sha256": "34de1f8a307a18b47d581e0025c6690e2e6417799c9dee1c22e902ecc158ee12"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/svm_defines.h",
+      "bytes": 1485,
+      "sha256": "df9dc2e83fec7b74725f88a0afd16df8ecdca5ced2bd6166a28a1972a1802216"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/svm_functions.h",
+      "bytes": 10031,
+      "sha256": "23ef4ee1731c87f493a33fb5c7007f91133f2b4ce6a8c7fdc78afad65707db40"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/svm_functions_f16.h",
+      "bytes": 9788,
+      "sha256": "72f0faf4439eadf0c2ea3744e0aeb03aa0faa486e764c3fb43b4ade9e1e2190d"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/transform_functions.h",
+      "bytes": 51443,
+      "sha256": "091977428ca51fe99b995876662d3bb6a9b8bc44ef1ce127df74569f41daffd8"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/transform_functions_f16.h",
+      "bytes": 13433,
+      "sha256": "9ce0ebeb028ccc885b2fa92d74a83c2b7f864bf926b3f9f65027bff8754a0f56"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/utils.h",
+      "bytes": 7800,
+      "sha256": "490847a2c11e864f5b9e8c5e67cecbe6df1c2242f81225cc6200f44b2c058e3b"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Include/dsp/window_functions.h",
+      "bytes": 30832,
+      "sha256": "82eb2ea74581cec69ae68a7532ebea041b79c7d026f1e40a5adeeb12662e9f84"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/BasicMathFunctions/arm_add_f32.c",
+      "bytes": 4888,
+      "sha256": "e5afa3ca4743caf047aa69a1d79fb283a3cd11c57dfae0e869e12de02408a80b"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/BasicMathFunctions/arm_offset_f32.c",
+      "bytes": 4957,
+      "sha256": "86e56ae61288983bc4f722807cf0aa20f75f1457aaa5ed204c8e44ff80f8d9c3"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/BasicMathFunctions/arm_scale_f32.c",
+      "bytes": 5488,
+      "sha256": "664b5e5ebae808fdbbe6f6253564b04e19f2f8623d10375d25c4e89476f6fe7f"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/CommonTables/arm_common_tables.c",
+      "bytes": 2940246,
+      "sha256": "edb1670440ba680dc471fecefe0000b4e75ba67ace5b939341625a5ba691357a"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/FastMathFunctions/arm_cos_f32.c",
+      "bytes": 3749,
+      "sha256": "aa81cd42ad84eec1fd94619cce58107e71db27bbb764510e527b93b1a56ea3a9"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/FastMathFunctions/arm_sin_f32.c",
+      "bytes": 3700,
+      "sha256": "5a7f97bd29cc256c481f7aac94d4608eb6b726439bff08793fca2e433e9d3cc2"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c",
+      "bytes": 16611,
+      "sha256": "16a05e0fc3854a690ed9fd67f52ebf2b2b71342bafbb66652db789de4d58610c"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c",
+      "bytes": 7168,
+      "sha256": "549a6dace9eb0d147f6a6186cafc95f98059fabee2391211d9e01e9a0b21cac3"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/SupportFunctions/arm_copy_f32.c",
+      "bytes": 4644,
+      "sha256": "d1122c488f02a77a09887af04b22eb2a456f6a38bf08736487c96bcb4019f7e1"
+    },
+    {
+      "path": "synth/standalone/Src/DSP/Source/SupportFunctions/arm_fill_f32.c",
+      "bytes": 4482,
+      "sha256": "c7b0a4dd28e54a27a4daf5f6629537ff4bbb379929aabca3680b5767ba61bd46"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_common.h",
+      "bytes": 15654,
+      "sha256": "bccafa2ce858f1d7855b58464c8d8edb71ccedecb843003f5639ef8f4815d816"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_compiler.h",
+      "bytes": 15260,
+      "sha256": "598b8bc89c016b50e2270c7cdf1df8065e0b25f7789c9f697947d94bd5907d12"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_debug.h",
+      "bytes": 10081,
+      "sha256": "d6691e1d3e74f9ddc35c292755760b33936f42c9b51226515f96a056fb1acac5"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_fifo.c",
+      "bytes": 28151,
+      "sha256": "615f609156db847a8453e815f1ab7922621ffd497e87ad453d92ad6a4b2f4751"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_fifo.h",
+      "bytes": 13031,
+      "sha256": "82f74aaf7f90ae674f1e8bd10b916974b276027c0564a04aa158faf679abee62"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_mcu.h",
+      "bytes": 28506,
+      "sha256": "ab84026fdf8f715b416fd8d08bcb1d2eb17ac5f5e2f4d6b13b73334505ab0471"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_private.h",
+      "bytes": 6516,
+      "sha256": "4f9049a79c425c548cfec2f9cbe67c57dcbb5a6a57517ab5fabe623768d5f344"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_types.h",
+      "bytes": 22775,
+      "sha256": "2e5b652afde80a429ece167293dbd75ce04e993d9745512426e374fcdeb5619b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/common/tusb_verify.h",
+      "bytes": 4947,
+      "sha256": "ee6b9ea34a85ee6a5a8d8606d22ed05e32380dec8c15bdb7eef9064514889aba"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/device/dcd.h",
+      "bytes": 9917,
+      "sha256": "3e97d032c65e33fa2459af725965ecfe9a9fdef5f7ebc327da5c815968930806"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/device/usbd.c",
+      "bytes": 68532,
+      "sha256": "ab432ba41eba6ba88f54080813d787444bf29d03a95c3978a43a4f27e9a6017d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/device/usbd.h",
+      "bytes": 66481,
+      "sha256": "fa64abca44a4dfcafcba7473a2ca1b1c291d298c19f9e94814b3dd7cfc17ca98"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/device/usbd_pvt.h",
+      "bytes": 5343,
+      "sha256": "667ab6fa73d57c8788476b5633590bb488acb18bbc0c82eeba51df8b03ee2b32"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/host/hcd.h",
+      "bytes": 6798,
+      "sha256": "e631654c8d1b7edf2d5bf93b3e6c64037fde324e208b821abcdfcac77f7b4313"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/host/hub.h",
+      "bytes": 8027,
+      "sha256": "346b8aca8f49228a1d51e9042c36ae526641c1eeba8c9076fae2ae6871b3372d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/host/usbh.h",
+      "bytes": 18350,
+      "sha256": "a5055e6e771757978d67a28276a4355af44b404e3929bc3592c27a839ba6c19b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/host/usbh_pvt.h",
+      "bytes": 3961,
+      "sha256": "01e9419242ddc619493afd2aef3ad3654561612d6e055c7867f3d31e5ea35192"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal.h",
+      "bytes": 3219,
+      "sha256": "a573b016a38434533ed944cf381d6cb2b345bebbd3008f7e143eec6ce2249046"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_freertos.h",
+      "bytes": 8880,
+      "sha256": "5af2d7bbf3d64c5776a9b603b30c8ee69e685318f47a05ead6aa0fb882d868a1"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_mynewt.h",
+      "bytes": 6901,
+      "sha256": "3c451c3347aa3671a8e2cc2cd1f2bdc8682d008071f7d6229a3d633acf22523e"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_none.h",
+      "bytes": 7253,
+      "sha256": "41f68ee034938962521cb10936875f263247aa3b65b9ba780b5df29037e41cfc"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_pico.h",
+      "bytes": 6012,
+      "sha256": "a31b9990fe6c54b95cb0a79ed0cf90a0f4ffaaedba43d12208f0af3229cbea21"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_rtthread.h",
+      "bytes": 5728,
+      "sha256": "65913ac6ef139ebdb4ff49d5eacc1f6677ad37b49e7275ca8e4e7d477db59ac9"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_rtx4.h",
+      "bytes": 5957,
+      "sha256": "9231aeda63e2a077456b2e0aed152f3238a460bea083d41ee8c3dfcdaefda286"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_stk.h",
+      "bytes": 18247,
+      "sha256": "b80101a202069f7641705bb45aaeb6a7edfee7af66961c840eda36668f763918"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_threadx.h",
+      "bytes": 6335,
+      "sha256": "a562a96e25200f7094f10e0f64ac7645a53ec6501fb34cbed6b0d6684be636e4"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/osal/osal_zephyr.h",
+      "bytes": 4829,
+      "sha256": "e6e88eb8596e8227d4f709ae488afc1926b927618b95385c0ce37e66b669c7e1"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/typec/pd_types.h",
+      "bytes": 9134,
+      "sha256": "c8129335f220167ed1431b420784b19a3a92e59bdbcdb4708cd4a9b470439ff2"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/typec/tcd.h",
+      "bytes": 3239,
+      "sha256": "82f7f6c3732458926bc0db6831771cd2b561886af362b167185c8e052337bfc2"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/typec/usbc.h",
+      "bytes": 2418,
+      "sha256": "47fd9757b99e4405b16de923615b5be6e15b6921b12dec079f9ef994c47e2ba3"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/audio/audio.h",
+      "bytes": 68305,
+      "sha256": "15791a4239a3823c91203086f4e3617e40b407e91a4f06287867153bf4645e31"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/audio/audio_device.c",
+      "bytes": 79086,
+      "sha256": "8a2e06a770d1333f724dc3e09cd5984365ebb159e6f31745579a760851d5dcab"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/audio/audio_device.h",
+      "bytes": 19689,
+      "sha256": "bb7ed60f97fcbc4b5e65d0580d08555e07b9da581b871e0863c8dafa535bcc5d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/audio/audio_host.h",
+      "bytes": 17222,
+      "sha256": "bdcaaac002a8244b0adb40aa4812a961b4e27866e60737d9a82e7f5ae4d5277c"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/bth/bth_device.h",
+      "bytes": 3960,
+      "sha256": "90293dc5934d550dd9df6ce187a5206cf132d86cea1effbb037e16be8da0695f"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/cdc.h",
+      "bytes": 25542,
+      "sha256": "59641232f1c74b706b23c3edc1b62c7c3ae5e865dae0e2ecbdef2f1f3247a896"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/cdc_device.h",
+      "bytes": 10503,
+      "sha256": "6a98a0c5be8a463b525496d4b96b9f7fce43bb7192fab8184ff641d3b22cbff9"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/cdc_host.h",
+      "bytes": 10420,
+      "sha256": "d1e398ed1d03594de41c2a48702bde95df97ee67cde9593a4adf945dc2cd8f65"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/cdc_rndis.h",
+      "bytes": 19523,
+      "sha256": "67238d2bebb8006e93e9411c46d1436d46e32dfc29d17b905ccad2250d7f0314"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/dfu/dfu.h",
+      "bytes": 2682,
+      "sha256": "dd90cfab6e25880dd518849f96e6b7b52e0944df8a65fb265705028d6253738c"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/dfu/dfu_device.h",
+      "bytes": 3503,
+      "sha256": "64503aad89b384a49858351bd16c7d7a7fe582b666c4416849607793a0370e02"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/dfu/dfu_rt_device.h",
+      "bytes": 1242,
+      "sha256": "85ba866bb360e18b330a7729a63c33b9c7db48cc9a91e7545ea2ccbcf8ff3647"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/hid/hid.h",
+      "bytes": 168339,
+      "sha256": "396a05e0c60051db5b1ea4beb6d273d80d5c87d97a1035c2ba4fd4eab0e372f8"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/hid/hid_device.h",
+      "bytes": 38938,
+      "sha256": "315db40d73e248174a7b6fd38fabbcc0b1cccb7537c0872598103c5e2b644010"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/hid/hid_host.h",
+      "bytes": 8149,
+      "sha256": "9125469f654ea09c0ecf695a1ef012838de0241eb38b62a70036f31db3deba88"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/midi/midi.h",
+      "bytes": 7048,
+      "sha256": "ed7d8970c574e5b01298cb085b659fcb6af8b0879cb26c9c12756baff3f047a6"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/midi/midi2_device.h",
+      "bytes": 11886,
+      "sha256": "8959984a1b972dfbee45481d5ff128912222c59cbf59ff02506fc8ee059cee1d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/midi/midi2_host.h",
+      "bytes": 3577,
+      "sha256": "c90fdb5244c9f67e4caae2cbc1dc4eb609a410d8612dbdbfa8bb2e3fc3de45fd"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/midi/midi_device.c",
+      "bytes": 19533,
+      "sha256": "de84e050d9f1128d20d93641e5be695d4f24c2275f25e0d0e119833f21e69c02"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/midi/midi_device.h",
+      "bytes": 5029,
+      "sha256": "5dc6c61bf315a1a38ce8c59dd765b97985d9e69e9ae51e4d1f886faca333d12c"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/midi/midi_host.h",
+      "bytes": 7619,
+      "sha256": "13e94ae944ee9a4b45e3a061f8ff9ae469444d249e8fa1cce9fd87de11b5b6e5"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/msc/msc.h",
+      "bytes": 18183,
+      "sha256": "2e3b03c355a6c7957e4d5e8a477d41265520a3c20ff14a1b7e245ce85fbe7ace"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/msc/msc_device.h",
+      "bytes": 7251,
+      "sha256": "b34f7643c993bc59b0df54a28202aa055714b8284709ab35f3fd6d035aed3aa6"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/msc/msc_host.h",
+      "bytes": 5571,
+      "sha256": "64134bdd9a57d39776d638a43c16f8b758299913a820596f2b6d6b5bc2846774"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/mtp/mtp.h",
+      "bytes": 42930,
+      "sha256": "645706372e4c898b1375ad43947697a73fc4c8c817ba339c00fa9fbd6e1eef72"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/mtp/mtp_device.h",
+      "bytes": 6977,
+      "sha256": "322b5f6e62f8b96719867dd5fc943a5a9e4332afd8799a9872dda92a5832bca8"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/net/ncm.h",
+      "bytes": 5121,
+      "sha256": "6d85a5fcbfb37faaa62f07d20747ce029a20a32da72967c0a33d5d69e7e66b2d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/net/net_device.h",
+      "bytes": 4513,
+      "sha256": "15a86f474ac49aefd233b4675de5578e0a5d9e89211607cd549ed300c627d35d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/printer/printer.h",
+      "bytes": 1264,
+      "sha256": "6d5772720b1ba6b338c36256b415267de2fa397770e332d28f09e7235c6071cc"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/printer/printer_device.h",
+      "bytes": 4558,
+      "sha256": "d94e924d900759c258368394ef65cedd05190faed486c11a7990179634ca7fcb"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/usbtmc/usbtmc.h",
+      "bytes": 10017,
+      "sha256": "51ddb3caa69f118b93917bb80e04491eab2848e7f84519b158638af50e903733"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/usbtmc/usbtmc_device.h",
+      "bytes": 3856,
+      "sha256": "f9c16e0207b6adc10b5543dfc628395a6a6e1c03bdc84b853d08715c8912ce46"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/vendor/vendor_device.h",
+      "bytes": 13342,
+      "sha256": "76573016ae1e1a36be5e703519fa9709c51f37da382db4c9f806edbae868c7eb"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/video/video.h",
+      "bytes": 27726,
+      "sha256": "a86fd5894a1295d18b9abefda3619ee5a4347be62350d3e717751b263a60043d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/video/video_device.h",
+      "bytes": 5332,
+      "sha256": "1ca9814bd09622702967efa3dc81a40b369e1e802afc2e9d5bcd4d1ad2c77df2"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/serial/ch34x.h",
+      "bytes": 2700,
+      "sha256": "8da8d0f1c96334459f3fa518e9baa269ecc23306e991fc070ad048e41e43bcfb"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/serial/cp210x.h",
+      "bytes": 3601,
+      "sha256": "353b4349a6f905258c3acea61c42b6906f5d1d75d39fcb2339144d277a980dfb"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/serial/ftdi_sio.h",
+      "bytes": 7309,
+      "sha256": "0d72a56ce81c1292eb4a1de648b25880f932aa9577e20d67fea4d8dacb8e5848"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/class/cdc/serial/pl2303.h",
+      "bytes": 5094,
+      "sha256": "db74c6dd106580e59e3064e7cb38f2eb6b9d78647ee5a6f082a65e5795e276ae"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/ehci/ehci.h",
+      "bytes": 24993,
+      "sha256": "196e7e21ccae82421fb8f695ba377ab3bb697909bb5b98b59391ea1162b028fa"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/ehci/ehci_api.h",
+      "bytes": 658,
+      "sha256": "4be2561fb9ca44c0c5f98e1bb309ff30554165901b7e4e51142c370633222420"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/ohci/ohci.h",
+      "bytes": 11875,
+      "sha256": "366a76d8b84053b6b2fb33c3e5b81428fe081ebae3fb41a5d30c0ad20c5fb8dd"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/ohci/ohci_nxp.h",
+      "bytes": 1016,
+      "sha256": "c0565c28c4b6f8135487cfb3c46c5f16cb7fa656e44f11adac4bc3ca83cecc2e"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/sunxi/musb_def.h",
+      "bytes": 27322,
+      "sha256": "8380c0664e987f38cf8606ef6aa9f7e81288c4e66dd964edef7f3ca884672308"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/wch/ch32_usbfs_reg.h",
+      "bytes": 12131,
+      "sha256": "b885610b0ba5dd7364b684aeae2ce9bf9a17b1ce38e99d9d95aade388c0f9b1b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/wch/ch32_usbhs_reg.h",
+      "bytes": 11249,
+      "sha256": "5f960953b8422c23a55ba3f9ee27be4be2536e24cff2c2473cca2ed0410ef8da"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/analog/max3421/hcd_max3421.h",
+      "bytes": 1561,
+      "sha256": "afda187d13e256e854d789eb3baedeb620bf163d52cda98accc6cfabe7677b7f"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_fs/ci_fs_kinetis.h",
+      "bytes": 672,
+      "sha256": "7a4471da4f6c01643da547b4e34a12906ca31c634cce3c076d03b3dbe10a5f32"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_fs/ci_fs_mcx.h",
+      "bytes": 803,
+      "sha256": "1a4539b7c821424d20168b21ee59478f659e48f48b2dd5f2faa5ecab8a54d1bb"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_fs/ci_fs_type.h",
+      "bytes": 6329,
+      "sha256": "f56a4bf677703c8ccdf60c5c804863107e9bca193f740322f8f16682021f0bcf"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_hpm.h",
+      "bytes": 1013,
+      "sha256": "2e81c26e37c9dde46c516f4cab21569a16e5ab35b6f88d4bad7fec006bf50f15"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_imxrt.h",
+      "bytes": 3579,
+      "sha256": "7eeeb6f005f957a8a16f6f51b8d6d19c026f7918fa7e3b933206ce38d5d8f236"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_lpc18_43.h",
+      "bytes": 1285,
+      "sha256": "9c39eb3495f59f7d1881660fc090ce90232dade02c8a09471f75380bd3f675a7"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_mcx.h",
+      "bytes": 1051,
+      "sha256": "f08fc87f2eecd2389d4aa02716391181a512920a5ec874caca5434d8fa4b788b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_rw61x.h",
+      "bytes": 891,
+      "sha256": "3bbd701d09ec3ef78f14e7c7940d4fd9a2452396fe813ae058fe5c010ec3463b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/chipidea/ci_hs/ci_hs_type.h",
+      "bytes": 5572,
+      "sha256": "56c2cc5fe212ffc915a3d77aaddfd7a004adc0fc9768df08f5ed45607e68605a"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/mentor/musb/musb_max32.h",
+      "bytes": 4028,
+      "sha256": "a48764a573d3538d9cc05f8878ba4ed68ff1f06bb816183b492ed2534c08ca31"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/mentor/musb/musb_py32.h",
+      "bytes": 2698,
+      "sha256": "1aef83387b8c0b791efa7048677a7760c9de212a97c5a8052749ce47edcca1d9"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/mentor/musb/musb_ti.h",
+      "bytes": 1950,
+      "sha256": "d4ff1b971e1e9435288def5e3014d84361fa184744eaf1d1352c1273e7bae134"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/mentor/musb/musb_type.h",
+      "bytes": 34529,
+      "sha256": "2420b763dd6056f8293fe8e0859d89d3697b04273822f81b963454f5e16a49ca"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/microchip/pic32mz/usbhs_registers.h",
+      "bytes": 21488,
+      "sha256": "1379f0126b3e12bca0678eced1061c76faf9a408a9ac7979381f6d1a4b4c745e"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/microchip/samd/samd_common.h",
+      "bytes": 2364,
+      "sha256": "1956afcdc92b29fe3653f3656f48a5afbacceeb602281fdc71190f4cf5c64915"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/microchip/samx7x/samx7x_common.h",
+      "bytes": 235688,
+      "sha256": "f210505fda81d7398bac0a985703c1c7e77df8c5ba228cf368d9c7e0968d7ef4"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/nxp/lpc17_40/dcd_lpc17_40.h",
+      "bytes": 4565,
+      "sha256": "6ea4a05d6807af3688a555f4f6e970875a1d70e47e968e383e76ac82ad919561"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/nxp/lpc_ip3516/hcd_lpc_ip3516.h",
+      "bytes": 4203,
+      "sha256": "503a080cf803ea16cfc9ac5de262e26b68a5d0c083ffd8cffdeadb6779231053"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/raspberrypi/rp2040/rp2040_usb.h",
+      "bytes": 7057,
+      "sha256": "dc1a40f125819bd2dd8b958045023f1165a0505e26692604fcfd7f5598b65d44"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/renesas/rusb2/rusb2_common.h",
+      "bytes": 1040,
+      "sha256": "3c4257489281263da7277948323d57e9252159352a50ac7d2f9dcf92ff684c20"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/renesas/rusb2/rusb2_ra.h",
+      "bytes": 5089,
+      "sha256": "b88926358589ed21012e47f00aa10fca3b79c3dc13bf839b1a16f2dafc9d3df8"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/renesas/rusb2/rusb2_rx.h",
+      "bytes": 2241,
+      "sha256": "741b900afcd076eb5331655df1f69dec2b7362819c55b47de013fee1fe746f75"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/renesas/rusb2/rusb2_type.h",
+      "bytes": 99306,
+      "sha256": "61cb745e0cbbc9fe141336fed151f3e95e9c08a55de2ddb4b434bea7b341adb1"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_apm32.h",
+      "bytes": 2850,
+      "sha256": "87c2310007e56a2763cbec4e043f3f07641ab703d713d5b0f24709f71d8abedc"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_at32.h",
+      "bytes": 3016,
+      "sha256": "fb707f380deac1670537a7ae7ed0e89630d2209ca5646cd6b277d687f1b8567c"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_ch32.h",
+      "bytes": 2304,
+      "sha256": "2ff994317d3cd711430cbc815a43a87ab3916cc39127430f54c7877258fb75c3"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_common.h",
+      "bytes": 16064,
+      "sha256": "b406340a3e542bc2d4106ec87c25bd503dfa9062e85bdf6919407717da2b673d"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/st/stm32_fsdev/fsdev_stm32.h",
+      "bytes": 10953,
+      "sha256": "b71050f92de4ccf69eeee5514b892d6dbc321bd08f5502c911e8784851189cd0"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dcd_dwc2.c",
+      "bytes": 52688,
+      "sha256": "dbad695df42664f4474a896223fabb890fa239c9e99051fffb4e8fb0acb8f1c1"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_apm32.h",
+      "bytes": 5679,
+      "sha256": "9dfaf23d7db43f61ae0591c312d02d6d3eeaa05008e6bb185c58baa0c18e4050"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_at32.h",
+      "bytes": 3837,
+      "sha256": "175b741540635fbb5ec24580f2e261c3b700937e27981d0db844638d268e6198"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_bcm.h",
+      "bytes": 2038,
+      "sha256": "7c81fce7f44e0464cd6f663e25f50c2f7be939eb7df8d67d102fb9c253257114"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_common.c",
+      "bytes": 9018,
+      "sha256": "18f60b25f469b0db59c30ff5ae30df83f9a94800af4d2adaedb09619a42fc99e"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_common.h",
+      "bytes": 3436,
+      "sha256": "e65af921271cadec0f2fc3914b6f35dd2cd9f8235333e97b5b6dab59572496b9"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_efm32.h",
+      "bytes": 2171,
+      "sha256": "456754c6f9dedd6ebc5eedf8aa12b416376b171587451364764acd2262de0ebb"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_esp32.h",
+      "bytes": 6347,
+      "sha256": "f63953383bbd897f804879a23f487bd7db636791f677832572f98517853d831b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_gd32.h",
+      "bytes": 2403,
+      "sha256": "0512ef6d022a886a4146191969124b7f9b05d88b1acf730f13e295268ee27b7b"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_ifx.h",
+      "bytes": 8483,
+      "sha256": "6cbd374a6f043e494a2005cb0013415fac6d5d2432e2bb7a636720a130dd0bc8"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_nrf.h",
+      "bytes": 4193,
+      "sha256": "2e4b80b788551b6d9f60a283ed1bbb95676618b12a0c7abae2f41bce2a56a5e5"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_stm32.h",
+      "bytes": 14747,
+      "sha256": "4c6a786b374dbb94a2eb7456662b10ee20ba329141909d39716178173d2ed054"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_type.h",
+      "bytes": 156843,
+      "sha256": "bb1f1e35a6e87f257b34d0c8ac818e78618e3b4bcf1141b2d3d199cfe8faedc0"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/synopsys/dwc2/dwc2_xmc.h",
+      "bytes": 2085,
+      "sha256": "7ae23424aee161f0b21853504f502d3d8eeee287205a30d52f6f3201b87c88db"
+    },
+    {
+      "path": "synth/standalone/Src/TinyUSB/portable/valentyusb/eptri/dcd_eptri.h",
+      "bytes": 395,
+      "sha256": "bc9e438789d17b19661fac1cf72877499c19d99962696c8c29c3a79769a3f6eb"
+    },
+    {
+      "path": "synth/windows-companion/SynthMonitor/START-HERE.txt",
+      "bytes": 3393,
+      "sha256": "4e05afde546f8f02a239e67789e43937f45bb05757181e9ada107bfb8e3c121d"
+    },
+    {
+      "path": "synth/windows-companion/SynthMonitor/Source/SynthMonitor.cs",
+      "bytes": 13025,
+      "sha256": "17f4a94247910a1464735cd1b79572c8947268e8c578fd4bd5ee0e57920e878f"
+    },
+    {
+      "path": "synth/windows-companion/SynthMonitor/Windows/NAudio-LICENSE.txt",
+      "bytes": 2660,
+      "sha256": "0027e744e6750bc02408b90c6909a7a33093477083d59a7e2660477e05307689"
+    },
+    {
+      "path": "synth/windows-companion/SynthMonitor/Windows/NAudio.dll",
+      "bytes": 513536,
+      "sha256": "bc4bacc3b8b28d898f1671b79f216cca439f95eb60cd32d3e3ecafbecac42780"
+    },
+    {
+      "path": "synth/windows-companion/SynthMonitor/Windows/SynthMonitor.exe",
+      "bytes": 17920,
+      "sha256": "eb5cb9c471c5026be28ed86b6f328fed9038ad1be17308a10a0d19aa932c3e99"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+STM32 SYNTH COMPANION
+
+RUN THE BOARD
+Disconnect both USB cables before changing boot jumpers.
+Set BT0 to GND and remove the BT1 jumper, then reconnect USB-Slave.
+USB-Slave carries audio and MIDI. USB-UART is for debug logging.
+Insert the FAT32 SD card before powering on to load saved calibration.
+
+WINDOWS
+1. Extract this ZIP to the PC and open Windows/SynthMonitor.exe.
+   Keep NAudio.dll in the same folder as SynthMonitor.exe.
+2. Select the STM32 Synth audio input and the PC speakers or headphones.
+3. Click Start monitoring and play the touchscreen keyboard.
+4. Use either this app or Windows "Listen to this device" for monitoring.
+   Running both can produce echo.
+5. Monitor volume begins at 30 percent and affects only this app's audio.
+   If the keyboard is silent, try TONE 440 to check the audio route.
+
+SAMPLE TRANSFER
+Click Send WAV to synth and choose a WAV file.
+Tap RECORD on the board, then confirm the app's ready-to-sample dialog.
+The board stores up to 0.5 second of incoming mono audio in RAM.
+Tap PLAY SAMPLE on the board to hear the recorded audio through monitoring.
+Sample memory resets when board power is removed. Screen calibration is saved in two validated files under SYNTH on the SD card and loaded on later starts. If SD saving fails, calibration remains in RAM for that session.
+
+PHYSICAL BUTTONS
+Mappings follow the T100 schematic and require verification on this board.
+KEY0 / PE4: hold about one second to calibrate the screen.
+KEY1 / PE3: press to play the recorded sample.
+WK_UP / PA0: press to switch between the keyboard and effects.
+The red reset button retains its hardware reset function.
+
+SD CARD
+The card saves touchscreen calibration in SYNTH/CAL0.BIN and CAL1.BIN.
+The newest valid copy is loaded at startup. Hold KEY0 to recalibrate.
+Use a separate card reader to copy files onto the card.
+USB storage mode and automatic app installation are not included.
+Recorded samples are currently stored only in RAM.
+
+SYNTH
+The engine is adapted from k-omura/STM32F4-Digital-Synthesizer (MIT).
+It runs at 48 kHz with USB audio and ten pitched voices.
+The effects page provides low-pass cutoff, resonance, attack, release,
+vibrato and tremolo. MIDI CC 74, 71 and 1 control cutoff, resonance and
+vibrato, respectively. Tap FX or use WK_UP to enter effects.
+Tap KEYS or press WK_UP again to return to the keyboard.
+USB Audio Class 1 streams are mono, 16-bit, 48 kHz.
+MIDI and the engine run on the STM32. The Windows app routes audio.
+
+ANDROID
+The Android APK is not included in this first Windows companion package.
+An Android audio app with USB input monitoring and explicit speaker/headphone
+routing is required until that companion is built.
+
+TEST STATUS
+The firmware and Windows app compile successfully.
+The firmware clean build passes with zero errors and warnings and its USB
+audio/MIDI descriptor checks pass. The synth-only image was flashed and verified.
+The app's software-only volume test passes. The previous basic USB audio build
+has been heard on this PC and saved calibration has loaded from this SD card.
+The current engine sound and physical button mapping still need listening
+and button checks on the board.
+
+DEPENDENCIES
+Windows app: .NET Framework and NAudio 1.10 (MIT).
+Firmware: TinyUSB (MIT), ST CMSIS, ARM CMSIS-DSP and the original synth engine.
+Source code and license notices accompany this package and firmware project.
+
+
