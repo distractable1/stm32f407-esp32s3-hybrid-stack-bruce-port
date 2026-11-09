@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 extern uint8_t cc_part,cc_version;
+extern const char *cc_stage,*cc_error;
+extern uint8_t cc_so_idle,cc_so_selected,cc_spi_status;
+extern bool cc_ids_read;
 bool cc_init(uint32_t khz,unsigned power,bool ook);
 bool cc_rssi(int *dbm);
 bool cc_send(uint32_t sequence);

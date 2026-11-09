@@ -2,7 +2,7 @@
 #include "board_support.h"
 #include "cc1101.h"
 #include <stdio.h>
-const char app_display_name[]="RF Scope";
+const char app_display_name[]="RF Scope D03";
 static bool ready,enabled,busy,contact,ook;
 static unsigned power,interval=2,trace_x;
 static uint32_t khz=433920,sequence,rx_count,last_tx,tx_start,last_sample,last_draw;
@@ -26,16 +26,21 @@ static void diagnostics(void){
  char b[64];rectangle(0,74,320,18,BLACK);
  snprintf(b,sizeof b,"IN:%s T:%u B:%u R:%u",last_input,touch_count,button_count,retry_count);
  text(4,76,b,CYAN);
+ rectangle(0,92,320,16,BLACK);
+ snprintf(b,sizeof b,"%s SO:%u/%u ST:%02X P14:SET",cc_stage,cc_so_idle,cc_so_selected,cc_spi_status);
+ text(4,93,b,WHITE);
 }
 static void summary(void){
  char b[60];rectangle(0,30,320,42,BLACK);
  snprintf(b,sizeof b,"%lu.%03lu MHz  RSSI %d dBm",(unsigned long)(khz/1000),(unsigned long)(khz%1000),rssi);text(4,32,b,WHITE);
  snprintf(b,sizeof b,"TX:%lu RX:%lu %s",(unsigned long)sequence,(unsigned long)rx_count,busy?"SENDING":message);text(4,47,b,ready?GREEN:RED);
- snprintf(b,sizeof b,"CC part:%02X ver:%02X %s",cc_part,cc_version,ready?"SPI OK":"NOT READY");text(4,62,b,ready?CYAN:RED);
+ if(cc_ids_read)snprintf(b,sizeof b,"CC part:%02X ver:%02X %s",cc_part,cc_version,ready?"SPI OK":"FAIL");
+ else snprintf(b,sizeof b,"CC part:-- ver:-- NO ID READ");
+ text(4,62,b,ready?CYAN:RED);
 }
 static void fail(void){enabled=busy=false;ready=false;message="RADIO ERROR";cc_close();controls();summary();}
 static void start_radio(void){
- enabled=busy=false;ready=cc_init(khz,power,ook);message=ready?"RX ready":"Check radio / SPI";
+ enabled=busy=false;ready=cc_init(khz,power,ook);message=ready?"RX ready":(cc_error?cc_error:"INIT FAILED");
  if(!ready)cc_close();
  controls();summary();diagnostics();
 }
@@ -46,6 +51,7 @@ void app_init(void){
  start_radio();last_tx=last_sample=tusb_time_millis_api();
 }
 void app_update(uint32_t now){
+ if(feedback_until && (int32_t)(now-feedback_until)>=0){feedback_until=0;controls();diagnostics();}
  if(!ready)return;
  if(busy){
   bool done=false;
@@ -67,7 +73,6 @@ void app_update(uint32_t now){
   }
  }
  if(now-last_draw>=200){last_draw=now;summary();diagnostics();}
- if(feedback_until && (int32_t)(now-feedback_until)>=0){feedback_until=0;controls();diagnostics();}
 }
 void app_touch(int x,int y,bool pressed){
  bool edge=pressed&&!contact;contact=pressed;if(!edge)return;
@@ -91,7 +96,7 @@ void app_touch(int x,int y,bool pressed){
 }
 void app_button(unsigned buttons){
  button_count++;last_input=(buttons&APP_BUTTON_KEY1)?"KEY1":"WK_UP";
- if(buttons&APP_BUTTON_KEY1){enabled=busy=false;cc_stop();message="TX stopped";}
+ if(buttons&APP_BUTTON_KEY1){enabled=busy=false;cc_stop();if(ready)message="TX stopped";}
  controls();summary();diagnostics();
 }
 void app_shutdown(void){enabled=busy=ready=false;contact=false;cc_close();}

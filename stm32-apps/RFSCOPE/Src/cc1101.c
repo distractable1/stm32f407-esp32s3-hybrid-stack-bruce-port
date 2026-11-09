@@ -2,6 +2,17 @@
 #include "board_support.h"
 #include "stm32f4xx.h"
 static bool radio_open,spi_clock_was_on;
+const char *cc_stage="OFF", *cc_error;
+uint8_t cc_so_idle=2,cc_so_selected=2,cc_spi_status=255;
+bool cc_ids_read;
+static uint32_t pb_out;
+static bool fault(const char *reason){if(!cc_error)cc_error=reason;return false;}
+static bool wait_ready(void){
+ unsigned budget=1000000;
+ while((GPIOB->IDR&(1u<<4))&&--budget){}
+ cc_so_selected=(GPIOB->IDR>>4)&1u;
+ return budget?true:fault("SO HIGH");
+}
 static uint32_t prior_cr1,prior_cr2;
 static uint32_t pb_mode,pb_af,pb_speed,pb_pull,pg_mode,pg_pull,pg_out,pg_type,pb_type;
 static void radio_restore(GPIO_TypeDef *g,uint32_t saved,uint32_t mask,volatile uint32_t *reg){(void)g;*reg=(*reg&~mask)|(saved&mask);}
@@ -13,12 +24,18 @@ bool cc_hw_open(void){
  // The protected SDK does not use SPI3; a previous launcher app can leave
  // SPE set. Adopt an idle inherited controller instead of rejecting it.
  unsigned budget=100000;while((SPI3->SR&SPI_SR_BSY)&&--budget){}
- if(!budget){if(!spi_clock_was_on)RCC->APB1ENR&=~RCC_APB1ENR_SPI3EN;return false;}
+ if(!budget){if(!spi_clock_was_on)RCC->APB1ENR&=~RCC_APB1ENR_SPI3EN;return fault("SPI BUSY");}
  prior_cr1=SPI3->CR1;prior_cr2=SPI3->CR2;
  SPI3->CR1&=~SPI_CR1_SPE;
  (void)SPI3->DR;(void)SPI3->SR;
  pb_mode=GPIOB->MODER;pb_af=GPIOB->AFR[0];pb_speed=GPIOB->OSPEEDR;pb_pull=GPIOB->PUPDR;pb_type=GPIOB->OTYPER;
+ pb_out=GPIOB->ODR;
  pg_mode=GPIOG->MODER;pg_pull=GPIOG->PUPDR;pg_out=GPIOG->ODR;pg_type=GPIOG->OTYPER;
+ /* Reproduce PB14 HIGH from the hardware-working Multi Tool driver.
+    Its exact PCB function is not yet established by a T100 schematic. */
+ GPIOB->BSRR=1u<<14;
+ GPIOB->OTYPER&=~(1u<<14);
+ GPIOB->MODER=(GPIOB->MODER&~(3u<<28))|(1u<<28);
  GPIOG->BSRR=1u<<7;
  for(unsigned p=3;p<=5;p++){
   GPIOB->MODER=(GPIOB->MODER&~(3u<<(2*p)))|(2u<<(2*p));
@@ -29,8 +46,8 @@ bool cc_hw_open(void){
  GPIOG->MODER=(GPIOG->MODER&~(0x3fu<<12))|(1u<<14);
  GPIOG->OTYPER&=~((1u<<6)|(1u<<7));
  GPIOG->PUPDR=(GPIOG->PUPDR&~(0x3fu<<12))|(1u<<16);
- SPI3->CR2=0;SPI3->CR1=SPI_CR1_MSTR|SPI_CR1_SSM|SPI_CR1_SSI|(4u<<3)|SPI_CR1_SPE;
- radio_open=true;return true;
+ SPI3->CR2=0;SPI3->CR1=SPI_CR1_MSTR|SPI_CR1_SSM|SPI_CR1_SSI|(3u<<3)|SPI_CR1_SPE;
+ radio_open=true;cc_so_idle=(GPIOB->IDR>>4)&1u;return true;
 }
 
 void cc_hw_delay(unsigned us){
@@ -39,25 +56,28 @@ void cc_hw_delay(unsigned us){
  while((uint32_t)(DWT->CYCCNT-start)<cycles){}
 }
 static bool radio_byte(uint8_t out,uint8_t *in){
- unsigned budget=100000;while(!(SPI3->SR&SPI_SR_TXE)&&--budget){}if(!budget)return false;
+ unsigned budget=100000;while(!(SPI3->SR&SPI_SR_TXE)&&--budget){}if(!budget)return fault("SPI TX WAIT");
  *(__IO uint8_t *)&SPI3->DR=out;budget=100000;
- while(!(SPI3->SR&SPI_SR_RXNE)&&--budget){}if(!budget)return false;
+ while(!(SPI3->SR&SPI_SR_RXNE)&&--budget){}if(!budget)return fault("SPI RX WAIT");
  *in=*(__IO uint8_t *)&SPI3->DR;return true;
 }
 bool cc_hw_bus(uint8_t cmd,const uint8_t *tx,uint8_t *rx,unsigned n){
- if(!radio_open||n>64)return false;
+ if(!radio_open||n>64)return fault("BUS CLOSED");
  GPIOG->BSRR=1u<<(7+16);
- unsigned ready=100000;while((GPIOB->IDR&(1u<<4))&&--ready){}
- uint8_t v;bool ok=ready && radio_byte(cmd,&v);
- for(unsigned i=0;i<n&&ok;i++){ok=radio_byte(tx?tx[i]:255,&v);if(rx)rx[i]=v;}
- unsigned budget=100000;while((SPI3->SR&SPI_SR_BSY)&&--budget){}if(!budget)ok=false;
+ uint8_t v=255;bool ok=wait_ready() && radio_byte(cmd,&v);
+ if(ok)cc_spi_status=v;
+ for(unsigned i=0;i<n&&ok;i++){ok=radio_byte(tx?tx[i]:255,&v);if(ok&&rx)rx[i]=v;}
+ unsigned budget=100000;while((SPI3->SR&SPI_SR_BSY)&&--budget){}if(!budget)ok=fault("SPI BUSY");
+ /* SRES must finish with SO ready while CS remains asserted. */
+ if(ok&&cmd==0x30)ok=wait_ready();
  GPIOG->BSRR=1u<<7;return ok;
 }
 void cc_hw_close(void){
  if(!radio_open)return;
- GPIOG->BSRR=1u<<7;SPI3->CR1=prior_cr1;SPI3->CR2=prior_cr2;
- radio_restore(GPIOB,pb_mode,0xfc0,&GPIOB->MODER);radio_restore(GPIOB,pb_af,0xfff000,&GPIOB->AFR[0]);
- radio_restore(GPIOB,pb_speed,0xfc0,&GPIOB->OSPEEDR);radio_restore(GPIOB,pb_pull,0xfc0,&GPIOB->PUPDR);radio_restore(GPIOB,pb_type,0x38,&GPIOB->OTYPER);
+ GPIOG->BSRR=1u<<7;SPI3->CR1&=~SPI_CR1_SPE;SPI3->CR2=prior_cr2;SPI3->CR1=prior_cr1;
+ GPIOB->BSRR=(pb_out&(1u<<14))|((~pb_out&(1u<<14))<<16);
+ radio_restore(GPIOB,pb_mode,0x30000fc0,&GPIOB->MODER);radio_restore(GPIOB,pb_af,0xfff000,&GPIOB->AFR[0]);
+ radio_restore(GPIOB,pb_speed,0xfc0,&GPIOB->OSPEEDR);radio_restore(GPIOB,pb_pull,0xfc0,&GPIOB->PUPDR);radio_restore(GPIOB,pb_type,0x4038,&GPIOB->OTYPER);
  GPIOG->BSRR=(pg_out&0xc0)|((~pg_out&0xc0)<<16);
  radio_restore(GPIOG,pg_type,0xc0,&GPIOG->OTYPER);radio_restore(GPIOG,pg_pull,0x3f000,&GPIOG->PUPDR);radio_restore(GPIOG,pg_mode,0x3f000,&GPIOG->MODER);
  if(!spi_clock_was_on)RCC->APB1ENR&=~RCC_APB1ENR_SPI3EN;
@@ -78,12 +98,19 @@ static bool idle(void){
 void cc_stop(void){if(identified){idle();strobe(0x3b);strobe(0x3a);strobe(0x34);}}
 void cc_close(void){if(identified){idle();strobe(0x3b);strobe(0x3a);strobe(0x39);}identified=false;cc_hw_close();}
 bool cc_init(uint32_t khz,unsigned power,bool ook){
- cc_close();if(!cc_hw_open())return false;
+ cc_close();cc_error=0;cc_stage="OPEN";cc_ids_read=false;
+ cc_part=cc_version=255;cc_so_idle=cc_so_selected=2;cc_spi_status=255;
+ if(!cc_hw_open())return false;
+ cc_stage="RESET";
  GPIOG->BSRR=1u<<7;cc_hw_delay(50);
- GPIOG->BSRR=1u<<23;cc_hw_delay(10);GPIOG->BSRR=1u<<7;cc_hw_delay(50);
+ GPIOG->BSRR=1u<<23;cc_hw_delay(50);GPIOG->BSRR=1u<<7;cc_hw_delay(50);
  if(!strobe(0x30))return false;
  cc_hw_delay(1000);
- if(!status(0x30,&cc_part)||!status(0x31,&cc_version)||cc_part!=0||cc_version==0||cc_version==255)return false;
+ cc_stage="IDENT";
+ if(!status(0x30,&cc_part)||!status(0x31,&cc_version))return false;
+ cc_ids_read=true;
+ if(cc_part!=0||cc_version==0||cc_version==255)return fault("BAD CHIP ID");
+ cc_stage="CONFIG";
  /* 26 MHz crystal, 38.383 kbps, 20.63 kHz deviation, 101.56 kHz BW.
   * Variable length, CRC, whitening, sync D391; RX stays RX, TX ends IDLE. */
  static const uint8_t profile[][2]={
@@ -95,16 +122,23 @@ bool cc_init(uint32_t khz,unsigned power,bool ook){
  {0x25,0},{0x26,0x1f},{0x2c,0x81},{0x2d,0x35},{0x2e,0x09}};
  for(unsigned i=0;i<sizeof(profile)/sizeof(profile[0]);i++)if(!wr(profile[i][0],profile[i][1]))return false;
  if(ook && (!wr(0x12,0x32)||!wr(0x08,0x05)||!wr(0x22,0x11)))return false;
+ cc_stage="FREQ";
  uint32_t f=(uint32_t)(((uint64_t)khz*65536+13000)/26000);
  if(!wr(0x0d,f>>16)||!wr(0x0e,f>>8)||!wr(0x0f,f))return false;
  /* TI typical 433 MHz PA values: -30, -20, -15, -10 dBm. */
  static const uint8_t pa[]={0x12,0x0e,0x1d,0x34};
+ cc_stage="PA";
  uint8_t table[2]={ook?0:pa[power%4],pa[power%4]};
  if(!cc_hw_bus(0x7e,table,0,2))return false;
- uint8_t check;if(!rd(0x10,&check)||check!=0xca||!rd(0x0f,&check)||check!=(uint8_t)f)return false;
+ cc_stage="VERIFY";
+ uint8_t check;if(!rd(0x10,&check))return false;
+ if(check!=0xca)return fault("READBACK 10");
+ if(!rd(0x0f,&check))return false;
+ if(check!=(uint8_t)f)return fault("READBACK 0F");
  identified=true;
+ cc_stage="RX";
  if(!strobe(0x34)){identified=false;return false;}
- return true;
+ cc_stage="RUN";return true;
 }
 bool cc_rssi(int *dbm){uint8_t v,s;if(!identified||!status(0x35,&s)||(s&31)!=13||!status(0x34,&v))return false;*dbm=((int)(int8_t)v)/2-74;return true;}
 bool cc_send(uint32_t sequence){

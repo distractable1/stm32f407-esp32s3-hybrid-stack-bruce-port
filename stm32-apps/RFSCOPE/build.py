@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the T100 RF Scope lab 0.2 source using GNU Arm Embedded tools."""
+"""Build the T100 RF Scope diagnostic 0.3 source using GNU Arm Embedded tools."""
 import argparse
 import hashlib
 import json
@@ -71,7 +71,7 @@ assert 'Tag_ABI_VFP_args: VFP registers' in attributes
 # Format verified against the original compiled RFSCOPE.APP: APP1, version,
 # T100 board, flash address, payload length/CRC32, 32-byte name, header CRC32,
 # COMT trailer. The original .APP payload matches its original .bin exactly.
-name = b'RF Scope Lab 02'.ljust(32, b'\0')
+name = b'RF Scope Diag 03'.ljust(32, b'\0')
 header = struct.pack('<6I32s', 0x31505041, 1, 0x54313030, 0x08020000, len(payload), zlib.crc32(payload), name)
 header += struct.pack('<II', zlib.crc32(header), 0x434f4d54)
 app = header + payload
@@ -80,7 +80,7 @@ assert struct.unpack_from('<I', app, 56)[0] == zlib.crc32(app[:56])
 assert struct.unpack_from('<I', app, 20)[0] == zlib.crc32(app[64:])
 app_path = dist / 'RFSCOPE.APP'
 app_path.write_bytes(app)
-source_hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(ROOT.rglob('*')) if p.is_file() and p.relative_to(ROOT).parts[0] not in ('build', 'dist')}
-receipt = {'revision': 'lab-source-v0_2', 'compiler': version, 'target': 'STM32F407 Cortex-M4 hard-float', 'load_address': '0x08020000', 'initial_sp': hex(sp), 'reset_handler': hex(reset), 'payload_bytes': len(payload), 'app_bytes': len(app), 'app_sha256': hashlib.sha256(app).hexdigest(), 'payload_crc32': hex(zlib.crc32(payload)), 'header_crc32': hex(zlib.crc32(header[:56])), 'sources': source_hashes, 'hardware_tested': False}
+source_hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(ROOT.rglob('*')) if p.is_file() and p.relative_to(ROOT).parts[0] not in ('build', 'dist', 'build-evidence') and not p.name.startswith('BACKUP-')}
+receipt = {'revision': 'diagnostic-v0_3', 'compiler': version, 'target': 'STM32F407 Cortex-M4 hard-float', 'load_address': '0x08020000', 'initial_sp': hex(sp), 'reset_handler': hex(reset), 'payload_bytes': len(payload), 'app_bytes': len(app), 'app_sha256': hashlib.sha256(app).hexdigest(), 'payload_crc32': hex(zlib.crc32(payload)), 'header_crc32': hex(zlib.crc32(header[:56])), 'sources': source_hashes, 'hardware_tested': False}
 (build / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
 print('PASS: compiled, linked, vectors/ABI/size/CRCs verified:', app_path)

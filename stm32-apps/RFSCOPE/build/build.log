@@ -5,94 +5,94 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/app.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/app.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/app.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/app.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/board_support.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/board_support.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/board_support.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/board_support.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/calibration_store.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/calibration_store.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/calibration_store.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/calibration_store.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/cc1101.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/cc1101.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/cc1101.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/cc1101.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/main.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/main.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/main.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/main.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/pin_guard.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/pin_guard.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/pin_guard.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/pin_guard.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/sd_diskio.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/sd_diskio.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/sd_diskio.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/sd_diskio.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/syscalls.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/syscalls.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/syscalls.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/syscalls.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/sysmem.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/sysmem.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/sysmem.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/sysmem.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/FatFs/ff.c -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/ff.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -std=gnu11 -g3 -DDEBUG -DSTM32F407ZGTx -DSTM32F407xx -DSTM32 -DSTM32F4 -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -ISrc -ISrc/CMSIS/Core -ISrc/CMSIS/Device -c Src/FatFs/ff.c -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/ff.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -g3 -DDEBUG -x assembler-with-cpp -c Startup/startup_stm32f407zetx.s -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/startup.o
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -g3 -DDEBUG -x assembler-with-cpp -c Startup/startup_stm32f407zetx.s -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/startup.o
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/app.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/board_support.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/calibration_store.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/cc1101.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/main.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/pin_guard.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/sd_diskio.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/syscalls.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/sysmem.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/ff.o /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/startup.o -TSTM32F407ZETX_FLASH.ld --specs=nosys.specs --specs=nano.specs -static -Wl,--gc-sections -Wl,-Map=/workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.map -Wl,--start-group -lc -lm -Wl,--end-group
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/app.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/board_support.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/calibration_store.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/cc1101.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/main.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/pin_guard.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/sd_diskio.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/syscalls.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/sysmem.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/ff.o /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/startup.o -TSTM32F407ZETX_FLASH.ld --specs=nosys.specs --specs=nano.specs -static -Wl,--gc-sections -Wl,-Map=/workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.map -Wl,--start-group -lc -lm -Wl,--end-group
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-size /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-size /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf
    text	   data	    bss	    dec	    hex	filename
-  29936	    132	   2404	  32472	   7ed8	/workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf
+  29844	    140	   2420	  32404	   7e94	/workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-objcopy -O binary /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.bin
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-objcopy -O binary /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.bin
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-objdump -h /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-objdump -h /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf
 
-/workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf:     file format elf32-littlearm
+/workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   00000188  08020000  08020000  00001000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         000068b8  08020190  08020190  00001190  2**4
+  1 .text         0000678c  08020190  08020190  00001190  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000aa0  08026a48  08026a48  00007a48  2**2
+  2 .rodata       00000b70  0802691c  0802691c  0000791c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080274e8  080274e8  00009084  2**0
+  3 .ARM.extab    00000000  0802748c  0802748c  0000908c  2**0
                   CONTENTS
-  4 .ARM          00000008  080274e8  080274e8  000084e8  2**2
+  4 .ARM          00000008  0802748c  0802748c  0000848c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  080274f0  080274f0  00009084  2**0
+  5 .preinit_array 00000000  08027494  08027494  0000908c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  080274f0  080274f0  000084f0  2**2
+  6 .init_array   00000004  08027494  08027494  00008494  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  080274f4  080274f4  000084f4  2**2
+  7 .fini_array   00000004  08027498  08027498  00008498  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         00000084  20000000  080274f8  00009000  2**2
+  8 .data         0000008c  20000000  0802749c  00009000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .ramfunc      00000000  20000000  20000000  00009084  2**0
+  9 .ramfunc      00000000  20000000  20000000  0000908c  2**0
                   CONTENTS
- 10 .ccmram       00000000  10000000  10000000  00009084  2**0
+ 10 .ccmram       00000000  10000000  10000000  0000908c  2**0
                   CONTENTS
- 11 .bss          00000364  20000084  0802757c  00009084  2**2
+ 11 .bss          00000370  2000008c  08027528  0000908c  2**2
                   ALLOC
- 12 ._user_heap_stack 00000600  200003e8  080278e0  00009084  2**0
+ 12 ._user_heap_stack 00000604  200003fc  08027898  0000908c  2**0
                   ALLOC
- 13 .ARM.attributes 00000030  00000000  00000000  00009084  2**0
+ 13 .ARM.attributes 00000030  00000000  00000000  0000908c  2**0
                   CONTENTS, READONLY
- 14 .comment      00000026  00000000  00000000  000090b4  2**0
+ 14 .comment      00000026  00000000  00000000  000090bc  2**0
                   CONTENTS, READONLY
- 15 .debug_info   0001afca  00000000  00000000  000090da  2**0
+ 15 .debug_info   00019dca  00000000  00000000  000090e2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_abbrev 000037fb  00000000  00000000  000240a4  2**0
+ 16 .debug_abbrev 0000380c  00000000  00000000  00022eac  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_loclists 0000d674  00000000  00000000  0002789f  2**0
+ 17 .debug_loclists 0000c9b5  00000000  00000000  000266b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_aranges 000006f0  00000000  00000000  00034f18  2**3
+ 18 .debug_aranges 000006e8  00000000  00000000  00033070  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_rnglists 00001f2f  00000000  00000000  00035608  2**0
+ 19 .debug_rnglists 00001d11  00000000  00000000  00033758  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_macro  0001a48b  00000000  00000000  00037537  2**0
+ 20 .debug_macro  0001a48b  00000000  00000000  00035469  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line   0000f32d  00000000  00000000  000519c2  2**0
+ 21 .debug_line   0000ee39  00000000  00000000  0004f8f4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_str    00092f7f  00000000  00000000  00060cef  2**0
+ 22 .debug_str    00092fea  00000000  00000000  0005e72d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_frame  000014fc  00000000  00000000  000f3c70  2**2
+ 23 .debug_frame  000014b4  00000000  00000000  000f1718  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 24 .debug_line_str 000001a0  00000000  00000000  000f516c  2**0
+ 24 .debug_line_str 000001b7  00000000  00000000  000f2bcc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-readelf -A /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-readelf -A /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf
 Attribute Section: aeabi
 File Attributes
   Tag_CPU_name: "7E-M"
@@ -110,4 +110,4 @@ File Attributes
   Tag_ABI_VFP_args: VFP registers
   Tag_CPU_unaligned_access: v6
 
-/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-nm -u /workspace/scratch/11dcdaf0e5f1/latest/unpacked/build/RFSCOPE.elf
+/workspace/scratch/11dcdaf0e5f1/toolchain/root/usr/bin/arm-none-eabi-nm -u /workspace/scratch/11dcdaf0e5f1/rfscope-diagnostics/stm32-apps/RFSCOPE/build/RFSCOPE.elf
